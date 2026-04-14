@@ -38,7 +38,10 @@ Application: &ApplicationDefaults
 Orderer: &OrdererDefaults
     OrdererType: skeen
     Addresses:
-        - 127.0.0.1:7050
+        - orderer.example.com:7050
+        - orderer2.example.com:8050
+        - orderer3.example.com:9050
+        - orderer4.example.com:10050
     BatchTimeout: 2s
     BatchSize:
         MaxMessageCount: 10

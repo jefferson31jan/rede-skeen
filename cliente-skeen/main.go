@@ -23,9 +23,9 @@ import (
 )
 
 func main() {
-	fmt.Println("🔧 Inicializando Injetor Skeen (Modo Criptográfico Autêntico)...")
+	fmt.Println("🔧 Inicializando Injetor Skeen BFT (4 Nós)...")
 
-	// 1. Conexão TLS com o Servidor
+	// 1. Conexão TLS com o Servidor 1 (Porta 7050)
 	tlsCert, _ := tls.LoadX509KeyPair(
 		"../crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt",
 		"../crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.key",
@@ -41,21 +41,17 @@ func main() {
 	})
 
 	conn, err := grpc.Dial("127.0.0.1:7050", grpc.WithTransportCredentials(creds))
-	if err != nil {
-		log.Fatalf("Falha conexao: %v", err)
-	}
+	if err != nil { log.Fatalf("Falha conexao: %v", err) }
 	defer conn.Close()
 
 	client := orderer.NewAtomicBroadcastClient(conn)
 	stream, err := client.Broadcast(context.Background())
-	if err != nil {
-		log.Fatalf("Falha stream: %v", err)
-	}
+	if err != nil { log.Fatalf("Falha stream: %v", err) }
 
-	// === O CRACHÁ DO CLIENTE (Identidade do Admin da Org1) ===
-	certBytes, _ := os.ReadFile("../crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem")
+	// === O CRACHÁ DO CLIENTE (Identidade do Admin do Orderer) ===
+	certBytes, _ := os.ReadFile("../crypto-config/ordererOrganizations/example.com/users/Admin@example.com/msp/signcerts/Admin@example.com-cert.pem")
 	sId := &msp.SerializedIdentity{
-		Mspid:   "Org1MSP",
+		Mspid:   "OrdererMSP",
 		IdBytes: certBytes,
 	}
 	sIdBytes, _ := proto.Marshal(sId)
@@ -69,61 +65,67 @@ func main() {
 	}
 	sigHeaderBytes, _ := proto.Marshal(sigHeader)
 
-	// === O CABEÇALHO DO CANAL ===
 	chdr := &common.ChannelHeader{
 		ChannelId: "canal1",
 		Type:      int32(common.HeaderType_ENDORSER_TRANSACTION),
-		TxId:      "SKEEN_TX_001_TESE",
+		TxId:      "SKEEN_BFT_TEST_001",
 	}
 	chdrBytes, _ := proto.Marshal(chdr)
 
-	// === O PACOTE DE DADOS ===
 	payload := &common.Payload{
 		Header: &common.Header{
 			ChannelHeader:   chdrBytes,
 			SignatureHeader: sigHeaderBytes,
 		},
-		Data: []byte("Primeira transacao validada enviada ao algoritmo Skeen!"),
+		Data: []byte("Disparo de teste na rede Skeen de 4 nos!"),
 	}
 	payloadBytes, _ := proto.Marshal(payload)
 
-	// === A CANETA DIGITAL (Assinatura ECDSA) ===
-	// Lendo a chave privada (que tem um nome em hash dinâmico gerado pelo cryptogen)
-	keyDir := "../crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/"
+
+
+	
+
+	// === A CANETA DIGITAL (Assinatura) ===
+	keyDir := "../crypto-config/ordererOrganizations/example.com/users/Admin@example.com/msp/keystore/"
 	files, _ := os.ReadDir(keyDir)
 	keyBytes, _ := os.ReadFile(keyDir + files[0].Name())
 
 	block, _ := pem.Decode(keyBytes)
 	privKey, err := x509.ParsePKCS8PrivateKey(block.Bytes)
 	if err != nil {
-		// Se falhar, tenta o formato EC puro
 		privKey, _ = x509.ParseECPrivateKey(block.Bytes)
 	}
 	ecdsaKey := privKey.(*ecdsa.PrivateKey)
 
-	// Gera o Hash e Assina
 	hash := sha256.Sum256(payloadBytes)
 	r, s, _ := ecdsa.Sign(rand.Reader, ecdsaKey, hash[:])
 
-	type ecdsaSignature struct{ R, S *big.Int }
+	// --- VACINA FABRIC: FORÇAR O LOW-S ---
+	// Pega a ordem da curva (N) e divide por 2
+	halfOrder := new(big.Int).Div(ecdsaKey.Curve.Params().N, big.NewInt(2))
+	
+	// Se o S gerado for MAIOR que a metade da curva...
+	if s.Cmp(halfOrder) == 1 {
+		// S = N - S (Isso espelha o valor pro lado baixo da curva!)
+		s.Sub(ecdsaKey.Curve.Params().N, s) 
+	}
+	// ---------------------------------------
+
+	type ecdsaSignature struct { R, S *big.Int }
 	sigBytes, _ := asn1.Marshal(ecdsaSignature{r, s})
 
-	// === O ENVELOPE FINAL BLINDADO ===
+
 	env := &common.Envelope{
 		Payload:   payloadBytes,
-		Signature: sigBytes, // Agora sim, o pacote está assinado!
+		Signature: sigBytes,
 	}
 
-	fmt.Println("🚀 Disparando transação [SKEEN_TX_001_TESE] validada...")
+	fmt.Println("🚀 Disparando transação [SKEEN_BFT_TEST_001]...")
 	err = stream.Send(env)
-	if err != nil {
-		log.Fatalf("Erro envio: %v", err)
-	}
+	if err != nil { log.Fatalf("Erro envio: %v", err) }
 
 	reply, err := stream.Recv()
-	if err != nil {
-		log.Fatalf("Erro resposta: %v", err)
-	}
+	if err != nil { log.Fatalf("Erro resposta: %v", err) }
 
 	fmt.Printf("✅ Transação aceita! Status do Fabric: %s\n", reply.Status)
 }

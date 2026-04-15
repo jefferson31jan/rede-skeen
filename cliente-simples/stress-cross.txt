@@ -1,0 +1,103 @@
+package main
+
+import (
+	"context"
+	"crypto/ecdsa"
+	"crypto/rand"
+	"crypto/sha256"
+	"crypto/tls"
+	"crypto/x509"
+	"encoding/asn1"
+	"encoding/pem"
+	"fmt"
+	"log"
+	"math/big"
+	"os"
+	"sync"
+	"time"
+
+	"github.com/hyperledger/fabric-protos-go-apiv2/common"
+	"github.com/hyperledger/fabric-protos-go-apiv2/msp"
+	"github.com/hyperledger/fabric-protos-go-apiv2/orderer"
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials"
+	"google.golang.org/protobuf/proto"
+)
+
+func main() {
+	fmt.Println("📊 Iniciando Benchmark Skeen: Cross-Shard (10 Tx Simultâneas)...")
+
+	tlsCert, _ := tls.LoadX509KeyPair("../crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt", "../crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.key")
+	caCert, _ := os.ReadFile("../crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/ca.crt")
+	caCertPool := x509.NewCertPool()
+	caCertPool.AppendCertsFromPEM(caCert)
+
+	creds := credentials.NewTLS(&tls.Config{Certificates: []tls.Certificate{tlsCert}, RootCAs: caCertPool, ServerName: "orderer.example.com"})
+	conn, err := grpc.Dial("127.0.0.1:7050", grpc.WithTransportCredentials(creds))
+	if err != nil {
+		log.Fatalf("Falha conexao: %v", err)
+	}
+	defer conn.Close()
+	client := orderer.NewAtomicBroadcastClient(conn)
+
+	certBytes, _ := os.ReadFile("../crypto-config/ordererOrganizations/example.com/users/Admin@example.com/msp/signcerts/Admin@example.com-cert.pem")
+	sIdBytes, _ := proto.Marshal(&msp.SerializedIdentity{Mspid: "OrdererMSP", IdBytes: certBytes})
+
+	keyDir := "../crypto-config/ordererOrganizations/example.com/users/Admin@example.com/msp/keystore/"
+	files, _ := os.ReadDir(keyDir)
+	keyBytes, _ := os.ReadFile(keyDir + files[0].Name())
+	block, _ := pem.Decode(keyBytes)
+	privKey, _ := x509.ParsePKCS8PrivateKey(block.Bytes)
+	if privKey == nil {
+		privKey, _ = x509.ParseECPrivateKey(block.Bytes)
+	}
+	ecdsaKey := privKey.(*ecdsa.PrivateKey)
+
+	var wg sync.WaitGroup
+	inicio := time.Now()
+
+	// Disparando 10 transações Cross-Shard ao mesmo tempo
+	for i := 1; i <= 10; i++ {
+		wg.Add(1)
+		go func(id int) {
+			defer wg.Done()
+			txID := fmt.Sprintf("CROSS_BENCHMARK_%03d", id)
+
+			for _, canal := range []string{"canal1", "canal2"} {
+				wg.Add(1)
+				go func(targetChannel string) {
+					defer wg.Done()
+					stream, _ := client.Broadcast(context.Background())
+					nonce := make([]byte, 24)
+					rand.Read(nonce)
+					sigHeaderBytes, _ := proto.Marshal(&common.SignatureHeader{Creator: sIdBytes, Nonce: nonce})
+					chdrBytes, _ := proto.Marshal(&common.ChannelHeader{ChannelId: targetChannel, Type: int32(common.HeaderType_ENDORSER_TRANSACTION), TxId: txID})
+
+					payloadBytes, _ := proto.Marshal(&common.Payload{
+						Header: &common.Header{ChannelHeader: chdrBytes, SignatureHeader: sigHeaderBytes},
+						Data:   []byte("Benchmark Payload"),
+					})
+
+					hash := sha256.Sum256(payloadBytes)
+					r, s, _ := ecdsa.Sign(rand.Reader, ecdsaKey, hash[:])
+					halfOrder := new(big.Int).Div(ecdsaKey.Curve.Params().N, big.NewInt(2))
+					if s.Cmp(halfOrder) == 1 {
+						s.Sub(ecdsaKey.Curve.Params().N, s)
+					}
+					sigBytes, _ := asn1.Marshal(struct{ R, S *big.Int }{r, s})
+
+					stream.Send(&common.Envelope{Payload: payloadBytes, Signature: sigBytes})
+					stream.Recv() // Espera a resposta final
+				}(canal)
+			}
+		}(i)
+	}
+
+	wg.Wait()
+	duracao := time.Since(inicio)
+
+	fmt.Printf("\n======================================================\n")
+	fmt.Printf("🏁 BENCHMARK CROSS-SHARD CONCLUÍDO!\n")
+	fmt.Printf("📊 10 Transações Globais (20 interações de canal) ordenadas em %v\n", duracao)
+	fmt.Printf("======================================================\n")
+}

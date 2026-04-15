@@ -1,0 +1,124 @@
+package main
+
+import (
+	"context"
+	"crypto/ecdsa"
+	"crypto/rand"
+	"crypto/sha256"
+	"crypto/tls"
+	"crypto/x509"
+	"encoding/asn1"
+	"encoding/pem"
+	"fmt"
+	"math/big"
+	"os"
+	"sync"
+	"time"
+
+	"github.com/hyperledger/fabric-protos-go-apiv2/common"
+	"github.com/hyperledger/fabric-protos-go-apiv2/msp"
+	"github.com/hyperledger/fabric-protos-go-apiv2/orderer"
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials"
+	"google.golang.org/protobuf/proto"
+)
+
+// ==========================================
+// CONFIGURAÇÕES DO EXPERIMENTO (Figura 6)
+// ==========================================
+const TOTAL_TX = 1000         // Total de transações na rajada
+const PAYLOAD_SIZE = 4096     // Altere para: 40, 200, 1024, 4096 (bytes)
+const MODO_CROSS_SHARD = true // false = Single-Shard | true = Cross-Shard
+
+func main() {
+	fmt.Printf("📊 Iniciando Benchmark DSN 2018 replica...\n")
+	fmt.Printf("📦 Tamanho do Payload: %d bytes\n", PAYLOAD_SIZE)
+	fmt.Printf("🚀 Total de Transações: %d\n", TOTAL_TX)
+	fmt.Printf("🌐 Modo Cross-Shard: %v\n", MODO_CROSS_SHARD)
+
+	tlsCert, _ := tls.LoadX509KeyPair("../crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt", "../crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.key")
+	caCert, _ := os.ReadFile("../crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/ca.crt")
+	caCertPool := x509.NewCertPool()
+	caCertPool.AppendCertsFromPEM(caCert)
+
+	creds := credentials.NewTLS(&tls.Config{Certificates: []tls.Certificate{tlsCert}, RootCAs: caCertPool, ServerName: "orderer.example.com"})
+	conn, _ := grpc.Dial("127.0.0.1:7050", grpc.WithTransportCredentials(creds))
+	defer conn.Close()
+	client := orderer.NewAtomicBroadcastClient(conn)
+
+	certBytes, _ := os.ReadFile("../crypto-config/ordererOrganizations/example.com/users/Admin@example.com/msp/signcerts/Admin@example.com-cert.pem")
+	sIdBytes, _ := proto.Marshal(&msp.SerializedIdentity{Mspid: "OrdererMSP", IdBytes: certBytes})
+
+	keyDir := "../crypto-config/ordererOrganizations/example.com/users/Admin@example.com/msp/keystore/"
+	files, _ := os.ReadDir(keyDir)
+	keyBytes, _ := os.ReadFile(keyDir + files[0].Name())
+	block, _ := pem.Decode(keyBytes)
+	privKey, _ := x509.ParsePKCS8PrivateKey(block.Bytes)
+	if privKey == nil {
+		privKey, _ = x509.ParseECPrivateKey(block.Bytes)
+	}
+	ecdsaKey := privKey.(*ecdsa.PrivateKey)
+
+	// Gerando o Payload com tamanho exato preenchido com lixo
+	dummyData := make([]byte, PAYLOAD_SIZE)
+	rand.Read(dummyData)
+
+	var wg sync.WaitGroup
+	inicio := time.Now()
+
+	// Disparo concorrente
+	for i := 1; i <= TOTAL_TX; i++ {
+		wg.Add(1)
+		go func(id int) {
+			defer wg.Done()
+
+			txID := fmt.Sprintf("BENCHMARK_DSN_%05d", id)
+			if MODO_CROSS_SHARD {
+				txID = fmt.Sprintf("CROSS_BENCHMARK_%05d", id)
+			}
+
+			canaisAlvo := []string{"canal1"}
+			if MODO_CROSS_SHARD {
+				canaisAlvo = []string{"canal1", "canal2"}
+			}
+
+			for _, canal := range canaisAlvo {
+				wg.Add(1)
+				go func(targetChannel string) {
+					defer wg.Done()
+					stream, _ := client.Broadcast(context.Background())
+					nonce := make([]byte, 24)
+					rand.Read(nonce)
+					sigHeaderBytes, _ := proto.Marshal(&common.SignatureHeader{Creator: sIdBytes, Nonce: nonce})
+					chdrBytes, _ := proto.Marshal(&common.ChannelHeader{ChannelId: targetChannel, Type: int32(common.HeaderType_ENDORSER_TRANSACTION), TxId: txID})
+
+					payloadBytes, _ := proto.Marshal(&common.Payload{
+						Header: &common.Header{ChannelHeader: chdrBytes, SignatureHeader: sigHeaderBytes},
+						Data:   dummyData, // <-- Injeta o payload do tamanho desejado
+					})
+
+					hash := sha256.Sum256(payloadBytes)
+					r, s, _ := ecdsa.Sign(rand.Reader, ecdsaKey, hash[:])
+					halfOrder := new(big.Int).Div(ecdsaKey.Curve.Params().N, big.NewInt(2))
+					if s.Cmp(halfOrder) == 1 {
+						s.Sub(ecdsaKey.Curve.Params().N, s)
+					}
+					sigBytes, _ := asn1.Marshal(struct{ R, S *big.Int }{r, s})
+
+					stream.Send(&common.Envelope{Payload: payloadBytes, Signature: sigBytes})
+					stream.Recv()
+				}(canal)
+			}
+		}(i)
+	}
+
+	wg.Wait()
+	duracao := time.Since(inicio)
+	tps := float64(TOTAL_TX) / duracao.Seconds()
+
+	fmt.Printf("\n======================================================\n")
+	fmt.Printf("🏁 BENCHMARK CONCLUÍDO!\n")
+	fmt.Printf("⏳ Tempo total: %v\n", duracao)
+	fmt.Printf("📈 THROUGHPUT (Vazão): %.2f TPS\n", tps)
+	fmt.Printf("======================================================\n")
+}

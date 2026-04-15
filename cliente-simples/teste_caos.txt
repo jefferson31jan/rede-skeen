@@ -1,0 +1,108 @@
+package main
+
+import (
+	"context"
+	"crypto/ecdsa"
+	"crypto/rand"
+	"crypto/sha256"
+	"crypto/tls"
+	"crypto/x509"
+	"encoding/asn1"
+	"encoding/pem"
+	"fmt"
+	"math/big"
+	"os"
+	"sync"
+	"time"
+
+	"github.com/hyperledger/fabric-protos-go-apiv2/common"
+	"github.com/hyperledger/fabric-protos-go-apiv2/msp"
+	"github.com/hyperledger/fabric-protos-go-apiv2/orderer"
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials"
+	"google.golang.org/protobuf/proto"
+)
+
+func main() {
+	fmt.Println("🌪️ Iniciando CHAOS TEST: Carga Mista (Single e Cross-Shard simultâneos)...")
+
+	tlsCert, _ := tls.LoadX509KeyPair("../crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt", "../crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.key")
+	caCert, _ := os.ReadFile("../crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/ca.crt")
+	caCertPool := x509.NewCertPool()
+	caCertPool.AppendCertsFromPEM(caCert)
+
+	creds := credentials.NewTLS(&tls.Config{Certificates: []tls.Certificate{tlsCert}, RootCAs: caCertPool, ServerName: "orderer.example.com"})
+	conn, _ := grpc.Dial("127.0.0.1:7050", grpc.WithTransportCredentials(creds))
+	defer conn.Close()
+	client := orderer.NewAtomicBroadcastClient(conn)
+
+	certBytes, _ := os.ReadFile("../crypto-config/ordererOrganizations/example.com/users/Admin@example.com/msp/signcerts/Admin@example.com-cert.pem")
+	sIdBytes, _ := proto.Marshal(&msp.SerializedIdentity{Mspid: "OrdererMSP", IdBytes: certBytes})
+
+	keyDir := "../crypto-config/ordererOrganizations/example.com/users/Admin@example.com/msp/keystore/"
+	files, _ := os.ReadDir(keyDir)
+	keyBytes, _ := os.ReadFile(keyDir + files[0].Name())
+	block, _ := pem.Decode(keyBytes)
+	privKey, _ := x509.ParsePKCS8PrivateKey(block.Bytes)
+	if privKey == nil {
+		privKey, _ = x509.ParseECPrivateKey(block.Bytes)
+	}
+	ecdsaKey := privKey.(*ecdsa.PrivateKey)
+
+	var wg sync.WaitGroup
+	inicio := time.Now()
+
+	// Função auxiliar de disparo
+	atirar := func(txID string, canais []string) {
+		for _, canal := range canais {
+			wg.Add(1)
+			go func(targetChannel string) {
+				defer wg.Done()
+				stream, _ := client.Broadcast(context.Background())
+				nonce := make([]byte, 24)
+				rand.Read(nonce)
+				sigHeaderBytes, _ := proto.Marshal(&common.SignatureHeader{Creator: sIdBytes, Nonce: nonce})
+				chdrBytes, _ := proto.Marshal(&common.ChannelHeader{ChannelId: targetChannel, Type: int32(common.HeaderType_ENDORSER_TRANSACTION), TxId: txID})
+
+				payloadBytes, _ := proto.Marshal(&common.Payload{
+					Header: &common.Header{ChannelHeader: chdrBytes, SignatureHeader: sigHeaderBytes},
+					Data:   []byte("Chaos Payload"),
+				})
+
+				hash := sha256.Sum256(payloadBytes)
+				r, s, _ := ecdsa.Sign(rand.Reader, ecdsaKey, hash[:])
+				halfOrder := new(big.Int).Div(ecdsaKey.Curve.Params().N, big.NewInt(2))
+				if s.Cmp(halfOrder) == 1 {
+					s.Sub(ecdsaKey.Curve.Params().N, s)
+				}
+				sigBytes, _ := asn1.Marshal(struct{ R, S *big.Int }{r, s})
+
+				stream.Send(&common.Envelope{Payload: payloadBytes, Signature: sigBytes})
+				stream.Recv()
+			}(canal)
+		}
+	}
+
+	// 1. Lote Local (Canal 1 Exclusivo)
+	for i := 1; i <= 5; i++ {
+		atirar(fmt.Sprintf("LOCAL_SHARD1_%03d", i), []string{"canal1"})
+	}
+
+	// 2. Lote Local (Canal 2 Exclusivo)
+	for i := 1; i <= 5; i++ {
+		atirar(fmt.Sprintf("LOCAL_SHARD2_%03d", i), []string{"canal2"})
+	}
+
+	// 3. Lote Global (Cross-Shard)
+	for i := 1; i <= 5; i++ {
+		atirar(fmt.Sprintf("CROSS_CHAOS_%03d", i), []string{"canal1", "canal2"})
+	}
+
+	wg.Wait()
+	duracao := time.Since(inicio)
+
+	fmt.Printf("\n======================================================\n")
+	fmt.Printf("🏁 CHAOS TEST CONCLUÍDO!\n")
+	fmt.Printf("📊 20 inserções de rede ordenadas em %v\n", duracao)
+	fmt.Printf("======================================================\n")
+}

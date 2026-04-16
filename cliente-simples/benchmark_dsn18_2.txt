@@ -27,7 +27,7 @@ import (
 // ==========================================
 // CONFIGURAÇÕES DO EXPERIMENTO
 // ==========================================
-const TOTAL_TX = 5000
+const TOTAL_TX = 1000
 const PAYLOAD_SIZE = 1024 // Teste o Ponto Doce
 const MODO_CROSS_SHARD = true
 

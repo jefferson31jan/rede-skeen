@@ -3,6 +3,13 @@ Organizations:
         Name: OrdererOrg
         ID: OrdererMSP
         MSPDir: crypto-config/ordererOrganizations/example.com/msp
+
+        OrdererEndpoints:
+            - 127.0.0.1:7050
+            - 127.0.0.1:8050
+            - 127.0.0.1:9050
+            - 127.0.0.1:10050
+
         Policies:
             Readers: {Type: Signature, Rule: "OR('OrdererMSP.member')"}
             Writers: {Type: Signature, Rule: "OR('OrdererMSP.member')"}
@@ -20,7 +27,7 @@ Organizations:
 
 Capabilities:
     Channel: &ChannelCapabilities
-        V2_0: true
+        V3_0: true
     Orderer: &OrdererCapabilities
         V2_0: true
     Application: &ApplicationCapabilities
@@ -86,6 +93,114 @@ Profiles:
                 - *OrdererOrg
             Capabilities:
                 <<: *OrdererCapabilities
+        Application:
+            <<: *ApplicationDefaults
+            Organizations:
+                - *Org1
+            Capabilities:
+                <<: *ApplicationCapabilities
+
+    RaftChannel:
+        <<: *ChannelDefaults
+        Capabilities:
+            <<: *ChannelCapabilities
+        Orderer:
+            <<: *OrdererDefaults
+            OrdererType: etcdraft
+            Organizations:
+                - *OrdererOrg
+            Capabilities:
+                <<: *OrdererCapabilities
+            EtcdRaft:
+                Consenters:
+                    - Host: orderer.example.com
+                      Port: 7050
+                      ClientTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt
+                      ServerTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt
+                    - Host: orderer2.example.com
+                      Port: 8050
+                      ClientTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer2.example.com/tls/server.crt
+                      ServerTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer2.example.com/tls/server.crt
+                    - Host: orderer3.example.com
+                      Port: 9050
+                      ClientTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer3.example.com/tls/server.crt
+                      ServerTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer3.example.com/tls/server.crt
+                    - Host: orderer4.example.com
+                      Port: 10050
+                      ClientTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer4.example.com/tls/server.crt
+                      ServerTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer4.example.com/tls/server.crt
+        Application:
+            <<: *ApplicationDefaults
+            Organizations:
+                - *Org1
+            Capabilities:
+                <<: *ApplicationCapabilities
+
+    SmartBFTChannel:
+        <<: *ChannelDefaults
+        Capabilities:
+            <<: *ChannelCapabilities
+        Orderer:
+            <<: *OrdererDefaults
+            
+            # 1. A MUDANÇA DO TIPO: Deve ser 'BFT' em maiúsculo
+            OrdererType: BFT
+            Addresses: []
+            
+            Organizations:
+                - *OrdererOrg
+            Capabilities:
+                <<: *OrdererCapabilities
+            
+            # 2. A LISTA DE NÓS: Usando 'ConsenterMapping' na raiz
+            ConsenterMapping:
+                - ID: 1
+                  Host: 127.0.0.1
+                  Port: 7050
+                  MSPID: OrdererMSP # <--- AQUI ESTÁ A CHAVE QUE FALTAVA
+                  ClientTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt
+                  ServerTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt
+                  Identity: crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/msp/signcerts/orderer.example.com-cert.pem
+                - ID: 2
+                  Host: 127.0.0.1
+                  Port: 8050
+                  MSPID: OrdererMSP # <--- AQUI ESTÁ A CHAVE QUE FALTAVA
+                  ClientTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer2.example.com/tls/server.crt
+                  ServerTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer2.example.com/tls/server.crt
+                  Identity: crypto-config/ordererOrganizations/example.com/orderers/orderer2.example.com/msp/signcerts/orderer2.example.com-cert.pem
+                - ID: 3
+                  Host: 127.0.0.1
+                  Port: 9050
+                  MSPID: OrdererMSP # <--- AQUI ESTÁ A CHAVE QUE FALTAVA
+                  ClientTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer3.example.com/tls/server.crt
+                  ServerTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer3.example.com/tls/server.crt
+                  Identity: crypto-config/ordererOrganizations/example.com/orderers/orderer3.example.com/msp/signcerts/orderer3.example.com-cert.pem
+                - ID: 4
+                  Host: 127.0.0.1
+                  Port: 10050
+                  MSPID: OrdererMSP # <--- AQUI ESTÁ A CHAVE QUE FALTAVA
+                  ClientTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer4.example.com/tls/server.crt
+                  ServerTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer4.example.com/tls/server.crt
+                  Identity: crypto-config/ordererOrganizations/example.com/orderers/orderer4.example.com/msp/signcerts/orderer4.example.com-cert.pem
+            
+            # 3. OPÇÕES DO BFT
+            SmartBFT:
+                RequestBatchMaxCount: 100
+                RequestBatchMaxBytes: 10485760
+                RequestBatchMaxInterval: 50ms
+                IncomingMessageBufferSize: 200
+                RequestPoolSize: 400
+                RequestForwardTimeout: 2s
+                RequestComplainTimeout: 20s
+                RequestAutoRemoveTimeout: 3m
+                ViewChangeResendInterval: 5s
+                ViewChangeTimeout: 20s
+                LeaderHeartbeatTimeout: 1m
+                LeaderHeartbeatCount: 10
+                CollectTimeout: 1s
+                SyncOnStart: false
+                SpeedUpViewChange: false
+                DecisionsPerLeader: 0
         Application:
             <<: *ApplicationDefaults
             Organizations:

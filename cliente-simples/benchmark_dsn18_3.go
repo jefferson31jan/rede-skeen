@@ -28,9 +28,9 @@ import (
 // ==========================================
 // CONFIGURAÇÕES DO EXPERIMENTO (DSN 2018)
 // ==========================================
-const TOTAL_TX = 10000
+const TOTAL_TX = 100000
 const PAYLOAD_SIZE = 4096
-const PERCENTUAL_CROSS_SHARD = 0 // Ajuste: 0.0, 0.25, 0.50, 1.0
+const PERCENTUAL_CROSS_SHARD = 1 // Ajuste: 0.0, 0.25, 0.50, 1.0
 const NUM_SHARDS = 1             // Escala para 4 shards (Figura 6)
 
 func main() {

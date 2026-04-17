@@ -12,8 +12,8 @@ echo "================================================="
 
 # Define as variáveis base do experimento
 TOTAL_TX=100000
-PAYLOAD_SIZE=1024
-CROSS_PROB=1
+PAYLOAD_SIZE=4096
+CROSS_PROB=0
 
 # Loop para testar com 1, 2, 3 e 4 shards
 for SHARDS in 1 2 3 4
@@ -23,10 +23,10 @@ do
     echo "   -> Config: TXs=$TOTAL_TX | Payload=${PAYLOAD_SIZE}b | Cross-Shard=$CROSS_PROB"
     
     # Define o nome do arquivo de log
-    LOG_FILE="log_bateria1024_50cross_shard_${SHARDS}.txt"
+    LOG_FILE="log_bat1_raft${SHARDS}.txt"
 
     # Roda o script em Go passando os parâmetros dinamicamente e salva no log
-    go run benchmark_dsn18_3.go -shards=$SHARDS -cross=$CROSS_PROB -payload=$PAYLOAD_SIZE -tx=$TOTAL_TX > $LOG_FILE
+    go run teste.go -shards=$SHARDS -cross=$CROSS_PROB -payload=$PAYLOAD_SIZE -tx=$TOTAL_TX > $LOG_FILE
     
     # Extrai as métricas principais do log para feedback visual no terminal
     echo "   📊 RESULTADOS:"

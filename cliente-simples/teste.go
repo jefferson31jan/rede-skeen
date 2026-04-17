@@ -38,10 +38,10 @@ var (
 
 func main() {
 	// --- CAPTURA DE ARGUMENTOS DO TERMINAL ---
-	flag.IntVar(&TOTAL_TX, "tx", 100000, "Total de transações a enviar")
-	flag.IntVar(&PAYLOAD_SIZE, "payload", 4096, "Tamanho do Payload")
-	flag.Float64Var(&PERCENTUAL_CROSS_SHARD, "cross", 0.0, "Probabilidade Cross-Shard")
-	flag.IntVar(&NUM_SHARDS, "shards", 4, "Número de Shards")
+	flag.IntVar(&TOTAL_TX, "tx", 1000, "Total de transações a enviar")
+	flag.IntVar(&PAYLOAD_SIZE, "payload", 40, "Tamanho do Payload")
+	flag.Float64Var(&PERCENTUAL_CROSS_SHARD, "cross", 0, "Probabilidade Cross-Shard")
+	flag.IntVar(&NUM_SHARDS, "shards", 1, "Número de Shards")
 	flag.Parse()
 
 	fmt.Printf("📊 Iniciando Benchmark Skeen BFT (Escalabilidade %d Shards)...\n", NUM_SHARDS)

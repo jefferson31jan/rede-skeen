@@ -13,7 +13,7 @@ for CROSS_PROB in 0.0 0.1 0.25 0.5 1.0
 do
     echo ""
     echo "⏱️  Iniciando teste com $CROSS_PROB de probabilidade Cross-Shard..."
-    LOG_FILE="teste${CROSS_PROB}.txt"
+    LOG_FILE="bat2${CROSS_PROB}.txt"
 
     go run teste.go -shards=$SHARDS -cross=$CROSS_PROB -payload=$PAYLOAD_SIZE -tx=$TOTAL_TX > $LOG_FILE
     

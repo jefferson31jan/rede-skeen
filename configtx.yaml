@@ -45,10 +45,10 @@ Application: &ApplicationDefaults
 Orderer: &OrdererDefaults
     OrdererType: skeen
     Addresses:
-        - orderer.example.com:7050
-        - orderer2.example.com:8050
-        - orderer3.example.com:9050
-        - orderer4.example.com:10050
+        - 127.0.0.1:7050
+        - 127.0.0.1:8050
+        - 127.0.0.1:9050
+        - 127.0.0.1:10050
     BatchTimeout: 2s
     BatchSize:
         MaxMessageCount: 500
@@ -100,6 +100,9 @@ Profiles:
             Capabilities:
                 <<: *ApplicationCapabilities
 
+    # ==========================================
+    # PERFIL 3: RAFT (BASELINE CFT)
+    # ==========================================
     RaftChannel:
         <<: *ChannelDefaults
         Capabilities:
@@ -113,19 +116,19 @@ Profiles:
                 <<: *OrdererCapabilities
             EtcdRaft:
                 Consenters:
-                    - Host: orderer.example.com
+                    - Host: 127.0.0.1
                       Port: 7050
                       ClientTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt
                       ServerTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt
-                    - Host: orderer2.example.com
+                    - Host: 127.0.0.1
                       Port: 8050
                       ClientTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer2.example.com/tls/server.crt
                       ServerTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer2.example.com/tls/server.crt
-                    - Host: orderer3.example.com
+                    - Host: 127.0.0.1
                       Port: 9050
                       ClientTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer3.example.com/tls/server.crt
                       ServerTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer3.example.com/tls/server.crt
-                    - Host: orderer4.example.com
+                    - Host: 127.0.0.1
                       Port: 10050
                       ClientTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer4.example.com/tls/server.crt
                       ServerTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer4.example.com/tls/server.crt
@@ -136,54 +139,49 @@ Profiles:
             Capabilities:
                 <<: *ApplicationCapabilities
 
+    # ==========================================
+    # PERFIL 2: SMARTBFT (BASELINE BFT)
+    # ==========================================
     SmartBFTChannel:
         <<: *ChannelDefaults
         Capabilities:
             <<: *ChannelCapabilities
         Orderer:
             <<: *OrdererDefaults
-            
-            # 1. A MUDANÇA DO TIPO: Deve ser 'BFT' em maiúsculo
             OrdererType: BFT
             Addresses: []
-            
             Organizations:
                 - *OrdererOrg
             Capabilities:
                 <<: *OrdererCapabilities
-            
-            # 2. A LISTA DE NÓS: Usando 'ConsenterMapping' na raiz
             ConsenterMapping:
                 - ID: 1
                   Host: 127.0.0.1
                   Port: 7050
-                  MSPID: OrdererMSP # <--- AQUI ESTÁ A CHAVE QUE FALTAVA
+                  MSPID: OrdererMSP
                   ClientTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt
                   ServerTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt
                   Identity: crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/msp/signcerts/orderer.example.com-cert.pem
                 - ID: 2
                   Host: 127.0.0.1
                   Port: 8050
-                  MSPID: OrdererMSP # <--- AQUI ESTÁ A CHAVE QUE FALTAVA
+                  MSPID: OrdererMSP
                   ClientTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer2.example.com/tls/server.crt
                   ServerTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer2.example.com/tls/server.crt
                   Identity: crypto-config/ordererOrganizations/example.com/orderers/orderer2.example.com/msp/signcerts/orderer2.example.com-cert.pem
                 - ID: 3
                   Host: 127.0.0.1
                   Port: 9050
-                  MSPID: OrdererMSP # <--- AQUI ESTÁ A CHAVE QUE FALTAVA
+                  MSPID: OrdererMSP
                   ClientTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer3.example.com/tls/server.crt
                   ServerTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer3.example.com/tls/server.crt
                   Identity: crypto-config/ordererOrganizations/example.com/orderers/orderer3.example.com/msp/signcerts/orderer3.example.com-cert.pem
                 - ID: 4
                   Host: 127.0.0.1
                   Port: 10050
-                  MSPID: OrdererMSP # <--- AQUI ESTÁ A CHAVE QUE FALTAVA
+                  MSPID: OrdererMSP
                   ClientTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer4.example.com/tls/server.crt
                   ServerTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer4.example.com/tls/server.crt
-                  Identity: crypto-config/ordererOrganizations/example.com/orderers/orderer4.example.com/msp/signcerts/orderer4.example.com-cert.pem
-            
-            # 3. OPÇÕES DO BFT
             SmartBFT:
                 RequestBatchMaxCount: 100
                 RequestBatchMaxBytes: 10485760

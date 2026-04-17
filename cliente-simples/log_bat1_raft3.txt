@@ -1,0 +1,10 @@
+📊 Iniciando Benchmark Skeen BFT (Escalabilidade 3 Shards)...
+📦 Payload: 4096 bytes | 🚀 Total: 100000 | 🌐 Prob. Cross-Shard: 0%
+
+======================================================
+🏁 SKEEN BFT (3-SHARDS) - CONFIGURAÇÃO TURBO
+📝 Transactions: 100000 (Intra: 100000 | Inter: 0)
+📈 THROUGHPUT (Vazão): 13406.51 TPS
+⏱️  LATÊNCIA MÉDIA: 2529.93 ms
+⏱️  LATÊNCIA P95: 3264 ms
+======================================================

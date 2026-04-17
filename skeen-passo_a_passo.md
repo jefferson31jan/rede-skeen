@@ -1,7 +1,44 @@
 Passo a passo para mudar o order:
 
 
-:~/doutorado/rede-skeen$ 
+# limpar tudo
+
+<!-- cd ~/doutorado/fabric
+
+make clean
+make orderer
+make configtxgen
+make osnadmin
+
+make cryptogen configtxgen osnadmin -->
+
+
+cd ~/doutorado/rede-skeen
+rm -rf ledger/orderer*
+rm -rf channel-artifacts/*.block
+
+
+# 🧱 Fase 3: Gerar o Bloco do Raft
+
+../fabric/build/bin/configtxgen -profile RaftChannel -channelID canal1 -outputBlock ./channel-artifacts/canal1.block
+
+
+# 🚀 Fase 4: Subir os Orderers e Injetar o Canal
+../fabric/build/bin/osnadmin channel join --channelID canal1 --config-block ./channel-artifacts/canal1.block -o 127.0.0.1:9443
+../fabric/build/bin/osnadmin channel join --channelID canal1 --config-block ./channel-artifacts/canal1.block -o 127.0.0.1:9444
+../fabric/build/bin/osnadmin channel join --channelID canal1 --config-block ./channel-artifacts/canal1.block -o 127.0.0.1:9445
+../fabric/build/bin/osnadmin channel join --channelID canal1 --config-block ./channel-artifacts/canal1.block -o 127.0.0.1:9446
+
+# conferir versoes do go
+go mod vendor
+
+
+cd ~/doutorado/rede-skeen
+../fabric/build/bin/cryptogen generate --config=./crypto-config.yaml
+
+# criar os canais
+
+cd ~/doutorado/rede-skeen
 ../fabric/build/bin/configtxgen -profile SkeenChannel -channelID canal1 -outputBlock ./channel-artifacts/canal1.block
 ../fabric/build/bin/configtxgen -profile SkeenChannel -channelID canal2 -outputBlock ./channel-artifacts/canal2.block
 ../fabric/build/bin/configtxgen -profile SkeenChannel -channelID canal3 -outputBlock ./channel-artifacts/canal3.block
@@ -9,11 +46,12 @@ Passo a passo para mudar o order:
 
 
 
-Limpar a sujeira
+
+# Limpar a sujeira
 rm -rf ledger/orderer*
 
 
-Subir os 4 Orderers (Em 4 Abas Diferentes)
+# Subir os 4 Orderers (Em 4 Abas Diferentes)
 
 💻 Aba 1 (Orderer 1)
 
@@ -115,7 +153,36 @@ done
 
 
 
+
+
+
+
+
+
+# quando mudar de SKEEN -> BFT-SMART tem que alterar a versao V2 para V3 em 
+Capabilities:
+    Channel: &ChannelCapabilities
+        V3_0: true
+
+
 RODAR O BENCHMARK
 
 
 go run teste.go
+
+
+
+
+
+
+
+
+# Arquitetura
+
+orderer/common/server/main.go: Você registrou o seu protocolo aqui. Originalmente, o Fabric só conhece etcdraft e BFT. Você adicionou o skeen ao mapa de consenters.
+
+orderer/consensus/skeen/: Esta é a pasta que você criou.
+
+consenter.go: É o "construtor". Ele recebe as configurações do configtx.yaml e decide como iniciar o motor.
+
+chain.go: É o "motor" em si. Ele contém o laço (loop) que fica ouvindo as transações chegando via gRPC e decide a ordem delas usando a lógica do Skeen.

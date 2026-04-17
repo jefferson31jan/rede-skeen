@@ -38,8 +38,8 @@ var (
 
 func main() {
 	// --- CAPTURA DE ARGUMENTOS DO TERMINAL ---
-	flag.IntVar(&TOTAL_TX, "tx", 1000, "Total de transações a enviar")
-	flag.IntVar(&PAYLOAD_SIZE, "payload", 40, "Tamanho do Payload")
+	flag.IntVar(&TOTAL_TX, "tx", 1, "Total de transações a enviar")
+	flag.IntVar(&PAYLOAD_SIZE, "payload", 1024, "Tamanho do Payload")
 	flag.Float64Var(&PERCENTUAL_CROSS_SHARD, "cross", 0, "Probabilidade Cross-Shard")
 	flag.IntVar(&NUM_SHARDS, "shards", 1, "Número de Shards")
 	flag.Parse()
@@ -59,21 +59,34 @@ func main() {
 		InsecureSkipVerify: true, // Fundamental para ignorar mismatch de Hostname no laboratório
 	})
 
-	// --- Pool de Conexões para os Orderers (Balanceamento do Cliente) ---
-	addresses := []string{
-		"127.0.0.1:7050", "127.0.0.1:8050", "127.0.0.1:9050", "127.0.0.1:10050",
+	// ==========================================
+	// 🚀 NOVO: Roteamento Baseado em Partição (Smart Router)
+	// ==========================================
+	// Mapeia qual Canal (Shard) vive em qual Endereço físico
+	shardRouter := map[string]string{
+		"canal1": "127.0.0.1:7050",  // Orderer 1
+		"canal2": "127.0.0.1:8050",  // Orderer 2
+		"canal3": "127.0.0.1:9050",  // Orderer 3
+		"canal4": "127.0.0.1:10050", // Orderer 4
 	}
 
-	clients := make([]orderer.AtomicBroadcastClient, len(addresses))
-	for i, addr := range addresses {
+	// Pool Inteligente: Agora o mapa guarda o Client gRPC pronto para cada canal!
+	smartClients := make(map[string]orderer.AtomicBroadcastClient)
+
+	// Inicializa as conexões com base no número de shards escolhido
+	for i := 1; i <= NUM_SHARDS; i++ {
+		canalID := fmt.Sprintf("canal%d", i)
+		addr := shardRouter[canalID]
+
 		conn, err := grpc.Dial(addr, grpc.WithTransportCredentials(creds))
 		if err != nil {
-			fmt.Printf("❌ Erro ao conectar no Orderer %d (%s): %v\n", i+1, addr, err)
+			fmt.Printf("❌ Erro ao conectar no Shard %s (%s): %v\n", canalID, addr, err)
 			os.Exit(1)
 		}
 		defer conn.Close()
-		clients[i] = orderer.NewAtomicBroadcastClient(conn)
+		smartClients[canalID] = orderer.NewAtomicBroadcastClient(conn)
 	}
+	// ==========================================
 
 	// --- Identidade e Chaves do Admin ---
 	certBytes, _ := os.ReadFile("../crypto-config/ordererOrganizations/example.com/users/Admin@example.com/msp/signcerts/Admin@example.com-cert.pem")
@@ -132,14 +145,13 @@ func main() {
 			txStart := time.Now()
 			var txWg sync.WaitGroup
 
-			// Dispara a transação para o(s) canal(is) selecionado(s)
+			// Dispara a transação EXATAMENTE para o canal correto
 			for _, canal := range canaisAlvo {
 				wg.Add(1)
 				txWg.Add(1)
 
-				// Seleciona um cliente aleatório do pool para balancear a carga gRPC
-				clientIdx := mrand.IntN(len(clients))
-				ordererClient := clients[clientIdx]
+				// 🚀 A Mágica Acontece Aqui: Pega o cliente específico daquele canal!
+				ordererClient := smartClients[canal]
 
 				go func(targetChannel string, c orderer.AtomicBroadcastClient) {
 					defer wg.Done()

@@ -1,0 +1,8 @@
+🚀 Iniciando Bateria Automática de Testes Skeen BFT...
+📅 Data: Fri Apr 17 10:32:01 -03 2026
+📦 Carga Base: 100000 Transações | Payload: 4096 bytes
+======================================================
+
+▶️  Executando: 1 Shard(s) | Cross-Shard: 0
+📊 Iniciando Benchmark Skeen BFT (Escalabilidade 1 Shards)...
+📦 Payload: 4096 bytes | 🚀 Total: 100000 | 🌐 Prob. Cross-Shard: 0%

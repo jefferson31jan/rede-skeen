@@ -1,0 +1,124 @@
+🚀 Iniciando Bateria Automática de Testes Skeen BFT...
+📅 Data: Fri Apr 17 11:43:38 -03 2026
+📦 Carga Base: 20000 Transações | Payload: 200 bytes
+======================================================
+
+▶️  Executando: 1 Shard(s) | Cross-Shard: 0
+📊 Iniciando Benchmark Skeen BFT (Escalabilidade 1 Shards)...
+📦 Payload: 200 bytes | 🚀 Total: 20000 | 🌐 Prob. Cross-Shard: 0%
+
+======================================================
+🏁 SKEEN BFT (1-SHARDS) - CONFIGURAÇÃO TURBO
+📝 Transactions: 20000 (Intra: 20000 | Inter: 0)
+📈 THROUGHPUT (Vazão): 313.08 TPS
+⏱️  LATÊNCIA MÉDIA: 9424.30 ms
+⏱️  LATÊNCIA P95: 18971 ms
+======================================================
+
+▶️  Executando: 2 Shard(s) | Cross-Shard: 0
+📊 Iniciando Benchmark Skeen BFT (Escalabilidade 2 Shards)...
+📦 Payload: 200 bytes | 🚀 Total: 20000 | 🌐 Prob. Cross-Shard: 0%
+
+======================================================
+🏁 SKEEN BFT (2-SHARDS) - CONFIGURAÇÃO TURBO
+📝 Transactions: 20000 (Intra: 20000 | Inter: 0)
+📈 THROUGHPUT (Vazão): 152.13 TPS
+⏱️  LATÊNCIA MÉDIA: 47747.63 ms
+⏱️  LATÊNCIA P95: 90921 ms
+======================================================
+
+▶️  Executando: 2 Shard(s) | Cross-Shard: 0.10
+📊 Iniciando Benchmark Skeen BFT (Escalabilidade 2 Shards)...
+📦 Payload: 200 bytes | 🚀 Total: 20000 | 🌐 Prob. Cross-Shard: 10%
+
+======================================================
+🏁 SKEEN BFT (2-SHARDS) - CONFIGURAÇÃO TURBO
+📝 Transactions: 20000 (Intra: 17958 | Inter: 2042)
+📈 THROUGHPUT (Vazão): 223.56 TPS
+⏱️  LATÊNCIA MÉDIA: 16736.73 ms
+⏱️  LATÊNCIA P95: 27967 ms
+======================================================
+
+▶️  Executando: 2 Shard(s) | Cross-Shard: 0.30
+📊 Iniciando Benchmark Skeen BFT (Escalabilidade 2 Shards)...
+📦 Payload: 200 bytes | 🚀 Total: 20000 | 🌐 Prob. Cross-Shard: 30%
+
+======================================================
+🏁 SKEEN BFT (2-SHARDS) - CONFIGURAÇÃO TURBO
+📝 Transactions: 20000 (Intra: 14123 | Inter: 5877)
+📈 THROUGHPUT (Vazão): 164.87 TPS
+⏱️  LATÊNCIA MÉDIA: 24772.69 ms
+⏱️  LATÊNCIA P95: 36506 ms
+======================================================
+
+▶️  Executando: 3 Shard(s) | Cross-Shard: 0
+📊 Iniciando Benchmark Skeen BFT (Escalabilidade 3 Shards)...
+📦 Payload: 200 bytes | 🚀 Total: 20000 | 🌐 Prob. Cross-Shard: 0%
+
+======================================================
+🏁 SKEEN BFT (3-SHARDS) - CONFIGURAÇÃO TURBO
+📝 Transactions: 20000 (Intra: 20000 | Inter: 0)
+📈 THROUGHPUT (Vazão): 588.16 TPS
+⏱️  LATÊNCIA MÉDIA: 12125.22 ms
+⏱️  LATÊNCIA P95: 24664 ms
+======================================================
+
+▶️  Executando: 3 Shard(s) | Cross-Shard: 0.10
+📊 Iniciando Benchmark Skeen BFT (Escalabilidade 3 Shards)...
+📦 Payload: 200 bytes | 🚀 Total: 20000 | 🌐 Prob. Cross-Shard: 10%
+
+======================================================
+🏁 SKEEN BFT (3-SHARDS) - CONFIGURAÇÃO TURBO
+📝 Transactions: 20000 (Intra: 17985 | Inter: 2015)
+📈 THROUGHPUT (Vazão): 295.84 TPS
+⏱️  LATÊNCIA MÉDIA: 38146.56 ms
+⏱️  LATÊNCIA P95: 52813 ms
+======================================================
+
+▶️  Executando: 3 Shard(s) | Cross-Shard: 0.30
+📊 Iniciando Benchmark Skeen BFT (Escalabilidade 3 Shards)...
+📦 Payload: 200 bytes | 🚀 Total: 20000 | 🌐 Prob. Cross-Shard: 30%
+
+======================================================
+🏁 SKEEN BFT (3-SHARDS) - CONFIGURAÇÃO TURBO
+📝 Transactions: 20000 (Intra: 14069 | Inter: 5931)
+📈 THROUGHPUT (Vazão): 225.31 TPS
+⏱️  LATÊNCIA MÉDIA: 35284.95 ms
+⏱️  LATÊNCIA P95: 45684 ms
+======================================================
+
+▶️  Executando: 4 Shard(s) | Cross-Shard: 0
+📊 Iniciando Benchmark Skeen BFT (Escalabilidade 4 Shards)...
+📦 Payload: 200 bytes | 🚀 Total: 20000 | 🌐 Prob. Cross-Shard: 0%
+
+======================================================
+🏁 SKEEN BFT (4-SHARDS) - CONFIGURAÇÃO TURBO
+📝 Transactions: 20000 (Intra: 20000 | Inter: 0)
+📈 THROUGHPUT (Vazão): 29.69 TPS
+⏱️  LATÊNCIA MÉDIA: 59489.78 ms
+⏱️  LATÊNCIA P95: 262297 ms
+======================================================
+
+▶️  Executando: 4 Shard(s) | Cross-Shard: 0.10
+📊 Iniciando Benchmark Skeen BFT (Escalabilidade 4 Shards)...
+📦 Payload: 200 bytes | 🚀 Total: 20000 | 🌐 Prob. Cross-Shard: 10%
+
+======================================================
+🏁 SKEEN BFT (4-SHARDS) - CONFIGURAÇÃO TURBO
+📝 Transactions: 20000 (Intra: 18013 | Inter: 1987)
+📈 THROUGHPUT (Vazão): 406.83 TPS
+⏱️  LATÊNCIA MÉDIA: 14110.96 ms
+⏱️  LATÊNCIA P95: 40269 ms
+======================================================
+
+▶️  Executando: 4 Shard(s) | Cross-Shard: 0.30
+📊 Iniciando Benchmark Skeen BFT (Escalabilidade 4 Shards)...
+📦 Payload: 200 bytes | 🚀 Total: 20000 | 🌐 Prob. Cross-Shard: 30%
+
+======================================================
+🏁 SKEEN BFT (4-SHARDS) - CONFIGURAÇÃO TURBO
+📝 Transactions: 20000 (Intra: 13957 | Inter: 6043)
+📈 THROUGHPUT (Vazão): 54.96 TPS
+⏱️  LATÊNCIA MÉDIA: 115143.89 ms
+⏱️  LATÊNCIA P95: 342930 ms
+======================================================

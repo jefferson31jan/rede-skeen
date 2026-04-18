@@ -15,6 +15,7 @@ import (
 	mrand "math/rand/v2"
 	"os"
 	"sort"
+	"strings"
 	"sync"
 	"time"
 
@@ -26,9 +27,6 @@ import (
 	"google.golang.org/protobuf/proto"
 )
 
-// ==========================================
-// CONFIGURAÇÕES DO EXPERIMENTO (VARIÁVEIS)
-// ==========================================
 var (
 	TOTAL_TX               int
 	PAYLOAD_SIZE           int
@@ -37,61 +35,46 @@ var (
 )
 
 func main() {
-	// --- CAPTURA DE ARGUMENTOS DO TERMINAL ---
 	flag.IntVar(&TOTAL_TX, "tx", 1, "Total de transações a enviar")
-	flag.IntVar(&PAYLOAD_SIZE, "payload", 1024, "Tamanho do Payload")
+	flag.IntVar(&PAYLOAD_SIZE, "payload", 16384, "Tamanho do Payload")
 	flag.Float64Var(&PERCENTUAL_CROSS_SHARD, "cross", 0, "Probabilidade Cross-Shard")
 	flag.IntVar(&NUM_SHARDS, "shards", 1, "Número de Shards")
 	flag.Parse()
 
-	fmt.Printf("📊 Iniciando Benchmark Skeen BFT (Escalabilidade %d Shards)...\n", NUM_SHARDS)
-	fmt.Printf("📦 Payload: %d bytes | 🚀 Total: %d | 🌐 Prob. Cross-Shard: %.0f%%\n", PAYLOAD_SIZE, TOTAL_TX, PERCENTUAL_CROSS_SHARD*100)
+	runID := time.Now().UnixMilli() // Cria um ID único baseado na hora atual
 
-	// --- Configuração de TLS ---
-	tlsCert, _ := tls.LoadX509KeyPair("../crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt", "../crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.key")
-	caCert, _ := os.ReadFile("../crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/ca.crt")
+	fmt.Printf("📊 Iniciando Benchmark Skeen BFT (Roteamento Determinístico)...\n")
+
+	// AJUSTE DE CAMINHO: Lendo direto da raiz (./crypto-config)
+	tlsCert, _ := tls.LoadX509KeyPair("./crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt", "./crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.key")
+	caCert, _ := os.ReadFile("./crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/ca.crt")
 	caCertPool := x509.NewCertPool()
 	caCertPool.AppendCertsFromPEM(caCert)
 
-	creds := credentials.NewTLS(&tls.Config{
-		Certificates:       []tls.Certificate{tlsCert},
-		RootCAs:            caCertPool,
-		InsecureSkipVerify: true, // Fundamental para ignorar mismatch de Hostname no laboratório
-	})
+	creds := credentials.NewTLS(&tls.Config{Certificates: []tls.Certificate{tlsCert}, RootCAs: caCertPool, InsecureSkipVerify: true})
 
-	// ==========================================
-	// 🚀 NOVO: Roteamento Baseado em Partição (Smart Router)
-	// ==========================================
-	// Mapeia qual Canal (Shard) vive em qual Endereço físico
 	shardRouter := map[string]string{
-		"canal1": "127.0.0.1:7050",  // Orderer 1
-		"canal2": "127.0.0.1:8050",  // Orderer 2
-		"canal3": "127.0.0.1:9050",  // Orderer 3
-		"canal4": "127.0.0.1:10050", // Orderer 4
+		"canal1": "127.0.0.1:7050", "canal2": "127.0.0.1:8050",
+		"canal3": "127.0.0.1:9050", "canal4": "127.0.0.1:10050",
 	}
 
-	// Pool Inteligente: Agora o mapa guarda o Client gRPC pronto para cada canal!
 	smartClients := make(map[string]orderer.AtomicBroadcastClient)
-
-	// Inicializa as conexões com base no número de shards escolhido
 	for i := 1; i <= NUM_SHARDS; i++ {
 		canalID := fmt.Sprintf("canal%d", i)
-		addr := shardRouter[canalID]
+		conn, err := grpc.NewClient(shardRouter[canalID], grpc.WithTransportCredentials(creds))
 
-		conn, err := grpc.Dial(addr, grpc.WithTransportCredentials(creds))
 		if err != nil {
-			fmt.Printf("❌ Erro ao conectar no Shard %s (%s): %v\n", canalID, addr, err)
 			os.Exit(1)
 		}
 		defer conn.Close()
 		smartClients[canalID] = orderer.NewAtomicBroadcastClient(conn)
 	}
-	// ==========================================
 
-	// --- Identidade e Chaves do Admin ---
-	certBytes, _ := os.ReadFile("../crypto-config/ordererOrganizations/example.com/users/Admin@example.com/msp/signcerts/Admin@example.com-cert.pem")
+	// AJUSTE DE CAMINHO: Lendo direto da raiz
+	certBytes, _ := os.ReadFile("./crypto-config/ordererOrganizations/example.com/users/Admin@example.com/msp/signcerts/Admin@example.com-cert.pem")
 	sIdBytes, _ := proto.Marshal(&msp.SerializedIdentity{Mspid: "OrdererMSP", IdBytes: certBytes})
-	keyDir := "../crypto-config/ordererOrganizations/example.com/users/Admin@example.com/msp/keystore/"
+	keyDir := "./crypto-config/ordererOrganizations/example.com/users/Admin@example.com/msp/keystore/"
+
 	files, _ := os.ReadDir(keyDir)
 	keyBytes, _ := os.ReadFile(keyDir + files[0].Name())
 	block, _ := pem.Decode(keyBytes)
@@ -101,41 +84,67 @@ func main() {
 	}
 	ecdsaKey := privKey.(*ecdsa.PrivateKey)
 
-	// --- Geração do Payload ---
 	dummyData := make([]byte, PAYLOAD_SIZE)
 	_, _ = rand.Read(dummyData)
 
 	var wg sync.WaitGroup
 	var latencies []time.Duration
 	var latMutex sync.Mutex
-
-	intraCount := 0
-	interCount := 0
+	intraCount, interCount := 0, 0
 	inicio := time.Now()
 
-	// --- Início do Disparo de Transações ---
 	for i := 1; i <= TOTAL_TX; i++ {
 		wg.Add(1)
-
 		go func(id int) {
 			defer wg.Done()
-			txID := fmt.Sprintf("BENCH_4S_%05d", id)
+			var txID string
 			var canaisAlvo []string
 
-			// --- Lógica de Roteamento (Sharding & Cross-Shard) ---
-			if mrand.Float64() < PERCENTUAL_CROSS_SHARD {
-				// Sorteia dois canais distintos (Cross-Shard)
-				s1 := mrand.IntN(NUM_SHARDS) + 1
-				s2 := ((s1 + mrand.IntN(NUM_SHARDS-1)) % NUM_SHARDS) + 1
-				canaisAlvo = []string{fmt.Sprintf("canal%d", s1), fmt.Sprintf("canal%d", s2)}
+			// // --- MÁGICA DO ROTEAMENTO DETERMINÍSTICO ---
+			// if mrand.Float64() < PERCENTUAL_CROSS_SHARD && NUM_SHARDS > 1 {
+			// 	s1 := mrand.IntN(NUM_SHARDS) + 1
+			// 	s2 := ((s1 + mrand.IntN(NUM_SHARDS-1)) % NUM_SHARDS) + 1
+			// 	canaisAlvo = []string{fmt.Sprintf("canal%d", s1), fmt.Sprintf("canal%d", s2)}
+			// 	sort.Strings(canaisAlvo) // Ordena para garantir que o menor ID fique no índice 0
+
+			// 	// CORREÇÃO: Mantido apenas o formato COM o runID
+			// 	txID = fmt.Sprintf("CROSS_%s_RUN%d_BENCH_%05d", strings.Join(canaisAlvo, "-"), runID, id)
+
+			// 	latMutex.Lock()
+			// 	interCount++
+			// 	latMutex.Unlock()
+			// } else {
+			// 	target := fmt.Sprintf("canal%d", mrand.IntN(NUM_SHARDS)+1)
+			// 	canaisAlvo = []string{target}
+
+			// 	// CORREÇÃO: Mantido apenas o formato COM o runID
+			// 	txID = fmt.Sprintf("INTRA_%s_RUN%d_BENCH_%05d", target, runID, id)
+
+			// 	latMutex.Lock()
+			// 	intraCount++
+			// 	latMutex.Unlock()
+			// }
+			// --- MÁGICA DO ROTEAMENTO DETERMINÍSTICO (Global/Multi-Shard) ---
+			if mrand.Float64() < PERCENTUAL_CROSS_SHARD && NUM_SHARDS > 1 {
+
+				// NOVO: Transação Cross-Shard agora envolve TODOS os Shards configurados
+				canaisAlvo = make([]string, NUM_SHARDS)
+				for j := 1; j <= NUM_SHARDS; j++ {
+					canaisAlvo[j-1] = fmt.Sprintf("canal%d", j)
+				}
+				sort.Strings(canaisAlvo) // Ex: [canal1, canal2, canal3, canal4]
+
+				txID = fmt.Sprintf("CROSS_%s_RUN%d_BENCH_%05d", strings.Join(canaisAlvo, "-"), runID, id)
 
 				latMutex.Lock()
 				interCount++
 				latMutex.Unlock()
 			} else {
-				// Sorteia um único canal (Intra-Shard)
+				// Transação Intra-Shard (Escolhe apenas 1 Shard aleatoriamente)
 				target := fmt.Sprintf("canal%d", mrand.IntN(NUM_SHARDS)+1)
 				canaisAlvo = []string{target}
+
+				txID = fmt.Sprintf("INTRA_%s_RUN%d_BENCH_%05d", target, runID, id)
 
 				latMutex.Lock()
 				intraCount++
@@ -145,18 +154,13 @@ func main() {
 			txStart := time.Now()
 			var txWg sync.WaitGroup
 
-			// Dispara a transação EXATAMENTE para o canal correto
+			// Dispara a transação simultaneamente PARA TODOS OS ALVOS ESCOLHIDOS
 			for _, canal := range canaisAlvo {
-				wg.Add(1)
 				txWg.Add(1)
-
-				// 🚀 A Mágica Acontece Aqui: Pega o cliente específico daquele canal!
 				ordererClient := smartClients[canal]
 
 				go func(targetChannel string, c orderer.AtomicBroadcastClient) {
-					defer wg.Done()
 					defer txWg.Done()
-
 					stream, err := c.Broadcast(context.Background())
 					if err != nil {
 						return
@@ -165,16 +169,16 @@ func main() {
 					nonce := make([]byte, 24)
 					_, _ = rand.Read(nonce)
 					sigHeaderBytes, _ := proto.Marshal(&common.SignatureHeader{Creator: sIdBytes, Nonce: nonce})
-					chdrBytes, _ := proto.Marshal(&common.ChannelHeader{ChannelId: targetChannel, Type: int32(common.HeaderType_ENDORSER_TRANSACTION), TxId: txID})
+					chdrBytes, _ := proto.Marshal(&common.ChannelHeader{
+						ChannelId: targetChannel, Type: int32(common.HeaderType_ENDORSER_TRANSACTION), TxId: txID,
+					})
 
 					payloadBytes, _ := proto.Marshal(&common.Payload{
-						Header: &common.Header{ChannelHeader: chdrBytes, SignatureHeader: sigHeaderBytes},
-						Data:   dummyData,
+						Header: &common.Header{ChannelHeader: chdrBytes, SignatureHeader: sigHeaderBytes}, Data: dummyData,
 					})
 
 					hash := sha256.Sum256(payloadBytes)
 					r, s, _ := ecdsa.Sign(rand.Reader, ecdsaKey, hash[:])
-
 					halfOrder := new(big.Int).Div(ecdsaKey.Curve.Params().N, big.NewInt(2))
 					if s.Cmp(halfOrder) == 1 {
 						s.Sub(ecdsaKey.Curve.Params().N, s)
@@ -185,36 +189,26 @@ func main() {
 					_, _ = stream.Recv()
 				}(canal, ordererClient)
 			}
-
-			txWg.Wait() // Aguarda todos os envios desta transação específica
-
-			// Registra a latência total
+			txWg.Wait()
 			latMutex.Lock()
 			latencies = append(latencies, time.Since(txStart))
 			latMutex.Unlock()
 		}(i)
 	}
 
-	wg.Wait() // Aguarda todas as transações finalizarem
+	wg.Wait()
 	duracao := time.Since(inicio)
 	tps := float64(TOTAL_TX) / duracao.Seconds()
-
-	// --- Cálculo de Estatísticas ---
 	sort.Slice(latencies, func(i, j int) bool { return latencies[i] < latencies[j] })
 	var totalLat int64
 	for _, l := range latencies {
 		totalLat += l.Milliseconds()
 	}
 	avgLat := float64(totalLat) / float64(len(latencies))
-	p95Index := int(float64(len(latencies)) * 0.95)
-
 	fmt.Printf("\n======================================================\n")
-	fmt.Printf("🏁 SKEEN BFT (%d-SHARDS) - CONFIGURAÇÃO TURBO\n", NUM_SHARDS)
+	fmt.Printf("🏁 SKEEN BFT (%d-SHARDS) - ROTEAMENTO DETERMINÍSTICO\n", NUM_SHARDS)
 	fmt.Printf("📝 Transactions: %d (Intra: %d | Inter: %d)\n", TOTAL_TX, intraCount, interCount)
 	fmt.Printf("📈 THROUGHPUT (Vazão): %.2f TPS\n", tps)
 	fmt.Printf("⏱️  LATÊNCIA MÉDIA: %.2f ms\n", avgLat)
-	if len(latencies) > 0 {
-		fmt.Printf("⏱️  LATÊNCIA P95: %d ms\n", latencies[p95Index].Milliseconds())
-	}
 	fmt.Printf("======================================================\n")
 }

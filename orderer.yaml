@@ -21,7 +21,7 @@ General:
   # TLS: TLS settings for the GRPC server.
   TLS:
     # Require server-side TLS
-    Enabled: false
+    Enabled: true
     # PrivateKey governs the file location of the private key of the TLS certificate.
     PrivateKey: tls/server.key
     # Certificate governs the file location of the server TLS certificate.
@@ -135,7 +135,7 @@ General:
   # LocalMSPID is the identity to register the local MSP material with the MSP
   # manager. The sample organization defined in the
   # sample configuration provided has an MSP ID of "SampleOrg".
-  LocalMSPID: SampleOrg
+  LocalMSPID: OrdererMSP
 
   # Enable an HTTP service for Go "pprof" profiling as documented at:
   # https://golang.org/pkg/net/http/pprof
@@ -194,7 +194,7 @@ General:
 ################################################################################
 FileLedger:
   # Location: The directory to store the blocks in.
-  Location: /var/hyperledger/production/orderer
+  Location: .ledger/orderer
 
 ################################################################################
 #
@@ -282,13 +282,13 @@ Admin:
   # TLS configuration for the admin endpoint
   TLS:
     # TLS enabled
-    Enabled: false
+    Enabled: true
 
     # Certificate is the location of the PEM encoded TLS certificate
-    Certificate:
+    Certificate: tls/server.key
 
     # PrivateKey points to the location of the PEM-encoded key
-    PrivateKey:
+    PrivateKey: tls/server.crt
 
     # Most admin service endpoints require client authentication when TLS
     # is enabled. ClientAuthRequired requires client certificate authentication
@@ -299,7 +299,7 @@ Admin:
     ClientAuthRequired: true
 
     # Paths to PEM encoded ca certificates to trust for client authentication
-    ClientRootCAs: []
+    ClientRootCAs: [tls/ca.crt]
 
 ################################################################################
 #
@@ -331,8 +331,8 @@ Consensus:
 
   # WALDir specifies the location at which Write Ahead Logs for etcd/raft are
   # stored. Each channel will have its own subdir named after channel ID.
-  WALDir: /var/hyperledger/production/orderer/etcdraft/wal
+  WALDir: ./ledger/wal
 
   # SnapDir specifies the location at which snapshots for etcd/raft are
   # stored. Each channel will have its own subdir named after channel ID.
-  SnapDir: /var/hyperledger/production/orderer/etcdraft/snapshot
+  SnapDir: ./ledger/snapshot

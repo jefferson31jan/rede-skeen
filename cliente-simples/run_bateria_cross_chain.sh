@@ -6,9 +6,9 @@
 # ==========================================
 
 # Configurações Fixas de Saturação
-TX=20000
-PAYLOAD=200
-LOG_FILE="resultados_matriz_shards_leve.log"
+TX=1
+PAYLOAD=16384
+LOG_FILE="unit.log"
 
 # Limpa o log anterior (se existir)
 > $LOG_FILE

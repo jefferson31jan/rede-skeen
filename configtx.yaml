@@ -51,7 +51,7 @@ Orderer: &OrdererDefaults
         - 127.0.0.1:10050
     BatchTimeout: 2s
     BatchSize:
-        MaxMessageCount: 500
+        MaxMessageCount: 5
         AbsoluteMaxBytes: 99 MB
         PreferredMaxBytes: 512 KB
     Organizations:

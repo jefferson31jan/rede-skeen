@@ -35,8 +35,8 @@ var (
 )
 
 func main() {
-	flag.IntVar(&TOTAL_TX, "tx", 1, "Total de transações a enviar")
-	flag.IntVar(&PAYLOAD_SIZE, "payload", 16384, "Tamanho do Payload")
+	flag.IntVar(&TOTAL_TX, "tx", 10, "Total de transações a enviar")
+	flag.IntVar(&PAYLOAD_SIZE, "payload", 35384, "Tamanho do Payload")
 	flag.Float64Var(&PERCENTUAL_CROSS_SHARD, "cross", 0, "Probabilidade Cross-Shard")
 	flag.IntVar(&NUM_SHARDS, "shards", 1, "Número de Shards")
 	flag.Parse()

@@ -5,7 +5,7 @@
 # =========================================================
 
 ARQUIVO_SAIDA="dados.csv"
-TOTAL_TX=4000 # Carga fixa para estabilidade estatística
+TOTAL_TX=20 # Carga fixa para estabilidade estatística
 
 # Cria o cabeçalho do CSV se não existir
 if [ ! -f $ARQUIVO_SAIDA ]; then
@@ -14,8 +14,8 @@ fi
 
 # Arrays com as variáveis de teste
 SHARDS=(1 2 3 4)
-PAYLOADS=(40 200 1024 4096)
-CROSS_RATES=(0 0.1 0.2 0.3)
+PAYLOADS=(35096)
+CROSS_RATES=(0)
 
 echo "🚀 Iniciando Baterias de Teste Automatizadas..."
 echo "📊 Os resultados serão salvos em: $ARQUIVO_SAIDA"

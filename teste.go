@@ -37,8 +37,8 @@ var (
 func main() {
 	flag.IntVar(&TOTAL_TX, "tx", 10, "Total de transações a enviar")
 	flag.IntVar(&PAYLOAD_SIZE, "payload", 35384, "Tamanho do Payload")
-	flag.Float64Var(&PERCENTUAL_CROSS_SHARD, "cross", 0, "Probabilidade Cross-Shard")
-	flag.IntVar(&NUM_SHARDS, "shards", 1, "Número de Shards")
+	flag.Float64Var(&PERCENTUAL_CROSS_SHARD, "cross", 1, "Probabilidade Cross-Shard")
+	flag.IntVar(&NUM_SHARDS, "shards", 4, "Número de Shards")
 	flag.Parse()
 
 	runID := time.Now().UnixMilli() // Cria um ID único baseado na hora atual

@@ -1,0 +1,126 @@
+🚀 Iniciando SKEEN Orderer 1 (Porta 7050) | Admin (9443)...
+[34m2026-04-18 18:31:51.815 -03 0001 INFO[0m [localconfig] [34;1mcompleteInitialization[0m -> General.Cluster.ReplicationPolicy is ``, setting to `consensus`
+[34m2026-04-18 18:31:51.815 -03 0002 INFO[0m [orderer.common.server] [34;1mprettyPrintStruct[0m -> Orderer config values:
+	General.ListenAddress = "127.0.0.1"
+	General.ListenPort = 7050
+	General.TLS.Enabled = true
+	General.TLS.PrivateKey = "/home/jefferson31jan/doutorado/rede-skeen/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.key"
+	General.TLS.Certificate = "/home/jefferson31jan/doutorado/rede-skeen/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt"
+	General.TLS.RootCAs = [/home/jefferson31jan/doutorado/rede-skeen/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/ca.crt]
+	General.TLS.ClientAuthRequired = false
+	General.TLS.ClientRootCAs = []
+	General.TLS.TLSHandshakeTimeShift = 0s
+	General.Cluster.ListenAddress = ""
+	General.Cluster.ListenPort = 0
+	General.Cluster.ServerCertificate = ""
+	General.Cluster.ServerPrivateKey = ""
+	General.Cluster.ClientCertificate = ""
+	General.Cluster.ClientPrivateKey = ""
+	General.Cluster.RootCAs = []
+	General.Cluster.DialTimeout = 5s
+	General.Cluster.RPCTimeout = 7s
+	General.Cluster.ReplicationBufferSize = 20971520
+	General.Cluster.ReplicationPullTimeout = 5s
+	General.Cluster.ReplicationRetryTimeout = 5s
+	General.Cluster.ReplicationMaxRetries = 12
+	General.Cluster.ReplicationPolicy = "consensus"
+	General.Cluster.SendBufferSize = 100
+	General.Cluster.CertExpirationWarningThreshold = 168h0m0s
+	General.Cluster.TLSHandshakeTimeShift = 0s
+	General.Keepalive.ServerMinInterval = 1m0s
+	General.Keepalive.ServerInterval = 2h0m0s
+	General.Keepalive.ServerTimeout = 20s
+	General.Backoff.BaseDelay = 1s
+	General.Backoff.Multiplier = 1.6
+	General.Backoff.MaxDelay = 2m0s
+	General.ConnectionTimeout = 0s
+	General.GenesisMethod = ""
+	General.GenesisFile = ""
+	General.BootstrapMethod = "none"
+	General.BootstrapFile = "/home/jefferson31jan/doutorado/rede-skeen"
+	General.Profile.Enabled = false
+	General.Profile.Address = "0.0.0.0:6060"
+	General.LocalMSPDir = "/home/jefferson31jan/doutorado/rede-skeen/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/msp"
+	General.LocalMSPID = "OrdererMSP"
+	General.BCCSP.Default = "SW"
+	General.BCCSP.SW.Security = 256
+	General.BCCSP.SW.Hash = "SHA2"
+	General.BCCSP.SW.FileKeystore.KeyStorePath = ""
+	General.Authentication.TimeWindow = 15m0s
+	General.Authentication.NoExpirationChecks = false
+	General.MaxRecvMsgSize = 104857600
+	General.MaxSendMsgSize = 104857600
+	General.Throttling.Rate = 0
+	General.Throttling.InactivityTimeout = 5s
+	FileLedger.Location = "/home/jefferson31jan/doutorado/rede-skeen/ledger/orderer1"
+	FileLedger.Prefix = ""
+	Debug.BroadcastTraceDir = ""
+	Debug.DeliverTraceDir = ""
+	Consensus = map[SnapDir:./ledger/snapshot WALDir:./ledger/wal]
+	Operations.ListenAddress = "127.0.0.1:8443"
+	Operations.TLS.Enabled = false
+	Operations.TLS.PrivateKey = ""
+	Operations.TLS.Certificate = ""
+	Operations.TLS.RootCAs = []
+	Operations.TLS.ClientAuthRequired = false
+	Operations.TLS.ClientRootCAs = []
+	Operations.TLS.TLSHandshakeTimeShift = 0s
+	Metrics.Provider = "disabled"
+	Metrics.Statsd.Network = "udp"
+	Metrics.Statsd.Address = "127.0.0.1:8125"
+	Metrics.Statsd.WriteInterval = 30s
+	Metrics.Statsd.Prefix = ""
+	ChannelParticipation.Enabled = true
+	ChannelParticipation.MaxRequestBodySize = 1048576
+	Admin.ListenAddress = "127.0.0.1:9443"
+	Admin.TLS.Enabled = true
+	Admin.TLS.PrivateKey = "/home/jefferson31jan/doutorado/rede-skeen/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.key"
+	Admin.TLS.Certificate = "/home/jefferson31jan/doutorado/rede-skeen/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt"
+	Admin.TLS.RootCAs = []
+	Admin.TLS.ClientAuthRequired = true
+	Admin.TLS.ClientRootCAs = [/home/jefferson31jan/doutorado/rede-skeen/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/ca.crt]
+	Admin.TLS.TLSHandshakeTimeShift = 0s
+[34m2026-04-18 18:31:51.821 -03 0003 INFO[0m [orderer.common.server] [34;1minitializeServerConfig[0m -> Starting orderer with TLS enabled
+[34m2026-04-18 18:31:51.860 -03 0004 INFO[0m [blkstorage] [34;1mNewProvider[0m -> Creating new file ledger directory at /home/jefferson31jan/doutorado/rede-skeen/ledger/orderer1/chains
+[34m2026-04-18 18:31:51.874 -03 0005 INFO[0m [orderer.common.multichannel] [34;1mInitJoinBlockFileRepo[0m -> Channel Participation API enabled, registrar initializing with file repo /home/jefferson31jan/doutorado/rede-skeen/ledger/orderer1/pendingops
+[34m2026-04-18 18:31:51.888 -03 0006 INFO[0m [orderer.common.server] [34;1mMain[0m -> Starting without a system channel
+[34m2026-04-18 18:31:51.888 -03 0007 INFO[0m [orderer.common.server] [34;1mMain[0m -> Setting up cluster
+[34m2026-04-18 18:31:51.888 -03 0008 INFO[0m [orderer.common.server] [34;1mreuseListener[0m -> Cluster listener is not configured, defaulting to use the general listener on port 7050
+[34m2026-04-18 18:31:51.888 -03 0009 INFO[0m [certmonitor] [34;1mtrackCertExpiration[0m -> The enrollment certificate will expire on 2036-04-15 21:27:00 +0000 UTC
+[34m2026-04-18 18:31:51.888 -03 000a INFO[0m [certmonitor] [34;1mtrackCertExpiration[0m -> The server TLS certificate will expire on 2036-04-15 21:27:00 +0000 UTC
+[34m2026-04-18 18:31:51.888 -03 000b INFO[0m [certmonitor] [34;1mtrackCertExpiration[0m -> The client TLS certificate will expire on 2036-04-15 21:27:00 +0000 UTC
+[34m2026-04-18 18:31:51.888 -03 000c INFO[0m [orderer.common.multichannel] [34;1mInitJoinBlockFileRepo[0m -> Channel Participation API enabled, registrar initializing with file repo /home/jefferson31jan/doutorado/rede-skeen/ledger/orderer1/pendingops
+[34m2026-04-18 18:31:51.891 -03 000d INFO[0m [orderer.consensus.smartbft] [34;1mNew[0m -> WAL Directory is ./ledger/wal
+[34m2026-04-18 18:31:51.891 -03 000e INFO[0m [orderer.common.multichannel] [34;1mstartChannels[0m -> Registrar initializing without a system channel, number of application channels: 0, with 0 consensus.Chain(s) and 0 follower.Chain(s)
+[SKEEN NETWORK LAYER] API HTTP ativa na porta: 17050
+[34m2026-04-18 18:31:51.892 -03 000f INFO[0m [orderer.common.server] [34;1mMain[0m -> Starting orderer:
+ Version: 3.1.4
+ Commit SHA: 92bde5204
+ Go version: go1.26.1
+ OS/Arch: linux/amd64
+[34m2026-04-18 18:31:51.892 -03 0010 INFO[0m [orderer.common.server] [34;1mMain[0m -> Beginning to serve requests
+[34m2026-04-18 18:32:01.006 -03 0011 INFO[0m [blkstorage] [34;1mnewBlockfileMgr[0m -> Getting block information from block storage
+[34m2026-04-18 18:32:01.023 -03 0012 INFO[0m [orderer.common.multichannel] [34;1mcreateAsMember[0m -> Joining channel: {canal1  other active 1}
+[SKEEN] Nó iniciado para o canal: canal1
+[SKEEN Canal canal1] Tx [CROSS_canal1-canal2-canal3-canal4_RUN1776547931787_BENCH_00005] recebida. TS: 1 | Papel: COORDENADOR
+[SKEEN Canal canal1] Tx [CROSS_canal1-canal2-canal3-canal4_RUN1776547931787_BENCH_00006] recebida. TS: 2 | Papel: COORDENADOR
+[SKEEN Canal canal1] Tx [CROSS_canal1-canal2-canal3-canal4_RUN1776547931787_BENCH_00008] recebida. TS: 3 | Papel: COORDENADOR
+[SKEEN Canal canal1] Tx [CROSS_canal1-canal2-canal3-canal4_RUN1776547931787_BENCH_00004] recebida. TS: 4 | Papel: COORDENADOR
+[SKEEN Canal canal1] Tx [CROSS_canal1-canal2-canal3-canal4_RUN1776547931787_BENCH_00007] recebida. TS: 5 | Papel: COORDENADOR
+[SKEEN Canal canal1] Tx [CROSS_canal1-canal2-canal3-canal4_RUN1776547931787_BENCH_00003] recebida. TS: 6 | Papel: COORDENADOR
+[SKEEN Canal canal1] Tx [CROSS_canal1-canal2-canal3-canal4_RUN1776547931787_BENCH_00010] recebida. TS: 7 | Papel: COORDENADOR
+[SKEEN Canal canal1] Tx [CROSS_canal1-canal2-canal3-canal4_RUN1776547931787_BENCH_00001] recebida. TS: 8 | Papel: COORDENADOR
+[SKEEN Canal canal1] Tx [CROSS_canal1-canal2-canal3-canal4_RUN1776547931787_BENCH_00009] recebida. TS: 9 | Papel: COORDENADOR
+[SKEEN Canal canal1] Tx [CROSS_canal1-canal2-canal3-canal4_RUN1776547931787_BENCH_00002] recebida. TS: 10 | Papel: COORDENADOR
+🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal2-canal3-canal4_RUN1776547931787_BENCH_00005 | TS Final: 6
+🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal2-canal3-canal4_RUN1776547931787_BENCH_00006 | TS Final: 5
+🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal2-canal3-canal4_RUN1776547931787_BENCH_00008 | TS Final: 10
+🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal2-canal3-canal4_RUN1776547931787_BENCH_00004 | TS Final: 4
+🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal2-canal3-canal4_RUN1776547931787_BENCH_00010 | TS Final: 10
+🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal2-canal3-canal4_RUN1776547931787_BENCH_00003 | TS Final: 10
+[SKEEN Canal canal1] 🧱 *** BLOCO [1] GRAVADO NO DISCO (Lote cheio: 5 txs) ***
+🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal2-canal3-canal4_RUN1776547931787_BENCH_00007 | TS Final: 8
+🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal2-canal3-canal4_RUN1776547931787_BENCH_00009 | TS Final: 9
+🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal2-canal3-canal4_RUN1776547931787_BENCH_00001 | TS Final: 8
+🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal2-canal3-canal4_RUN1776547931787_BENCH_00002 | TS Final: 10
+[SKEEN Canal canal1] 🧱 *** BLOCO [2] GRAVADO NO DISCO (Lote cheio: 5 txs) ***

@@ -23,6 +23,14 @@ rm -rf crypto-config/
 
 
 
+# Forçar a Recompilação
+
+# 1. Apaga o binário antigo para forçar o compilador a trabalhar
+rm -f build/bin/orderer
+
+# 2. Manda compilar de novo
+make orderer
+
 
 
 
@@ -90,6 +98,19 @@ done
 
 
 # 4. Subida dos Orderers
+
+
+Como resolver isso no próximo teste definitivo:
+Quando for subir a rede para o teste valendo, inicie os orderers redirecionando a saída para o arquivo de log, usando o & no final para que rodem em segundo plano (background):
+
+Bash
+./start_orderer1.sh > orderer1.log 2>&1 &
+./start_orderer2.sh > orderer2.log 2>&1 &
+./start_orderer3.sh > orderer3.log 2>&1 &
+./start_orderer4.sh > orderer4.log 2>&1 &
+
+
+
 
 💻 Aba 1 (Orderer 1 - Porta Admin 9443)
 Bash
@@ -237,8 +258,8 @@ orderer/consensus/skeen/chain.go: Onde reside a lógica de Relógios Lógicos e 
 🚀 Rodar o Benchmark
 Bash
 cd ~/doutorado/rede-skeen/cliente-simples
-# Exemplo: 100k transações, 1024 bytes, 4 shards (se Skeen)
-go run teste.go -tx 10 -payload 1024 -shards 4 -cross 0
+# Exemplo: 100k transações, 1024 bytes, 1 shards (se Skeen)
+go run teste.go -tx 1 -payload 1024 -shards 1 -cross 0
 
 
 

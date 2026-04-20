@@ -1,0 +1,55 @@
+🚀 Iniciando SKEEN Orderer 2 (Porta 8050) | Admin (9444)...
+[SKEEN NETWORK LAYER] API HTTP rodando na porta: 18050
+
+[SKEEN] Validando permissão: O nó foi aceito como membro do canal dinâmico!
+[SKEEN] Nó iniciado para o canal: canal2
+[SKEEN Canal canal2] Tx [INTRA_canal2_RUN1776694223558_BENCH_00001] recebida. TS Local: 1
+[SKEEN Canal canal2] Multicast recebido. TS Local gerado: 2
+🏆 [COORDENADOR Shard canal2] CONSENSO ATINGIDO: INTRA_canal2_RUN1776694223558_BENCH_00001 | TS Final: 2
+🏆 [COORDENADOR Shard canal2] CONSENSO ATINGIDO: INTRA_canal2_RUN1776694223558_BENCH_00001 | TS Final: 2
+[SKEEN Canal canal2] *** BLOCO [1] GERADO E GRAVADO COM SUCESSO NO LEDGER! ***
+[SKEEN Canal canal2] Tx [INTRA_canal2_RUN1776694227790_BENCH_00001] recebida. TS Local: 3
+[SKEEN Canal canal2] Multicast recebido. TS Local gerado: 4
+🏆 [COORDENADOR Shard canal2] CONSENSO ATINGIDO: INTRA_canal2_RUN1776694227790_BENCH_00001 | TS Final: 0
+🏆 [COORDENADOR Shard canal2] CONSENSO ATINGIDO: INTRA_canal2_RUN1776694227790_BENCH_00001 | TS Final: 4
+[SKEEN Canal canal2] *** BLOCO [2] GERADO E GRAVADO COM SUCESSO NO LEDGER! ***
+[SKEEN Canal canal2] Tx [INTRA_canal2_RUN1776694237579_BENCH_00001] recebida. TS Local: 5
+[SKEEN Canal canal2] Multicast recebido. TS Local gerado: 6
+🏆 [COORDENADOR Shard canal2] CONSENSO ATINGIDO: INTRA_canal2_RUN1776694237579_BENCH_00001 | TS Final: 6
+🏆 [COORDENADOR Shard canal2] CONSENSO ATINGIDO: INTRA_canal2_RUN1776694237579_BENCH_00001 | TS Final: 6
+[SKEEN Canal canal2] *** BLOCO [3] GERADO E GRAVADO COM SUCESSO NO LEDGER! ***
+[SKEEN Canal canal2] Tx [INTRA_canal2_RUN1776694247483_BENCH_00001] recebida. TS Local: 7
+[SKEEN Canal canal2] Multicast recebido. TS Local gerado: 8
+🏆 [COORDENADOR Shard canal2] CONSENSO ATINGIDO: INTRA_canal2_RUN1776694247483_BENCH_00001 | TS Final: 8
+🏆 [COORDENADOR Shard canal2] CONSENSO ATINGIDO: INTRA_canal2_RUN1776694247483_BENCH_00001 | TS Final: 8
+[SKEEN Canal canal2] *** BLOCO [4] GERADO E GRAVADO COM SUCESSO NO LEDGER! ***
+[SKEEN Canal canal2] Tx [INTRA_canal2_RUN1776694261590_BENCH_00001] recebida. TS Local: 9
+[SKEEN Canal canal2] Multicast recebido. TS Local gerado: 10
+🏆 [COORDENADOR Shard canal2] CONSENSO ATINGIDO: INTRA_canal2_RUN1776694261590_BENCH_00001 | TS Final: 10
+🏆 [COORDENADOR Shard canal2] CONSENSO ATINGIDO: INTRA_canal2_RUN1776694261590_BENCH_00001 | TS Final: 10
+[SKEEN Canal canal2] *** BLOCO [5] GERADO E GRAVADO COM SUCESSO NO LEDGER! ***
+[SKEEN Canal canal2] Tx [INTRA_canal2_RUN1776694270047_BENCH_00001] recebida. TS Local: 11
+[SKEEN Canal canal2] Multicast recebido. TS Local gerado: 12
+🏆 [COORDENADOR Shard canal2] CONSENSO ATINGIDO: INTRA_canal2_RUN1776694270047_BENCH_00001 | TS Final: 12
+🏆 [COORDENADOR Shard canal2] CONSENSO ATINGIDO: INTRA_canal2_RUN1776694270047_BENCH_00001 | TS Final: 12
+[SKEEN Canal canal2] *** BLOCO [6] GERADO E GRAVADO COM SUCESSO NO LEDGER! ***
+[SKEEN Canal canal2] Tx [CROSS_canal1-canal2-canal3-canal4_RUN1776694312946_BENCH_00001] recebida. TS Local: 13
+[SKEEN Canal canal2] Multicast recebido. TS Local gerado: 14
+🏆 [COORDENADOR Shard canal2] CONSENSO ATINGIDO: CROSS_canal1-canal2-canal3-canal4_RUN1776694312946_BENCH_00001 | TS Final: 14
+🏆 [COORDENADOR Shard canal2] CONSENSO ATINGIDO: CROSS_canal1-canal2-canal3-canal4_RUN1776694312946_BENCH_00001 | TS Final: 14
+[SKEEN Canal canal2] *** BLOCO [7] GERADO E GRAVADO COM SUCESSO NO LEDGER! ***
+[SKEEN Canal canal2] Tx [CROSS_canal1-canal2-canal3-canal4_RUN1776694324680_BENCH_00001] recebida. TS Local: 15
+[SKEEN Canal canal2] Multicast recebido. TS Local gerado: 16
+🏆 [COORDENADOR Shard canal2] CONSENSO ATINGIDO: CROSS_canal1-canal2-canal3-canal4_RUN1776694324680_BENCH_00001 | TS Final: 16
+🏆 [COORDENADOR Shard canal2] CONSENSO ATINGIDO: CROSS_canal1-canal2-canal3-canal4_RUN1776694324680_BENCH_00001 | TS Final: 15
+[SKEEN Canal canal2] *** BLOCO [8] GERADO E GRAVADO COM SUCESSO NO LEDGER! ***
+[SKEEN Canal canal2] Tx [CROSS_canal1-canal2-canal3-canal4_RUN1776694348428_BENCH_00001] recebida. TS Local: 17
+[SKEEN Canal canal2] Multicast recebido. TS Local gerado: 18
+🏆 [COORDENADOR Shard canal2] CONSENSO ATINGIDO: CROSS_canal1-canal2-canal3-canal4_RUN1776694348428_BENCH_00001 | TS Final: 18
+🏆 [COORDENADOR Shard canal2] CONSENSO ATINGIDO: CROSS_canal1-canal2-canal3-canal4_RUN1776694348428_BENCH_00001 | TS Final: 18
+[SKEEN Canal canal2] *** BLOCO [9] GERADO E GRAVADO COM SUCESSO NO LEDGER! ***
+[SKEEN Canal canal2] Tx [CROSS_canal1-canal2-canal3-canal4_RUN1776694356258_BENCH_00001] recebida. TS Local: 19
+[SKEEN Canal canal2] Multicast recebido. TS Local gerado: 20
+🏆 [COORDENADOR Shard canal2] CONSENSO ATINGIDO: CROSS_canal1-canal2-canal3-canal4_RUN1776694356258_BENCH_00001 | TS Final: 20
+🏆 [COORDENADOR Shard canal2] CONSENSO ATINGIDO: CROSS_canal1-canal2-canal3-canal4_RUN1776694356258_BENCH_00001 | TS Final: 20
+[SKEEN Canal canal2] *** BLOCO [10] GERADO E GRAVADO COM SUCESSO NO LEDGER! ***

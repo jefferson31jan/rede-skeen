@@ -35,15 +35,20 @@ var (
 )
 
 func main() {
-	flag.IntVar(&TOTAL_TX, "tx", 10, "Total de transações a enviar")
-	flag.IntVar(&PAYLOAD_SIZE, "payload", 35384, "Tamanho do Payload")
-	flag.Float64Var(&PERCENTUAL_CROSS_SHARD, "cross", 1, "Probabilidade Cross-Shard")
-	flag.IntVar(&NUM_SHARDS, "shards", 4, "Número de Shards")
+	// 1. DECLARAÇÃO DE TODAS AS FLAGS PRIMEIRO
+	flag.IntVar(&TOTAL_TX, "tx", 1, "Total de transações a enviar")
+	flag.IntVar(&PAYLOAD_SIZE, "payload", 1, "Tamanho do Payload")
+	flag.Float64Var(&PERCENTUAL_CROSS_SHARD, "cross", 0, "Probabilidade Cross-Shard")
+	flag.IntVar(&NUM_SHARDS, "shards", 1, "Número de Shards")
+	consensusType := flag.String("consensus", "skeen", "Protocolo de consenso (skeen, raft, bftsmart)")
+
+	// 2. PARSE DAS FLAGS (MUITO IMPORTANTE FICAR AQUI)
 	flag.Parse()
 
 	runID := time.Now().UnixMilli() // Cria um ID único baseado na hora atual
 
-	fmt.Printf("📊 Iniciando Benchmark Skeen BFT (Roteamento Determinístico)...\n")
+	// Atualizado para mostrar o protocolo logo no início também
+	fmt.Printf("📊 Iniciando Benchmark %s (Roteamento Determinístico)...\n", strings.ToUpper(*consensusType))
 
 	// AJUSTE DE CAMINHO: Lendo direto da raiz (./crypto-config)
 	tlsCert, _ := tls.LoadX509KeyPair("./crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt", "./crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.key")
@@ -100,30 +105,6 @@ func main() {
 			var txID string
 			var canaisAlvo []string
 
-			// // --- MÁGICA DO ROTEAMENTO DETERMINÍSTICO ---
-			// if mrand.Float64() < PERCENTUAL_CROSS_SHARD && NUM_SHARDS > 1 {
-			// 	s1 := mrand.IntN(NUM_SHARDS) + 1
-			// 	s2 := ((s1 + mrand.IntN(NUM_SHARDS-1)) % NUM_SHARDS) + 1
-			// 	canaisAlvo = []string{fmt.Sprintf("canal%d", s1), fmt.Sprintf("canal%d", s2)}
-			// 	sort.Strings(canaisAlvo) // Ordena para garantir que o menor ID fique no índice 0
-
-			// 	// CORREÇÃO: Mantido apenas o formato COM o runID
-			// 	txID = fmt.Sprintf("CROSS_%s_RUN%d_BENCH_%05d", strings.Join(canaisAlvo, "-"), runID, id)
-
-			// 	latMutex.Lock()
-			// 	interCount++
-			// 	latMutex.Unlock()
-			// } else {
-			// 	target := fmt.Sprintf("canal%d", mrand.IntN(NUM_SHARDS)+1)
-			// 	canaisAlvo = []string{target}
-
-			// 	// CORREÇÃO: Mantido apenas o formato COM o runID
-			// 	txID = fmt.Sprintf("INTRA_%s_RUN%d_BENCH_%05d", target, runID, id)
-
-			// 	latMutex.Lock()
-			// 	intraCount++
-			// 	latMutex.Unlock()
-			// }
 			// --- MÁGICA DO ROTEAMENTO DETERMINÍSTICO (Global/Multi-Shard) ---
 			if mrand.Float64() < PERCENTUAL_CROSS_SHARD && NUM_SHARDS > 1 {
 
@@ -205,8 +186,10 @@ func main() {
 		totalLat += l.Milliseconds()
 	}
 	avgLat := float64(totalLat) / float64(len(latencies))
+	
+	// 3. IMPRESSÃO CORRIGIDA (Usando as variáveis corretas)
 	fmt.Printf("\n======================================================\n")
-	fmt.Printf("🏁 SKEEN BFT (%d-SHARDS) - ROTEAMENTO DETERMINÍSTICO\n", NUM_SHARDS)
+	fmt.Printf("🏁 %s (%d-SHARDS) - ROTEAMENTO DETERMINÍSTICO\n", strings.ToUpper(*consensusType), NUM_SHARDS)
 	fmt.Printf("📝 Transactions: %d (Intra: %d | Inter: %d)\n", TOTAL_TX, intraCount, interCount)
 	fmt.Printf("📈 THROUGHPUT (Vazão): %.2f TPS\n", tps)
 	fmt.Printf("⏱️  LATÊNCIA MÉDIA: %.2f ms\n", avgLat)

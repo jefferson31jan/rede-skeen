@@ -15,7 +15,7 @@ echo "🔐 2. Gerando Criptografia (Certificados)..."
 echo "📦 3. Gerando Blocos Gênese dos 4 Canais (MaxMessageCount aplicado)..."
 export FABRIC_CFG_PATH=$PWD
 for i in {1..4}; do
-    ../fabric/build/bin/configtxgen -profile SkeenChannel -channelID canal$i -outputBlock ./channel-artifacts/canal$i.block > /dev/null 2>&1
+    ../fabric/build/bin/configtxgen -profile SkeenChannel -channelID canal$i -outputBlock ./channel-artifacts/canal$i.block
     echo "   ✅ canal$i.block criado"
 done
 
@@ -75,10 +75,55 @@ echo "🎯 Injeção concluída! Pode rodar o teste.go."
 EOF
 chmod +x injetar_canais.sh
 
+
+
+
+
 echo "========================================================="
 echo "✅ AMBIENTE PREPARADO COM SUCESSO!"
 echo "Como subir a rede agora:"
 echo "1. Abra 4 abas no terminal."
-echo "2. Em cada aba, rode respectivamente: ./start_orderer1.sh, ./start_orderer2.sh..."
+echo "2. Em cada aba, rode respectivamente: ./start_orderer1.sh > skeen_orderer1.log, ./start_orderer2.sh > skeen_orderer2.log ./start_orderer3.sh > skeen_orderer3.log, ./start_orderer4.sh > skeen_orderer4.log"
 echo "3. Em uma aba separada, rode: ./injetar_canais.sh"
 echo "========================================================="
+
+
+# echo "LIGANDO OS ORDERS EM BACKGROUND"
+
+# ./start_orderer1.sh > skeen_orderer1.log 2>&1 &
+# echo "ORDER 1 OK"
+
+# ./start_orderer2.sh > orderer2.log 2>&1 &
+# echo "ORDER 2 OK"
+
+# ./start_orderer3.sh > orderer3.log 2>&1 &
+# echo "ORDER 3 OK"
+
+# ./start_orderer4.sh > orderer4.log 2>&1 &
+# echo "ORDER 4 OK"
+
+
+
+# echo "LIGANDO OS ORDERS EM FOREGROUND"
+
+# ./start_orderer1.sh
+# echo "ORDER 1 OK"
+
+# ./start_orderer2.sh
+# echo "ORDER 2 OK"
+
+# ./start_orderer3.sh
+# echo "ORDER 3 OK"
+
+# ./start_orderer4.sh
+# echo "ORDER 4 OK"
+
+
+
+# echo "⏳ Aguardando 5 segundos para os Orderers iniciarem e abrirem as portas TCP..."
+# sleep 5
+
+# echo "INJETANDO CANAIS"
+# ./injetar_canais.sh
+
+# echo "✅ CANAIS INJETADOS COM SUCESSO!"

@@ -3,13 +3,3 @@
 
 [SKEEN] Validando permissão: O nó foi aceito como membro do canal dinâmico!
 [SKEEN] Nó iniciado para o canal: canal4
-[SKEEN Canal canal4] Tx [CROSS_canal1-canal2-canal3-canal4_RUN1776694348428_BENCH_00001] recebida. TS Local: 1
-[SKEEN Canal canal4] Multicast recebido. TS Local gerado: 2
-🏆 [COORDENADOR Shard canal4] CONSENSO ATINGIDO: CROSS_canal1-canal2-canal3-canal4_RUN1776694348428_BENCH_00001 | TS Final: 18
-🏆 [COORDENADOR Shard canal4] CONSENSO ATINGIDO: CROSS_canal1-canal2-canal3-canal4_RUN1776694348428_BENCH_00001 | TS Final: 18
-[SKEEN Canal canal4] *** BLOCO [3] GERADO E GRAVADO COM SUCESSO NO LEDGER! ***
-[SKEEN Canal canal4] Tx [CROSS_canal1-canal2-canal3-canal4_RUN1776694356258_BENCH_00001] recebida. TS Local: 3
-[SKEEN Canal canal4] Multicast recebido. TS Local gerado: 4
-🏆 [COORDENADOR Shard canal4] CONSENSO ATINGIDO: CROSS_canal1-canal2-canal3-canal4_RUN1776694356258_BENCH_00001 | TS Final: 20
-🏆 [COORDENADOR Shard canal4] CONSENSO ATINGIDO: CROSS_canal1-canal2-canal3-canal4_RUN1776694356258_BENCH_00001 | TS Final: 20
-[SKEEN Canal canal4] *** BLOCO [4] GERADO E GRAVADO COM SUCESSO NO LEDGER! ***

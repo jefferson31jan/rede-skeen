@@ -5,7 +5,8 @@
 # =========================================================
 
 echo "🧹 1. Derrubando processos e limpando dados antigos..."
-pkill -9 orderer 2>/dev/null
+pkill -9 orderer
+pkill -9 -f orderer
 rm -rf ledger channel-artifacts crypto-config
 mkdir -p channel-artifacts ledger
 

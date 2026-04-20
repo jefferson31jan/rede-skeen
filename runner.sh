@@ -21,21 +21,16 @@ else
     exit 1
 fi
 
-TOTAL_TX=1 # Sugestão: Aumente para 1000 ou 4000 nos testes reais
-REPETICOES=1 # NOVO: Número de vezes que cada cenário será testado para tirar a média
+TOTAL_TX=100000 # Sugestão: Aumente para 1000 ou 4000 nos testes reais
+REPETICOES= # NOVO: Número de vezes que cada cenário será testado para tirar a média
 
 if [ ! -f $ARQUIVO_SAIDA ]; then
     echo "Shards,Payload(Bytes),CrossRate,Transacoes,TPS,Latencia(ms)" > $ARQUIVO_SAIDA
 fi
 
-SHARDS=(4)
-PAYLOADS=(200)
-CROSS_RATES=(1)
-
-
-# SHARDS=(1 2 3 4)
-# PAYLOADS=(20 200 1024 2048 4096)
-# CROSS_RATES=(0 0.1 0.2 0.3 0.4 0.5)
+SHARDS=(1 2 3 4)
+PAYLOADS=(20 200 1024 2048 4096 8192 16384)
+CROSS_RATES=(0 0.1 0.2 0.3)
 
 echo "========================================================="
 echo "🚀 Iniciando Baterias: $NOME_EXIBICAO"

@@ -5,7 +5,8 @@
 # =========================================================
 
 echo "🧹 1. Derrubando processos e limpando dados antigos..."
-pkill -9 orderer 2>/dev/null
+pkill -9 orderer
+pkill -9 -f orderer
 rm -rf ledger channel-artifacts crypto-config
 mkdir -p channel-artifacts ledger
 
@@ -85,11 +86,17 @@ echo "✅ REDE RAFT PRONTA PARA BENCHMARK!"
 echo "========================================================="
 
 
+pkill -9 -f orderer
 echo "========================================================="
 echo "✅ AMBIENTE PREPARADO COM SUCESSO!"
 echo "Como subir a rede agora:"
 echo "1. Abra 4 abas no terminal."
-echo "2. Em cada aba, rode respectivamente: ./start_orderer1.sh > raft_orderer1.log, ./start_orderer2.sh > raft_orderer2.log ./start_orderer3.sh > raft_orderer3.log, ./start_orderer4.sh > raft_orderer4.log"
-echo "3. Em uma aba separada, rode: ./injetar_canais.sh"
+echo "./start_orderer1_raft.sh > raft_orderer1.log"
+echo "./start_orderer2_raft.sh > raft_orderer2.log"
+echo "./start_orderer3_raft.sh > raft_orderer3.log"
+echo "./start_orderer4_raft.sh > raft_orderer4.log"
+
+echo "3. Em uma aba separada, rode:"
+echo "./injetar_canais_raft.sh"
 echo "========================================================="
 

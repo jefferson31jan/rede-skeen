@@ -1,5 +1,11 @@
 🚀 Iniciando SKEEN Orderer 4 (Porta 10050) | Admin (9446)...
-[SKEEN NETWORK LAYER] API HTTP rodando na porta: 20050
-
-[SKEEN] Validando permissão: O nó foi aceito como membro do canal dinâmico!
+[SKEEN NETWORK LAYER] API HTTP ativa na porta: 20050
 [SKEEN] Nó iniciado para o canal: canal4
+[SKEEN Canal canal4] Tx [CROSS_canal4-canal3-canal1-canal2_RUN1776886607672_BENCH_00001] recebida. TS: 1 | Papel: COORDENADOR
+🏆 [COORDENADOR Shard canal4] CONSENSO ATINGIDO: CROSS_canal4-canal3-canal1-canal2_RUN1776886607672_BENCH_00001 | TS Final: 1
+[SKEEN Canal canal4] Tx [INTRA_canal4_RUN1776886701223_BENCH_00001] recebida. TS: 2 | Papel: COORDENADOR
+[SKEEN Canal canal4] Tx [CROSS_canal4-canal1-canal2-canal3_RUN1776886712391_BENCH_00001] recebida. TS: 3 | Papel: COORDENADOR
+🏆 [COORDENADOR Shard canal4] CONSENSO ATINGIDO: CROSS_canal4-canal1-canal2-canal3_RUN1776886712391_BENCH_00001 | TS Final: 8
+[SKEEN Canal canal4] Tx [CROSS_canal1-canal4-canal3-canal2_RUN1776886727408_BENCH_00001] recebida. TS: 4 | Papel: SEGUIDOR
+[SKEEN Canal canal4] Tx [CROSS_canal4-canal1-canal3-canal2_RUN1776886770041_BENCH_00001] recebida. TS: 5 | Papel: COORDENADOR
+🏆 [COORDENADOR Shard canal4] CONSENSO ATINGIDO: CROSS_canal4-canal1-canal3-canal2_RUN1776886770041_BENCH_00001 | TS Final: 10

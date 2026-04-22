@@ -113,10 +113,13 @@ func main() {
 				for j := 1; j <= NUM_SHARDS; j++ {
 					canaisAlvo[j-1] = fmt.Sprintf("canal%d", j)
 				}
-				sort.Strings(canaisAlvo) // Ex: [canal1, canal2, canal3, canal4]
+				// 🎲 EMBARALHA OS CANAIS ALEATORIAMENTE (Load Balancing de Coordenadores)
+				mrand.Shuffle(len(canaisAlvo), func(i, j int) {
+					canaisAlvo[i], canaisAlvo[j] = canaisAlvo[j], canaisAlvo[i]
+				})
+				// Agora o array fica dinâmico. Ex: [canal3, canal1, canal4, canal2]
 
 				txID = fmt.Sprintf("CROSS_%s_RUN%d_BENCH_%05d", strings.Join(canaisAlvo, "-"), runID, id)
-
 				latMutex.Lock()
 				interCount++
 				latMutex.Unlock()
@@ -186,7 +189,7 @@ func main() {
 		totalLat += l.Milliseconds()
 	}
 	avgLat := float64(totalLat) / float64(len(latencies))
-	
+
 	// 3. IMPRESSÃO CORRIGIDA (Usando as variáveis corretas)
 	fmt.Printf("\n======================================================\n")
 	fmt.Printf("🏁 %s (%d-SHARDS) - ROTEAMENTO DETERMINÍSTICO\n", strings.ToUpper(*consensusType), NUM_SHARDS)

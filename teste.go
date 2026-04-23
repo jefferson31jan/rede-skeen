@@ -38,7 +38,7 @@ func main() {
 	// 1. DECLARAÇÃO DE TODAS AS FLAGS PRIMEIRO
 	flag.IntVar(&TOTAL_TX, "tx", 1, "Total de transações a enviar")
 	flag.IntVar(&PAYLOAD_SIZE, "payload", 1, "Tamanho do Payload")
-	flag.Float64Var(&PERCENTUAL_CROSS_SHARD, "cross", 0, "Probabilidade Cross-Shard")
+	flag.Float64Var(&PERCENTUAL_CROSS_SHARD, "cross", 1, "Probabilidade Cross-Shard")
 	flag.IntVar(&NUM_SHARDS, "shards", 1, "Número de Shards")
 	consensusType := flag.String("consensus", "skeen", "Protocolo de consenso (skeen, raft, bftsmart)")
 

@@ -1,0 +1,121 @@
+package main
+
+import (
+	"crypto/rand"
+	"crypto/sha256"
+	"encoding/hex"
+	"flag"
+	"fmt"
+	"os/exec"
+	"strings"
+	"sync"
+	"time"
+)
+
+// Variáveis Globais de Configuração
+var (
+	TOTAL_TX     int
+	PAYLOAD_SIZE int
+	NUM_SHARDS   int // Quantos shards vamos ligar no teste (1 a 4)
+)
+
+func main() {
+	// 1. Configuração dos Parâmetros via Terminal
+	flag.IntVar(&TOTAL_TX, "tx", 5000, "Total de transações a enviar")
+	flag.IntVar(&PAYLOAD_SIZE, "payload", 1024, "Tamanho do Payload em Bytes")
+	flag.IntVar(&NUM_SHARDS, "shards", 4, "Número de Shards ativos no teste (1 a 4)")
+	flag.Parse()
+
+	fmt.Printf("\n🚀 Iniciando Teste de Escalabilidade (Sharding Puro) 🚀\n")
+	fmt.Printf("========================================================\n")
+	fmt.Printf("Txs Totais : %d\n", TOTAL_TX)
+	fmt.Printf("Payload    : %d Bytes\n", PAYLOAD_SIZE)
+	fmt.Printf("Shards Ativos: %d\n", NUM_SHARDS)
+	fmt.Printf("Tipo de Tx : 100%% INTRA-SHARD (Carga Distribuída)\n")
+	fmt.Printf("========================================================\n\n")
+
+	// 2. Prepara o Payload (Carga Útil)
+	payloadData := strings.Repeat("A", PAYLOAD_SIZE)
+	runID := time.Now().UnixMilli()
+
+	// 3. Controle de Concorrência
+	var wg sync.WaitGroup
+	var erroCount int
+	var errMutex sync.Mutex
+
+	// Cria os lotes de transações
+	type TxRequest struct {
+		ID       int
+		Target   string
+		TxString string
+	}
+	txQueue := make(chan TxRequest, TOTAL_TX)
+
+	// 4. Trabalhadores Distribuídos (Workers)
+	// Vamos criar 50 workers virtuais disparando requisições em paralelo
+	numWorkers := 50
+	for i := 0; i < numWorkers; i++ {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			for req := range txQueue {
+				// Invoca o comando gRPC do Fabric (peer chaincode invoke)
+				// Substitua pelos parâmetros reais da sua rede Fabric
+				cmd := exec.Command("peer", "chaincode", "invoke",
+					"-o", "127.0.0.1:7050", // Este IP mudará dependendo de como você mapeia o Load Balancer
+					"-C", req.Target, // O Canal destino (canal1, canal2, etc)
+					"-n", "mycc",
+					"-c", fmt.Sprintf(`{"function":"invoke","Args":["%s","%s"]}`, req.TxString, payloadData))
+
+				err := cmd.Run()
+				if err != nil {
+					errMutex.Lock()
+					erroCount++
+					errMutex.Unlock()
+				}
+			}
+		}()
+	}
+
+	// 5. Início do Relógio (Benchmark)
+	startTime := time.Now()
+
+	// 6. Geração e Distribuição das Transações (Load Balancing do Cliente)
+	fmt.Println("⏳ Disparando transações para a rede...")
+	for id := 1; id <= TOTAL_TX; id++ {
+
+		// 🎲 Roteamento Aleatório Criptográfico: Distribui a carga igualmente entre os Shards Ativos
+		randByte := make([]byte, 1)
+		_, _ = rand.Read(randByte)
+		shardIndex := (int(randByte[0]) % NUM_SHARDS) + 1
+		targetChannel := fmt.Sprintf("canal%d", shardIndex)
+
+		// Cria um Hash Único para simular processamento real
+		hashData := fmt.Sprintf("%d-%d", runID, id)
+		hashResult := sha256.Sum256([]byte(hashData))
+		txHash := hex.EncodeToString(hashResult[:])[:16]
+
+		// O TxID ganha a marca INTRA para passar reto pelo Coordenador (Fase 1 direto pro Bloco)
+		txID := fmt.Sprintf("INTRA_%s_RUN%d_SCALE_%s", targetChannel, runID, txHash)
+
+		txQueue <- TxRequest{
+			ID:       id,
+			Target:   targetChannel,
+			TxString: txID,
+		}
+	}
+	close(txQueue)
+
+	// Aguarda todos os workers terminarem de enviar
+	wg.Wait()
+
+	// 7. Fim do Relógio e Cálculo dos Resultados
+	duration := time.Since(startTime).Seconds()
+	tps := float64(TOTAL_TX) / duration
+
+	fmt.Printf("\n🏁 BENCHMARK FINALIZADO 🏁\n")
+	fmt.Printf("Tempo Total : %.2f segundos\n", duration)
+	fmt.Printf("Transações  : %d (Sucesso) | %d (Falhas)\n", TOTAL_TX-erroCount, erroCount)
+	fmt.Printf("Vazão (TPS) : %.2f Txs/segundo\n", tps)
+	fmt.Printf("--------------------------------------------------------\n")
+}

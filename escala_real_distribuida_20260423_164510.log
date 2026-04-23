@@ -1,0 +1,8 @@
+=======================================================================
+
+▶️  Cenário: Distribuição em 4 Shards (Sem Multicast)
+Info: 5000 Txs distribuídas entre os Orderers disponíveis.
+🚀 SKEEN MULTICAST ALEATÓRIO: Injetando 100 Txs (1 Shards/Tx, 0% Cross)
+
+🏁 BENCHMARK CONCLUÍDO
+Tempo: 0.09 s | TPS: 1112.88

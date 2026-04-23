@@ -1,0 +1,25 @@
+=======================================================================
+
+▶️  Cenário: 1 Shard Ativo (Carga dividida em 1 Shards)
+🚀 SKEEN MULTICAST ALEATÓRIO: Injetando 5000 Txs (1 Shards/Tx, 0% Cross)
+
+🏁 BENCHMARK CONCLUÍDO
+Tempo: 5.11 s | TPS: 978.19
+
+▶️  Cenário: 2 Shards Ativos (Carga Distribuída) (Carga dividida em 2 Shards)
+🚀 SKEEN MULTICAST ALEATÓRIO: Injetando 5000 Txs (2 Shards/Tx, 0% Cross)
+
+🏁 BENCHMARK CONCLUÍDO
+Tempo: 8.66 s | TPS: 577.08
+
+▶️  Cenário: 3 Shards Ativos (Carga Distribuída) (Carga dividida em 3 Shards)
+🚀 SKEEN MULTICAST ALEATÓRIO: Injetando 5000 Txs (3 Shards/Tx, 0% Cross)
+
+🏁 BENCHMARK CONCLUÍDO
+Tempo: 20.61 s | TPS: 242.63
+
+▶️  Cenário: 4 Shards Ativos (Carga Distribuída) (Carga dividida em 4 Shards)
+🚀 SKEEN MULTICAST ALEATÓRIO: Injetando 5000 Txs (4 Shards/Tx, 0% Cross)
+
+🏁 BENCHMARK CONCLUÍDO
+Tempo: 20.90 s | TPS: 239.25

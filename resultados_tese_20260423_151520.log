@@ -1,0 +1,86 @@
+=======================================================================
+
+▶️  Iniciando Cenário: Baseline (1 Shard, 100% Intra-Shard)
+Executando: ./teste_bin -tx 5000 -shards 1 -payload 1 -cross 0.0
+
+🚀 Iniciando SKEEN Load Injector (Smart Routing) 🚀
+========================================================
+Txs Totais  : 5000
+Shards      : 1
+Cross-Shard : 0%
+========================================================
+
+⏳ A forjar envelopes e a injetar na rede...
+
+🏁 BENCHMARK FINALIZADO 🏁
+Tempo Total : 0.07 segundos
+Vazão (TPS) : 72298.91 Txs/segundo
+--------------------------------------------------------
+
+▶️  Iniciando Cenário: Cross-Shard Leve (2 Shards, 100% Cross)
+Executando: ./teste_bin -tx 5000 -shards 2 -payload 1 -cross 1.0
+
+🚀 Iniciando SKEEN Load Injector (Smart Routing) 🚀
+========================================================
+Txs Totais  : 5000
+Shards      : 2
+Cross-Shard : 100%
+========================================================
+
+⏳ A forjar envelopes e a injetar na rede...
+
+🏁 BENCHMARK FINALIZADO 🏁
+Tempo Total : 0.07 segundos
+Vazão (TPS) : 67047.57 Txs/segundo
+--------------------------------------------------------
+
+▶️  Iniciando Cenário: Cross-Shard Médio (3 Shards, 100% Cross)
+Executando: ./teste_bin -tx 5000 -shards 3 -payload 1 -cross 1.0
+
+🚀 Iniciando SKEEN Load Injector (Smart Routing) 🚀
+========================================================
+Txs Totais  : 5000
+Shards      : 3
+Cross-Shard : 100%
+========================================================
+
+⏳ A forjar envelopes e a injetar na rede...
+
+🏁 BENCHMARK FINALIZADO 🏁
+Tempo Total : 0.08 segundos
+Vazão (TPS) : 64110.48 Txs/segundo
+--------------------------------------------------------
+
+▶️  Iniciando Cenário: Cross-Shard Máximo (4 Shards, 100% Cross) - O(N^2) Completo
+Executando: ./teste_bin -tx 5000 -shards 4 -payload 1 -cross 1.0
+
+🚀 Iniciando SKEEN Load Injector (Smart Routing) 🚀
+========================================================
+Txs Totais  : 5000
+Shards      : 4
+Cross-Shard : 100%
+========================================================
+
+⏳ A forjar envelopes e a injetar na rede...
+
+🏁 BENCHMARK FINALIZADO 🏁
+Tempo Total : 0.08 segundos
+Vazão (TPS) : 61118.11 Txs/segundo
+--------------------------------------------------------
+
+▶️  Iniciando Cenário: Cenário Misto (4 Shards, 50% Intra / 50% Cross)
+Executando: ./teste_bin -tx 5000 -shards 4 -payload 1 -cross 0.5
+
+🚀 Iniciando SKEEN Load Injector (Smart Routing) 🚀
+========================================================
+Txs Totais  : 5000
+Shards      : 4
+Cross-Shard : 50%
+========================================================
+
+⏳ A forjar envelopes e a injetar na rede...
+
+🏁 BENCHMARK FINALIZADO 🏁
+Tempo Total : 0.08 segundos
+Vazão (TPS) : 64493.21 Txs/segundo
+--------------------------------------------------------

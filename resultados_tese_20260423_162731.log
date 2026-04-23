@@ -1,0 +1,22 @@
+=======================================================================
+
+▶️  Iniciando Cenário: Baseline (1 Shard, 100% Intra-Shard)
+🚀 SKEEN MULTICAST ALEATÓRIO: Injetando 5000 Txs (1 Shards/Tx, 0% Cross)
+
+🏁 BENCHMARK CONCLUÍDO
+Tempo: 6.77 s | TPS: 738.16
+
+▶️  Iniciando Cenário: Cross-Shard Leve (2 Shards, 100% Cross)
+🚀 SKEEN MULTICAST ALEATÓRIO: Injetando 5000 Txs (2 Shards/Tx, 100% Cross)
+
+🏁 BENCHMARK CONCLUÍDO
+Tempo: 29.58 s | TPS: 169.06
+
+▶️  Iniciando Cenário: Cross-Shard Médio (3 Shards, 100% Cross)
+🚀 SKEEN MULTICAST ALEATÓRIO: Injetando 5000 Txs (3 Shards/Tx, 100% Cross)
+
+🏁 BENCHMARK CONCLUÍDO
+Tempo: 38.55 s | TPS: 129.69
+
+▶️  Iniciando Cenário: Cross-Shard Máximo (4 Shards, 100% Cross) - O(N^2) Completo
+🚀 SKEEN MULTICAST ALEATÓRIO: Injetando 5000 Txs (4 Shards/Tx, 100% Cross)

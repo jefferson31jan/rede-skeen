@@ -1,0 +1,36 @@
+=======================================================================
+
+▶️  Iniciando Cenário: Baseline (1 Shard, 100% Intra-Shard)
+Executando: ./teste_bin -tx 5000 -shards 1 -payload 1 -cross 0.0
+🚀 SKEEN MULTICAST: Injetando 5000 Txs (1 Shards, 0% Cross)
+
+🏁 BENCHMARK CONCLUÍDO
+Tempo: 3.37 s | TPS: 1482.34
+
+▶️  Iniciando Cenário: Cross-Shard Leve (2 Shards, 100% Cross)
+Executando: ./teste_bin -tx 5000 -shards 2 -payload 1 -cross 1.0
+🚀 SKEEN MULTICAST: Injetando 5000 Txs (2 Shards, 100% Cross)
+
+🏁 BENCHMARK CONCLUÍDO
+Tempo: 31.52 s | TPS: 158.62
+
+▶️  Iniciando Cenário: Cross-Shard Médio (3 Shards, 100% Cross)
+Executando: ./teste_bin -tx 5000 -shards 3 -payload 1 -cross 1.0
+🚀 SKEEN MULTICAST: Injetando 5000 Txs (3 Shards, 100% Cross)
+
+🏁 BENCHMARK CONCLUÍDO
+Tempo: 32.26 s | TPS: 155.00
+
+▶️  Iniciando Cenário: Cross-Shard Máximo (4 Shards, 100% Cross) - O(N^2) Completo
+Executando: ./teste_bin -tx 5000 -shards 4 -payload 1 -cross 1.0
+🚀 SKEEN MULTICAST: Injetando 5000 Txs (4 Shards, 100% Cross)
+
+🏁 BENCHMARK CONCLUÍDO
+Tempo: 45.80 s | TPS: 109.17
+
+▶️  Iniciando Cenário: Cenário Misto (4 Shards, 50% Intra / 50% Cross)
+Executando: ./teste_bin -tx 5000 -shards 4 -payload 1 -cross 0.5
+🚀 SKEEN MULTICAST: Injetando 5000 Txs (4 Shards, 50% Cross)
+
+🏁 BENCHMARK CONCLUÍDO
+Tempo: 37.61 s | TPS: 132.96

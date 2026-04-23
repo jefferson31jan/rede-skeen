@@ -1,159 +1,158 @@
 🚀 Iniciando SKEEN Orderer 1 (Porta 7050) | Admin (9443)...
 [SKEEN NETWORK LAYER] API HTTP ativa na porta: 17050
 [SKEEN] Nó iniciado para o canal: canal1
-[SKEEN Canal canal1] Tx [INTRA_canal1_RUN1776962173769_BENCH_00001] recebida. TS: 1 | Papel: COORDENADOR
-[SKEEN Canal canal1] Tx [INTRA_canal1_RUN1776962179887_BENCH_00001] recebida. TS: 2 | Papel: COORDENADOR
-[SKEEN Canal canal1] Tx [CROSS_canal1-canal4-canal2-canal3_RUN1776962187909_BENCH_00001] recebida. TS: 3 | Papel: COORDENADOR
-📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal4 via HTTP para Tx [CROSS_canal1-canal4-canal2-canal3_RUN1776962187909_BENCH_00001]
-📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 1 do canal4 para Tx [CROSS_canal1-canal4-canal2-canal3_RUN1776962187909_BENCH_00001]
-📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal2 via HTTP para Tx [CROSS_canal1-canal4-canal2-canal3_RUN1776962187909_BENCH_00001]
-📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 1 do canal2 para Tx [CROSS_canal1-canal4-canal2-canal3_RUN1776962187909_BENCH_00001]
-📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal3 via HTTP para Tx [CROSS_canal1-canal4-canal2-canal3_RUN1776962187909_BENCH_00001]
-📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 1 do canal3 para Tx [CROSS_canal1-canal4-canal2-canal3_RUN1776962187909_BENCH_00001]
-🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal4-canal2-canal3_RUN1776962187909_BENCH_00001 | TS Final: 3
-📢 [FEEDBACK] Coordenador canal1 enviando ordem de COMMIT Global para os seguidores na Tx [CROSS_canal1-canal4-canal2-canal3_RUN1776962187909_BENCH_00001]
-[SKEEN Canal canal1] Tx [CROSS_canal1-canal2_RUN1776962220040_BENCH_00004] recebida. TS: 4 | Papel: COORDENADOR
-[SKEEN Canal canal1] Tx [CROSS_canal2-canal1_RUN1776962220040_BENCH_00008] recebida. TS: 11 | Papel: SEGUIDOR
-[SKEEN Canal canal1] Tx [CROSS_canal1-canal2_RUN1776962220040_BENCH_00002] recebida. TS: 12 | Papel: COORDENADOR
-[SKEEN Canal canal1] Tx [CROSS_canal2-canal1_RUN1776962220040_BENCH_00005] recebida. TS: 7 | Papel: SEGUIDOR
-[SKEEN Canal canal1] Tx [CROSS_canal1-canal2_RUN1776962220040_BENCH_00010] recebida. TS: 8 | Papel: COORDENADOR
-[SKEEN Canal canal1] Tx [CROSS_canal1-canal2_RUN1776962220040_BENCH_00007] recebida. TS: 9 | Papel: COORDENADOR
-[SKEEN Canal canal1] Tx [CROSS_canal2-canal1_RUN1776962220040_BENCH_00006] recebida. TS: 10 | Papel: SEGUIDOR
-[SKEEN Canal canal1] Tx [CROSS_canal1-canal2_RUN1776962220040_BENCH_00009] recebida. TS: 5 | Papel: COORDENADOR
-[SKEEN Canal canal1] Tx [CROSS_canal1-canal2_RUN1776962220040_BENCH_00001] recebida. TS: 6 | Papel: COORDENADOR
-[SKEEN Canal canal1] Tx [CROSS_canal2-canal1_RUN1776962220040_BENCH_00003] recebida. TS: 13 | Papel: SEGUIDOR
-📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal2 via HTTP para Tx [CROSS_canal1-canal2_RUN1776962220040_BENCH_00001]
-📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal2 via HTTP para Tx [CROSS_canal1-canal2_RUN1776962220040_BENCH_00010]
-📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal2 via HTTP para Tx [CROSS_canal1-canal2_RUN1776962220040_BENCH_00007]
-📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal2 via HTTP para Tx [CROSS_canal1-canal2_RUN1776962220040_BENCH_00002]
-📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal2 via HTTP para Tx [CROSS_canal1-canal2_RUN1776962220040_BENCH_00004]
-📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal2 via HTTP para Tx [CROSS_canal1-canal2_RUN1776962220040_BENCH_00009]
-📨 [FEEDBACK API] Shard canal1 respondendo solicitação de TS com valor 10 para Tx [CROSS_canal2-canal1_RUN1776962220040_BENCH_00006]
-📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 11 do canal2 para Tx [CROSS_canal1-canal2_RUN1776962220040_BENCH_00010]
-🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal2_RUN1776962220040_BENCH_00010 | TS Final: 11
-📢 [FEEDBACK] Coordenador canal1 enviando ordem de COMMIT Global para os seguidores na Tx [CROSS_canal1-canal2_RUN1776962220040_BENCH_00010]
-📨 [FEEDBACK API] Shard canal1 respondendo solicitação de TS com valor 11 para Tx [CROSS_canal2-canal1_RUN1776962220040_BENCH_00008]
-📨 [FEEDBACK API] Shard canal1 respondendo solicitação de TS com valor 7 para Tx [CROSS_canal2-canal1_RUN1776962220040_BENCH_00005]
-✅ [FEEDBACK API] Shard(s) local(is) recebendo ordem de COMMIT Global do Coordenador para Tx [CROSS_canal2-canal1_RUN1776962220040_BENCH_00006]
-📨 [FEEDBACK API] Shard canal1 respondendo solicitação de TS com valor 13 para Tx [CROSS_canal2-canal1_RUN1776962220040_BENCH_00003]
-📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 9 do canal2 para Tx [CROSS_canal1-canal2_RUN1776962220040_BENCH_00002]
-🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal2_RUN1776962220040_BENCH_00002 | TS Final: 12
-📢 [FEEDBACK] Coordenador canal1 enviando ordem de COMMIT Global para os seguidores na Tx [CROSS_canal1-canal2_RUN1776962220040_BENCH_00002]
-📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 8 do canal2 para Tx [CROSS_canal1-canal2_RUN1776962220040_BENCH_00007]
-🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal2_RUN1776962220040_BENCH_00007 | TS Final: 9
-📢 [FEEDBACK] Coordenador canal1 enviando ordem de COMMIT Global para os seguidores na Tx [CROSS_canal1-canal2_RUN1776962220040_BENCH_00007]
-✅ [FEEDBACK API] Shard(s) local(is) recebendo ordem de COMMIT Global do Coordenador para Tx [CROSS_canal2-canal1_RUN1776962220040_BENCH_00008]
-✅ [FEEDBACK API] Shard(s) local(is) recebendo ordem de COMMIT Global do Coordenador para Tx [CROSS_canal2-canal1_RUN1776962220040_BENCH_00005]
-📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 4 do canal2 para Tx [CROSS_canal1-canal2_RUN1776962220040_BENCH_00004]
-🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal2_RUN1776962220040_BENCH_00004 | TS Final: 4
-✅ [FEEDBACK API] Shard(s) local(is) recebendo ordem de COMMIT Global do Coordenador para Tx [CROSS_canal2-canal1_RUN1776962220040_BENCH_00003]
-📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 6 do canal2 para Tx [CROSS_canal1-canal2_RUN1776962220040_BENCH_00001]
-🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal2_RUN1776962220040_BENCH_00001 | TS Final: 6
-📢 [FEEDBACK] Coordenador canal1 enviando ordem de COMMIT Global para os seguidores na Tx [CROSS_canal1-canal2_RUN1776962220040_BENCH_00001]
-📢 [FEEDBACK] Coordenador canal1 enviando ordem de COMMIT Global para os seguidores na Tx [CROSS_canal1-canal2_RUN1776962220040_BENCH_00004]
-📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 3 do canal2 para Tx [CROSS_canal1-canal2_RUN1776962220040_BENCH_00009]
-🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal2_RUN1776962220040_BENCH_00009 | TS Final: 5
-📢 [FEEDBACK] Coordenador canal1 enviando ordem de COMMIT Global para os seguidores na Tx [CROSS_canal1-canal2_RUN1776962220040_BENCH_00009]
-[SKEEN Canal canal1] Tx [CROSS_canal1-canal3-canal2_RUN1776962224808_BENCH_00002] recebida. TS: 14 | Papel: COORDENADOR
-[SKEEN Canal canal1] Tx [CROSS_canal3-canal2-canal1_RUN1776962224808_BENCH_00004] recebida. TS: 15 | Papel: SEGUIDOR
-[SKEEN Canal canal1] Tx [CROSS_canal2-canal1-canal3_RUN1776962224808_BENCH_00001] recebida. TS: 16 | Papel: SEGUIDOR
-[SKEEN Canal canal1] Tx [CROSS_canal2-canal3-canal1_RUN1776962224808_BENCH_00007] recebida. TS: 17 | Papel: SEGUIDOR
-[SKEEN Canal canal1] Tx [CROSS_canal1-canal3-canal2_RUN1776962224808_BENCH_00009] recebida. TS: 18 | Papel: COORDENADOR
-[SKEEN Canal canal1] Tx [CROSS_canal1-canal3-canal2_RUN1776962224808_BENCH_00008] recebida. TS: 19 | Papel: COORDENADOR
-[SKEEN Canal canal1] Tx [CROSS_canal3-canal2-canal1_RUN1776962224808_BENCH_00005] recebida. TS: 20 | Papel: SEGUIDOR
-[SKEEN Canal canal1] Tx [CROSS_canal3-canal1-canal2_RUN1776962224808_BENCH_00006] recebida. TS: 21 | Papel: SEGUIDOR
-[SKEEN Canal canal1] Tx [CROSS_canal1-canal2-canal3_RUN1776962224808_BENCH_00010] recebida. TS: 22 | Papel: COORDENADOR
-[SKEEN Canal canal1] Tx [CROSS_canal1-canal3-canal2_RUN1776962224808_BENCH_00003] recebida. TS: 23 | Papel: COORDENADOR
-📨 [FEEDBACK API] Shard canal1 respondendo solicitação de TS com valor 21 para Tx [CROSS_canal3-canal1-canal2_RUN1776962224808_BENCH_00006]
-📨 [FEEDBACK API] Shard canal1 respondendo solicitação de TS com valor 15 para Tx [CROSS_canal3-canal2-canal1_RUN1776962224808_BENCH_00004]
-📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal3 via HTTP para Tx [CROSS_canal1-canal3-canal2_RUN1776962224808_BENCH_00002]
-📨 [FEEDBACK API] Shard canal1 respondendo solicitação de TS com valor 20 para Tx [CROSS_canal3-canal2-canal1_RUN1776962224808_BENCH_00005]
-📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal3 via HTTP para Tx [CROSS_canal1-canal3-canal2_RUN1776962224808_BENCH_00008]
-📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal3 via HTTP para Tx [CROSS_canal1-canal3-canal2_RUN1776962224808_BENCH_00009]
-📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 11 do canal3 para Tx [CROSS_canal1-canal3-canal2_RUN1776962224808_BENCH_00002]
-📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal2 via HTTP para Tx [CROSS_canal1-canal3-canal2_RUN1776962224808_BENCH_00002]
-✅ [FEEDBACK API] Shard(s) local(is) recebendo ordem de COMMIT Global do Coordenador para Tx [CROSS_canal3-canal1-canal2_RUN1776962224808_BENCH_00006]
-✅ [FEEDBACK API] Shard(s) local(is) recebendo ordem de COMMIT Global do Coordenador para Tx [CROSS_canal3-canal2-canal1_RUN1776962224808_BENCH_00004]
-📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 20 do canal2 para Tx [CROSS_canal1-canal3-canal2_RUN1776962224808_BENCH_00002]
-🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal3-canal2_RUN1776962224808_BENCH_00002 | TS Final: 20
-📢 [FEEDBACK] Coordenador canal1 enviando ordem de COMMIT Global para os seguidores na Tx [CROSS_canal1-canal3-canal2_RUN1776962224808_BENCH_00002]
-📨 [FEEDBACK API] Shard canal1 respondendo solicitação de TS com valor 16 para Tx [CROSS_canal2-canal1-canal3_RUN1776962224808_BENCH_00001]
-✅ [FEEDBACK API] Shard(s) local(is) recebendo ordem de COMMIT Global do Coordenador para Tx [CROSS_canal3-canal2-canal1_RUN1776962224808_BENCH_00005]
-📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 8 do canal3 para Tx [CROSS_canal1-canal3-canal2_RUN1776962224808_BENCH_00008]
-📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal2 via HTTP para Tx [CROSS_canal1-canal3-canal2_RUN1776962224808_BENCH_00008]
-📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal2 via HTTP para Tx [CROSS_canal1-canal2-canal3_RUN1776962224808_BENCH_00010]
-📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal3 via HTTP para Tx [CROSS_canal1-canal3-canal2_RUN1776962224808_BENCH_00003]
-📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 10 do canal3 para Tx [CROSS_canal1-canal3-canal2_RUN1776962224808_BENCH_00009]
-📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal2 via HTTP para Tx [CROSS_canal1-canal3-canal2_RUN1776962224808_BENCH_00009]
-📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 15 do canal2 para Tx [CROSS_canal1-canal3-canal2_RUN1776962224808_BENCH_00008]
-🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal3-canal2_RUN1776962224808_BENCH_00008 | TS Final: 19
-📢 [FEEDBACK] Coordenador canal1 enviando ordem de COMMIT Global para os seguidores na Tx [CROSS_canal1-canal3-canal2_RUN1776962224808_BENCH_00008]
-📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 19 do canal2 para Tx [CROSS_canal1-canal2-canal3_RUN1776962224808_BENCH_00010]
-📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal3 via HTTP para Tx [CROSS_canal1-canal2-canal3_RUN1776962224808_BENCH_00010]
-📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 3 do canal3 para Tx [CROSS_canal1-canal3-canal2_RUN1776962224808_BENCH_00003]
-📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal2 via HTTP para Tx [CROSS_canal1-canal3-canal2_RUN1776962224808_BENCH_00003]
-📨 [FEEDBACK API] Shard canal1 respondendo solicitação de TS com valor 17 para Tx [CROSS_canal2-canal3-canal1_RUN1776962224808_BENCH_00007]
-✅ [FEEDBACK API] Shard(s) local(is) recebendo ordem de COMMIT Global do Coordenador para Tx [CROSS_canal2-canal1-canal3_RUN1776962224808_BENCH_00001]
-📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 4 do canal3 para Tx [CROSS_canal1-canal2-canal3_RUN1776962224808_BENCH_00010]
-🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal2-canal3_RUN1776962224808_BENCH_00010 | TS Final: 22
-📢 [FEEDBACK] Coordenador canal1 enviando ordem de COMMIT Global para os seguidores na Tx [CROSS_canal1-canal2-canal3_RUN1776962224808_BENCH_00010]
-📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 17 do canal2 para Tx [CROSS_canal1-canal3-canal2_RUN1776962224808_BENCH_00003]
-🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal3-canal2_RUN1776962224808_BENCH_00003 | TS Final: 23
-📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 16 do canal2 para Tx [CROSS_canal1-canal3-canal2_RUN1776962224808_BENCH_00009]
-🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal3-canal2_RUN1776962224808_BENCH_00009 | TS Final: 18
-📢 [FEEDBACK] Coordenador canal1 enviando ordem de COMMIT Global para os seguidores na Tx [CROSS_canal1-canal3-canal2_RUN1776962224808_BENCH_00003]
-📢 [FEEDBACK] Coordenador canal1 enviando ordem de COMMIT Global para os seguidores na Tx [CROSS_canal1-canal3-canal2_RUN1776962224808_BENCH_00009]
-✅ [FEEDBACK API] Shard(s) local(is) recebendo ordem de COMMIT Global do Coordenador para Tx [CROSS_canal2-canal3-canal1_RUN1776962224808_BENCH_00007]
-[SKEEN Canal canal1] Tx [CROSS_canal3-canal1-canal2-canal4_RUN1776962227715_BENCH_00001] recebida. TS: 24 | Papel: SEGUIDOR
-[SKEEN Canal canal1] Tx [CROSS_canal4-canal3-canal2-canal1_RUN1776962227715_BENCH_00004] recebida. TS: 25 | Papel: SEGUIDOR
-[SKEEN Canal canal1] Tx [CROSS_canal3-canal4-canal1-canal2_RUN1776962227715_BENCH_00010] recebida. TS: 26 | Papel: SEGUIDOR
-[SKEEN Canal canal1] Tx [CROSS_canal1-canal3-canal2-canal4_RUN1776962227715_BENCH_00009] recebida. TS: 27 | Papel: COORDENADOR
-[SKEEN Canal canal1] Tx [CROSS_canal2-canal3-canal4-canal1_RUN1776962227715_BENCH_00005] recebida. TS: 28 | Papel: SEGUIDOR
-[SKEEN Canal canal1] Tx [CROSS_canal3-canal1-canal4-canal2_RUN1776962227715_BENCH_00007] recebida. TS: 29 | Papel: SEGUIDOR
-[SKEEN Canal canal1] Tx [CROSS_canal1-canal3-canal2-canal4_RUN1776962227715_BENCH_00003] recebida. TS: 30 | Papel: COORDENADOR
-[SKEEN Canal canal1] Tx [CROSS_canal1-canal3-canal2-canal4_RUN1776962227715_BENCH_00006] recebida. TS: 32 | Papel: COORDENADOR
-[SKEEN Canal canal1] Tx [CROSS_canal3-canal2-canal4-canal1_RUN1776962227715_BENCH_00008] recebida. TS: 31 | Papel: SEGUIDOR
-[SKEEN Canal canal1] Tx [CROSS_canal3-canal4-canal2-canal1_RUN1776962227715_BENCH_00002] recebida. TS: 33 | Papel: SEGUIDOR
-📨 [FEEDBACK API] Shard canal1 respondendo solicitação de TS com valor 29 para Tx [CROSS_canal3-canal1-canal4-canal2_RUN1776962227715_BENCH_00007]
-📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal3 via HTTP para Tx [CROSS_canal1-canal3-canal2-canal4_RUN1776962227715_BENCH_00009]
-📨 [FEEDBACK API] Shard canal1 respondendo solicitação de TS com valor 28 para Tx [CROSS_canal2-canal3-canal4-canal1_RUN1776962227715_BENCH_00005]
-📨 [FEEDBACK API] Shard canal1 respondendo solicitação de TS com valor 24 para Tx [CROSS_canal3-canal1-canal2-canal4_RUN1776962227715_BENCH_00001]
-📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 17 do canal3 para Tx [CROSS_canal1-canal3-canal2-canal4_RUN1776962227715_BENCH_00009]
-📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal2 via HTTP para Tx [CROSS_canal1-canal3-canal2-canal4_RUN1776962227715_BENCH_00009]
-✅ [FEEDBACK API] Shard(s) local(is) recebendo ordem de COMMIT Global do Coordenador para Tx [CROSS_canal2-canal3-canal4-canal1_RUN1776962227715_BENCH_00005]
-📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal3 via HTTP para Tx [CROSS_canal1-canal3-canal2-canal4_RUN1776962227715_BENCH_00003]
-📨 [FEEDBACK API] Shard canal1 respondendo solicitação de TS com valor 26 para Tx [CROSS_canal3-canal4-canal1-canal2_RUN1776962227715_BENCH_00010]
-📨 [FEEDBACK API] Shard canal1 respondendo solicitação de TS com valor 31 para Tx [CROSS_canal3-canal2-canal4-canal1_RUN1776962227715_BENCH_00008]
-📨 [FEEDBACK API] Shard canal1 respondendo solicitação de TS com valor 33 para Tx [CROSS_canal3-canal4-canal2-canal1_RUN1776962227715_BENCH_00002]
-📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal3 via HTTP para Tx [CROSS_canal1-canal3-canal2-canal4_RUN1776962227715_BENCH_00006]
-📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 24 do canal2 para Tx [CROSS_canal1-canal3-canal2-canal4_RUN1776962227715_BENCH_00009]
-📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal4 via HTTP para Tx [CROSS_canal1-canal3-canal2-canal4_RUN1776962227715_BENCH_00009]
-📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 14 do canal3 para Tx [CROSS_canal1-canal3-canal2-canal4_RUN1776962227715_BENCH_00003]
-📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal2 via HTTP para Tx [CROSS_canal1-canal3-canal2-canal4_RUN1776962227715_BENCH_00003]
-📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 18 do canal3 para Tx [CROSS_canal1-canal3-canal2-canal4_RUN1776962227715_BENCH_00006]
-📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal2 via HTTP para Tx [CROSS_canal1-canal3-canal2-canal4_RUN1776962227715_BENCH_00006]
-✅ [FEEDBACK API] Shard(s) local(is) recebendo ordem de COMMIT Global do Coordenador para Tx [CROSS_canal3-canal4-canal2-canal1_RUN1776962227715_BENCH_00002]
-📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 3 do canal4 para Tx [CROSS_canal1-canal3-canal2-canal4_RUN1776962227715_BENCH_00009]
-🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal3-canal2-canal4_RUN1776962227715_BENCH_00009 | TS Final: 27
-📢 [FEEDBACK] Coordenador canal1 enviando ordem de COMMIT Global para os seguidores na Tx [CROSS_canal1-canal3-canal2-canal4_RUN1776962227715_BENCH_00009]
-✅ [FEEDBACK API] Shard(s) local(is) recebendo ordem de COMMIT Global do Coordenador para Tx [CROSS_canal3-canal1-canal4-canal2_RUN1776962227715_BENCH_00007]
-📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 30 do canal2 para Tx [CROSS_canal1-canal3-canal2-canal4_RUN1776962227715_BENCH_00003]
-📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal4 via HTTP para Tx [CROSS_canal1-canal3-canal2-canal4_RUN1776962227715_BENCH_00003]
-📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 26 do canal2 para Tx [CROSS_canal1-canal3-canal2-canal4_RUN1776962227715_BENCH_00006]
-📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal4 via HTTP para Tx [CROSS_canal1-canal3-canal2-canal4_RUN1776962227715_BENCH_00006]
-✅ [FEEDBACK API] Shard(s) local(is) recebendo ordem de COMMIT Global do Coordenador para Tx [CROSS_canal3-canal2-canal4-canal1_RUN1776962227715_BENCH_00008]
-✅ [FEEDBACK API] Shard(s) local(is) recebendo ordem de COMMIT Global do Coordenador para Tx [CROSS_canal3-canal1-canal2-canal4_RUN1776962227715_BENCH_00001]
-📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 7 do canal4 para Tx [CROSS_canal1-canal3-canal2-canal4_RUN1776962227715_BENCH_00003]
-🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal3-canal2-canal4_RUN1776962227715_BENCH_00003 | TS Final: 30
-📢 [FEEDBACK] Coordenador canal1 enviando ordem de COMMIT Global para os seguidores na Tx [CROSS_canal1-canal3-canal2-canal4_RUN1776962227715_BENCH_00003]
-✅ [FEEDBACK API] Shard(s) local(is) recebendo ordem de COMMIT Global do Coordenador para Tx [CROSS_canal3-canal4-canal1-canal2_RUN1776962227715_BENCH_00010]
-📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 9 do canal4 para Tx [CROSS_canal1-canal3-canal2-canal4_RUN1776962227715_BENCH_00006]
-🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal3-canal2-canal4_RUN1776962227715_BENCH_00006 | TS Final: 32
-📢 [FEEDBACK] Coordenador canal1 enviando ordem de COMMIT Global para os seguidores na Tx [CROSS_canal1-canal3-canal2-canal4_RUN1776962227715_BENCH_00006]
-📨 [FEEDBACK API] Shard canal1 respondendo solicitação de TS com valor 25 para Tx [CROSS_canal4-canal3-canal2-canal1_RUN1776962227715_BENCH_00004]
-✅ [FEEDBACK API] Shard(s) local(is) recebendo ordem de COMMIT Global do Coordenador para Tx [CROSS_canal4-canal3-canal2-canal1_RUN1776962227715_BENCH_00004]
-[SKEEN Canal canal1] Tx [INTRA_canal1_RUN1776962234761_BENCH_00001] recebida. TS: 34 | Papel: COORDENADOR
-[SKEEN Canal canal1] Tx [INTRA_canal1_RUN1776962265609_BENCH_00001] recebida. TS: 35 | Papel: COORDENADOR
-[SKEEN Canal canal1] Tx [CROSS_canal3-canal1-canal4-canal2_RUN1776962276568_BENCH_00001] recebida. TS: 36 | Papel: SEGUIDOR
-📨 [FEEDBACK API] Shard canal1 respondendo solicitação de TS com valor 36 para Tx [CROSS_canal3-canal1-canal4-canal2_RUN1776962276568_BENCH_00001]
-✅ [FEEDBACK API] Shard(s) local(is) recebendo ordem de COMMIT Global do Coordenador para Tx [CROSS_canal3-canal1-canal4-canal2_RUN1776962276568_BENCH_00001]
+[SKEEN Canal canal1] Tx [CROSS_canal4-canal1-canal2-canal3_RUN1776962662277_BENCH_00001] recebida. TS: 1 | Papel: SEGUIDOR
+📨 [FEEDBACK API] Shard canal1 respondendo solicitação de TS com valor 1 para Tx [CROSS_canal4-canal1-canal2-canal3_RUN1776962662277_BENCH_00001]
+✅ [FEEDBACK API] Shard(s) local(is) recebendo ordem de COMMIT Global para Tx [CROSS_canal4-canal1-canal2-canal3_RUN1776962662277_BENCH_00001] com TS Final 1
+[SKEEN Canal canal1] Tx [CROSS_canal2-canal1-canal3-canal4_RUN1776962673489_BENCH_00001] recebida. TS: 2 | Papel: SEGUIDOR
+📨 [FEEDBACK API] Shard canal1 respondendo solicitação de TS com valor 2 para Tx [CROSS_canal2-canal1-canal3-canal4_RUN1776962673489_BENCH_00001]
+✅ [FEEDBACK API] Shard(s) local(is) recebendo ordem de COMMIT Global para Tx [CROSS_canal2-canal1-canal3-canal4_RUN1776962673489_BENCH_00001] com TS Final 2
+[SKEEN Canal canal1] Tx [CROSS_canal1-canal2_RUN1776962722376_BENCH_00001] recebida. TS: 3 | Papel: COORDENADOR
+📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal2 via HTTP para Tx [CROSS_canal1-canal2_RUN1776962722376_BENCH_00001]
+📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 3 do canal2 para Tx [CROSS_canal1-canal2_RUN1776962722376_BENCH_00001]
+🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal2_RUN1776962722376_BENCH_00001 | TS Final: 3
+📢 [FEEDBACK] Coordenador canal1 enviando ordem de COMMIT Global para os seguidores na Tx [CROSS_canal1-canal2_RUN1776962722376_BENCH_00001]
+[SKEEN Canal canal1] Tx [CROSS_canal2-canal1_RUN1776962732250_BENCH_00013] recebida. TS: 4 | Papel: SEGUIDOR
+[SKEEN Canal canal1] Tx [CROSS_canal2-canal1_RUN1776962732250_BENCH_00008] recebida. TS: 5 | Papel: SEGUIDOR
+[SKEEN Canal canal1] Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00002] recebida. TS: 6 | Papel: COORDENADOR
+[SKEEN Canal canal1] Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00023] recebida. TS: 7 | Papel: COORDENADOR
+📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal2 via HTTP para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00023]
+[SKEEN Canal canal1] Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00025] recebida. TS: 8 | Papel: COORDENADOR
+📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal2 via HTTP para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00025]
+[SKEEN Canal canal1] Tx [CROSS_canal2-canal1_RUN1776962732250_BENCH_00014] recebida. TS: 9 | Papel: SEGUIDOR
+[SKEEN Canal canal1] Tx [CROSS_canal2-canal1_RUN1776962732250_BENCH_00030] recebida. TS: 10 | Papel: SEGUIDOR
+[SKEEN Canal canal1] Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00028] recebida. TS: 11 | Papel: COORDENADOR
+📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal2 via HTTP para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00028]
+[SKEEN Canal canal1] Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00005] recebida. TS: 12 | Papel: COORDENADOR
+📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal2 via HTTP para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00005]
+[SKEEN Canal canal1] Tx [CROSS_canal2-canal1_RUN1776962732250_BENCH_00001] recebida. TS: 13 | Papel: SEGUIDOR
+[SKEEN Canal canal1] Tx [CROSS_canal2-canal1_RUN1776962732250_BENCH_00010] recebida. TS: 14 | Papel: SEGUIDOR
+[SKEEN Canal canal1] Tx [CROSS_canal2-canal1_RUN1776962732250_BENCH_00027] recebida. TS: 15 | Papel: SEGUIDOR
+[SKEEN Canal canal1] Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00018] recebida. TS: 16 | Papel: COORDENADOR
+📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal2 via HTTP para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00018]
+[SKEEN Canal canal1] Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00021] recebida. TS: 17 | Papel: COORDENADOR
+📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal2 via HTTP para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00021]
+[SKEEN Canal canal1] Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00016] recebida. TS: 18 | Papel: COORDENADOR
+📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal2 via HTTP para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00016]
+[SKEEN Canal canal1] Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00015] recebida. TS: 19 | Papel: COORDENADOR
+📨 [FEEDBACK API] Shard canal1 respondendo solicitação de TS com valor 4 para Tx [CROSS_canal2-canal1_RUN1776962732250_BENCH_00013]
+📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal2 via HTTP para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00015]
+[SKEEN Canal canal1] Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00003] recebida. TS: 20 | Papel: COORDENADOR
+📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal2 via HTTP para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00002]
+[SKEEN Canal canal1] Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00024] recebida. TS: 21 | Papel: COORDENADOR
+📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal2 via HTTP para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00024]
+[SKEEN Canal canal1] Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00009] recebida. TS: 22 | Papel: COORDENADOR
+📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal2 via HTTP para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00009]
+[SKEEN Canal canal1] Tx [CROSS_canal2-canal1_RUN1776962732250_BENCH_00011] recebida. TS: 23 | Papel: SEGUIDOR
+[SKEEN Canal canal1] Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00012] recebida. TS: 24 | Papel: COORDENADOR
+[SKEEN Canal canal1] Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00031] recebida. TS: 25 | Papel: COORDENADOR
+[SKEEN Canal canal1] Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00029] recebida. TS: 26 | Papel: COORDENADOR
+📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 9 do canal2 para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00023]
+🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal2_RUN1776962732250_BENCH_00023 | TS Final: 9
+📢 [FEEDBACK] Coordenador canal1 enviando ordem de COMMIT Global para os seguidores na Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00023]
+[SKEEN Canal canal1] Tx [CROSS_canal2-canal1_RUN1776962732250_BENCH_00022] recebida. TS: 27 | Papel: SEGUIDOR
+📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal2 via HTTP para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00029]
+[SKEEN Canal canal1] Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00026] recebida. TS: 28 | Papel: COORDENADOR
+📨 [FEEDBACK API] Shard canal1 respondendo solicitação de TS com valor 5 para Tx [CROSS_canal2-canal1_RUN1776962732250_BENCH_00008]
+📨 [FEEDBACK API] Shard canal1 respondendo solicitação de TS com valor 14 para Tx [CROSS_canal2-canal1_RUN1776962732250_BENCH_00010]
+📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 25 do canal2 para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00018]
+🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal2_RUN1776962732250_BENCH_00018 | TS Final: 25
+📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 8 do canal2 para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00024]
+🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal2_RUN1776962732250_BENCH_00024 | TS Final: 21
+📢 [FEEDBACK] Coordenador canal1 enviando ordem de COMMIT Global para os seguidores na Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00024]
+[SKEEN Canal canal1] Tx [CROSS_canal2-canal1_RUN1776962732250_BENCH_00017] recebida. TS: 29 | Papel: SEGUIDOR
+📢 [FEEDBACK] Coordenador canal1 enviando ordem de COMMIT Global para os seguidores na Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00018]
+[SKEEN Canal canal1] Tx [CROSS_canal2-canal1_RUN1776962732250_BENCH_00020] recebida. TS: 30 | Papel: SEGUIDOR
+📨 [FEEDBACK API] Shard canal1 respondendo solicitação de TS com valor 23 para Tx [CROSS_canal2-canal1_RUN1776962732250_BENCH_00011]
+📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal2 via HTTP para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00012]
+📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal2 via HTTP para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00003]
+📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 22 do canal2 para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00025]
+🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal2_RUN1776962732250_BENCH_00025 | TS Final: 22
+📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal2 via HTTP para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00031]
+📢 [FEEDBACK] Coordenador canal1 enviando ordem de COMMIT Global para os seguidores na Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00025]
+📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 14 do canal2 para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00016]
+🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal2_RUN1776962732250_BENCH_00016 | TS Final: 18
+📢 [FEEDBACK] Coordenador canal1 enviando ordem de COMMIT Global para os seguidores na Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00016]
+📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 6 do canal2 para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00009]
+🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal2_RUN1776962732250_BENCH_00009 | TS Final: 22
+📢 [FEEDBACK] Coordenador canal1 enviando ordem de COMMIT Global para os seguidores na Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00009]
+📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 5 do canal2 para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00015]
+🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal2_RUN1776962732250_BENCH_00015 | TS Final: 19
+📨 [FEEDBACK API] Shard canal1 respondendo solicitação de TS com valor 9 para Tx [CROSS_canal2-canal1_RUN1776962732250_BENCH_00014]
+✅ [FEEDBACK API] Shard(s) local(is) recebendo ordem de COMMIT Global para Tx [CROSS_canal2-canal1_RUN1776962732250_BENCH_00013] com TS Final 19
+📢 [FEEDBACK] Coordenador canal1 enviando ordem de COMMIT Global para os seguidores na Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00015]
+📨 [FEEDBACK API] Shard canal1 respondendo solicitação de TS com valor 27 para Tx [CROSS_canal2-canal1_RUN1776962732250_BENCH_00022]
+📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 18 do canal2 para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00002]
+🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal2_RUN1776962732250_BENCH_00002 | TS Final: 18
+✅ [FEEDBACK API] Shard(s) local(is) recebendo ordem de COMMIT Global para Tx [CROSS_canal2-canal1_RUN1776962732250_BENCH_00008] com TS Final 28
+[SKEEN Canal canal1] Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00006] recebida. TS: 31 | Papel: COORDENADOR
+📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal2 via HTTP para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00006]
+📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 4 do canal2 para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00031]
+🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal2_RUN1776962732250_BENCH_00031 | TS Final: 25
+📢 [FEEDBACK] Coordenador canal1 enviando ordem de COMMIT Global para os seguidores na Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00031]
+📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 13 do canal2 para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00003]
+🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal2_RUN1776962732250_BENCH_00003 | TS Final: 20
+📢 [FEEDBACK] Coordenador canal1 enviando ordem de COMMIT Global para os seguidores na Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00003]
+✅ [FEEDBACK API] Shard(s) local(is) recebendo ordem de COMMIT Global para Tx [CROSS_canal2-canal1_RUN1776962732250_BENCH_00010] com TS Final 26
+✅ [FEEDBACK API] Shard(s) local(is) recebendo ordem de COMMIT Global para Tx [CROSS_canal2-canal1_RUN1776962732250_BENCH_00014] com TS Final 32
+⏱️ [SYNC] Shard canal1 adiantou o relógio interno para 32
+📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 29 do canal2 para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00012]
+🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal2_RUN1776962732250_BENCH_00012 | TS Final: 29
+📢 [FEEDBACK] Coordenador canal1 enviando ordem de COMMIT Global para os seguidores na Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00012]
+📢 [FEEDBACK] Coordenador canal1 enviando ordem de COMMIT Global para os seguidores na Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00002]
+[SKEEN Canal canal1] Tx [CROSS_canal2-canal1_RUN1776962732250_BENCH_00007] recebida. TS: 33 | Papel: SEGUIDOR
+📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 12 do canal2 para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00029]
+🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal2_RUN1776962732250_BENCH_00029 | TS Final: 26
+📢 [FEEDBACK] Coordenador canal1 enviando ordem de COMMIT Global para os seguidores na Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00029]
+📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 7 do canal2 para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00028]
+🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal2_RUN1776962732250_BENCH_00028 | TS Final: 11
+✅ [FEEDBACK API] Shard(s) local(is) recebendo ordem de COMMIT Global para Tx [CROSS_canal2-canal1_RUN1776962732250_BENCH_00022] com TS Final 33
+📢 [FEEDBACK] Coordenador canal1 enviando ordem de COMMIT Global para os seguidores na Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00028]
+📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 31 do canal2 para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00006]
+🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal2_RUN1776962732250_BENCH_00006 | TS Final: 31
+📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal2 via HTTP para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00026]
+📢 [FEEDBACK] Coordenador canal1 enviando ordem de COMMIT Global para os seguidores na Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00006]
+📨 [FEEDBACK API] Shard canal1 respondendo solicitação de TS com valor 29 para Tx [CROSS_canal2-canal1_RUN1776962732250_BENCH_00017]
+📨 [FEEDBACK API] Shard canal1 respondendo solicitação de TS com valor 30 para Tx [CROSS_canal2-canal1_RUN1776962732250_BENCH_00020]
+[SKEEN Canal canal1] Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00019] recebida. TS: 34 | Papel: COORDENADOR
+📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal2 via HTTP para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00019]
+📨 [FEEDBACK API] Shard canal1 respondendo solicitação de TS com valor 13 para Tx [CROSS_canal2-canal1_RUN1776962732250_BENCH_00001]
+✅ [FEEDBACK API] Shard(s) local(is) recebendo ordem de COMMIT Global para Tx [CROSS_canal2-canal1_RUN1776962732250_BENCH_00011] com TS Final 23
+✅ [FEEDBACK API] Shard(s) local(is) recebendo ordem de COMMIT Global para Tx [CROSS_canal2-canal1_RUN1776962732250_BENCH_00017] com TS Final 29
+📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 23 do canal2 para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00021]
+🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal2_RUN1776962732250_BENCH_00021 | TS Final: 23
+📢 [FEEDBACK] Coordenador canal1 enviando ordem de COMMIT Global para os seguidores na Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00021]
+📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 17 do canal2 para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00026]
+🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal2_RUN1776962732250_BENCH_00026 | TS Final: 28
+📢 [FEEDBACK] Coordenador canal1 enviando ordem de COMMIT Global para os seguidores na Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00026]
+[SKEEN Canal canal1] Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00004] recebida. TS: 35 | Papel: COORDENADOR
+📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal2 via HTTP para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00004]
+✅ [FEEDBACK API] Shard(s) local(is) recebendo ordem de COMMIT Global para Tx [CROSS_canal2-canal1_RUN1776962732250_BENCH_00001] com TS Final 27
+✅ [FEEDBACK API] Shard(s) local(is) recebendo ordem de COMMIT Global para Tx [CROSS_canal2-canal1_RUN1776962732250_BENCH_00020] com TS Final 30
+📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 21 do canal2 para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00019]
+🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal2_RUN1776962732250_BENCH_00019 | TS Final: 34
+📢 [FEEDBACK] Coordenador canal1 enviando ordem de COMMIT Global para os seguidores na Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00019]
+📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 24 do canal2 para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00004]
+🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal2_RUN1776962732250_BENCH_00004 | TS Final: 35
+📢 [FEEDBACK] Coordenador canal1 enviando ordem de COMMIT Global para os seguidores na Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00004]
+📨 [FEEDBACK API] Shard canal1 respondendo solicitação de TS com valor 10 para Tx [CROSS_canal2-canal1_RUN1776962732250_BENCH_00030]
+📨 [FEEDBACK API] Shard canal1 respondendo solicitação de TS com valor 15 para Tx [CROSS_canal2-canal1_RUN1776962732250_BENCH_00027]
+✅ [FEEDBACK API] Shard(s) local(is) recebendo ordem de COMMIT Global para Tx [CROSS_canal2-canal1_RUN1776962732250_BENCH_00030] com TS Final 10
+✅ [FEEDBACK API] Shard(s) local(is) recebendo ordem de COMMIT Global para Tx [CROSS_canal2-canal1_RUN1776962732250_BENCH_00027] com TS Final 15
+📨 [FEEDBACK API] Shard canal1 respondendo solicitação de TS com valor 33 para Tx [CROSS_canal2-canal1_RUN1776962732250_BENCH_00007]
+✅ [FEEDBACK API] Shard(s) local(is) recebendo ordem de COMMIT Global para Tx [CROSS_canal2-canal1_RUN1776962732250_BENCH_00007] com TS Final 33
+📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 34 do canal2 para Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00005]
+🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal2_RUN1776962732250_BENCH_00005 | TS Final: 34
+📢 [FEEDBACK] Coordenador canal1 enviando ordem de COMMIT Global para os seguidores na Tx [CROSS_canal1-canal2_RUN1776962732250_BENCH_00005]
+[SKEEN Canal canal1] Tx [CROSS_canal2-canal1-canal3-canal4_RUN1776962747841_BENCH_00001] recebida. TS: 36 | Papel: SEGUIDOR
+📨 [FEEDBACK API] Shard canal1 respondendo solicitação de TS com valor 36 para Tx [CROSS_canal2-canal1-canal3-canal4_RUN1776962747841_BENCH_00001]
+✅ [FEEDBACK API] Shard(s) local(is) recebendo ordem de COMMIT Global para Tx [CROSS_canal2-canal1-canal3-canal4_RUN1776962747841_BENCH_00001] com TS Final 36
+[SKEEN Canal canal1] Tx [CROSS_canal1-canal3-canal4-canal2_RUN1776962770783_BENCH_00001] recebida. TS: 37 | Papel: COORDENADOR
+📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal3 via HTTP para Tx [CROSS_canal1-canal3-canal4-canal2_RUN1776962770783_BENCH_00001]
+📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 37 do canal3 para Tx [CROSS_canal1-canal3-canal4-canal2_RUN1776962770783_BENCH_00001]
+📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal4 via HTTP para Tx [CROSS_canal1-canal3-canal4-canal2_RUN1776962770783_BENCH_00001]
+📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 37 do canal4 para Tx [CROSS_canal1-canal3-canal4-canal2_RUN1776962770783_BENCH_00001]
+📡 [FEEDBACK] Coordenador canal1 solicitando TS do canal2 via HTTP para Tx [CROSS_canal1-canal3-canal4-canal2_RUN1776962770783_BENCH_00001]
+📩 [FEEDBACK] Coordenador canal1 recebeu TS Local: 37 do canal2 para Tx [CROSS_canal1-canal3-canal4-canal2_RUN1776962770783_BENCH_00001]
+🏆 [COORDENADOR Shard canal1] CONSENSO ATINGIDO: CROSS_canal1-canal3-canal4-canal2_RUN1776962770783_BENCH_00001 | TS Final: 37
+📢 [FEEDBACK] Coordenador canal1 enviando ordem de COMMIT Global para os seguidores na Tx [CROSS_canal1-canal3-canal4-canal2_RUN1776962770783_BENCH_00001]

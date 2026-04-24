@@ -31,13 +31,16 @@ var (
 	NUM_SHARDS   int
 	CROSS_PROB   float64
 	PAYLOAD_SIZE int
+	MAX_WORKERS  int // 🚨 Novo controle de concorrência
 )
 
 func main() {
-	flag.IntVar(&TOTAL_TX, "tx", 1, "Total de transações")
-	flag.IntVar(&NUM_SHARDS, "shards", 4, "Número de shards envolvidos na Tx (1 a 4)")
-	flag.Float64Var(&CROSS_PROB, "cross", 1.0, "Probabilidade Cross-Shard")
+	// Configuração das Flags do Terminal
+	flag.IntVar(&TOTAL_TX, "tx", 10, "Total de transações")
+	flag.IntVar(&NUM_SHARDS, "shards", 1, "Número de shards envolvidos na Tx (1 a 4)")
+	flag.Float64Var(&CROSS_PROB, "cross", 0, "Probabilidade Cross-Shard")
 	flag.IntVar(&PAYLOAD_SIZE, "payload", 1, "Tamanho do payload")
+	flag.IntVar(&MAX_WORKERS, "workers", 50, "Limite de conexões simultâneas (Gargalo de I/O)")
 	flag.Parse()
 
 	runID := time.Now().UnixMilli()
@@ -64,37 +67,44 @@ func main() {
 	privKey, _ := x509.ParsePKCS8PrivateKey(block.Bytes)
 	ecdsaKey := privKey.(*ecdsa.PrivateKey)
 
-	fmt.Printf("🚀 SKEEN MULTICAST ALEATÓRIO: Injetando %d Txs (%d Shards/Tx, %.0f%% Cross)\n", TOTAL_TX, NUM_SHARDS, CROSS_PROB*100)
+	fmt.Printf("🚀 SKEEN INJECTOR: %d Txs | Shards: %d | Cross: %.0f%% | Workers: %d\n", TOTAL_TX, NUM_SHARDS, CROSS_PROB*100, MAX_WORKERS)
 
 	var wg sync.WaitGroup
 	start := time.Now()
 
+	// 🚨 O SEMÁFORO: Controla quantas conexões ativas podem existir ao mesmo tempo
+	sem := make(chan struct{}, MAX_WORKERS)
+
 	for i := 1; i <= TOTAL_TX; i++ {
 		wg.Add(1)
+
+		// Ocupa uma vaga no semáforo (bloqueia se já tiver MAX_WORKERS rodando)
+		sem <- struct{}{}
+
 		go func(id int) {
+			// Garante a liberação do WaitGroup e da vaga no semáforo ao finalizar a função
 			defer wg.Done()
+			defer func() { <-sem }()
 
 			// --- LÓGICA DE ALEATORIEDADE TOTAL ---
 			var targets []string
-			// Lista de todos os canais possíveis fisicamente na sua rede
 			allPossibleShards := []string{"canal1", "canal2", "canal3", "canal4"}
 
 			if mrand.Float64() < CROSS_PROB && NUM_SHARDS > 1 {
-				// 🎲 Sorteio Cross-Shard: Embaralha a lista global e pega a quantidade definida em NUM_SHARDS
+				// 🎲 Sorteio Cross-Shard: Embaralha e pega a quantidade definida em NUM_SHARDS
 				mrand.Shuffle(len(allPossibleShards), func(i, j int) {
 					allPossibleShards[i], allPossibleShards[j] = allPossibleShards[j], allPossibleShards[i]
 				})
-				// Garante que pegamos apenas a quantidade solicitada via flag
 				targets = allPossibleShards[:NUM_SHARDS]
 			} else {
 				// 🎲 Sorteio Intra-Shard: Escolhe 1 canal aleatório entre os 4
 				targets = []string{allPossibleShards[mrand.IntN(4)]}
 			}
 
-			// Criar o ID da transação com os canais sorteados
+			// Criar o ID da transação
 			txID := fmt.Sprintf("CROSS_%s_RUN%d_%d", strings.Join(targets, "-"), runID, id)
 
-			// 🚨 MULTICAST REAL: Envia o gRPC para todos os canais sorteados na lista targets
+			// 🚨 MULTICAST REAL: Envia o gRPC para todos os canais sorteados
 			var txWg sync.WaitGroup
 			for _, canalId := range targets {
 				txWg.Add(1)
@@ -131,14 +141,14 @@ func main() {
 					}
 
 					stream.Send(&common.Envelope{Payload: payloadBytes, Signature: sigBytes})
-					stream.Recv() // Espera o OK do consenso
+					stream.Recv() // Espera a confirmação de que o consenso foi efetivado
 				}(canalId)
 			}
-			txWg.Wait()
+			txWg.Wait() // Espera o multicast terminar para essa transação específica
 		}(i)
 	}
 
-	wg.Wait()
+	wg.Wait() // Espera todas as transações finalizarem
 	duration := time.Since(start).Seconds()
 	fmt.Printf("\n🏁 BENCHMARK CONCLUÍDO\nTempo: %.2f s | TPS: %.2f\n", duration, float64(TOTAL_TX)/duration)
 }

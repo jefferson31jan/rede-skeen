@@ -1,167 +1,157 @@
 🚀 Iniciando SKEEN Orderer 2 (Porta 8050) | Admin (9444)...
 [SKEEN NETWORK LAYER] API HTTP All-to-All ativa na porta: 18050
 [SKEEN] Nó iniciado para o canal: canal2
-[SKEEN Canal canal2] Tx [CROSS_canal3-canal2-canal4-canal1_RUN1776973470353_1] recebida. TS: 1 | Papel: PEER (All-to-All)
-📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal3 para Tx [CROSS_canal3-canal2-canal4-canal1_RUN1776973470353_1]
-📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 1 do canal3 para Tx [CROSS_canal3-canal2-canal4-canal1_RUN1776973470353_1]
-📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal4 para Tx [CROSS_canal3-canal2-canal4-canal1_RUN1776973470353_1]
-📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 1 do canal4 para Tx [CROSS_canal3-canal2-canal4-canal1_RUN1776973470353_1]
-📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal1 para Tx [CROSS_canal3-canal2-canal4-canal1_RUN1776973470353_1]
-📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 1 do canal1 para Tx [CROSS_canal3-canal2-canal4-canal1_RUN1776973470353_1]
-🔄 [ALL-TO-ALL Shard canal2] CONSENSO INDEPENDENTE ATINGIDO: CROSS_canal3-canal2-canal4-canal1_RUN1776973470353_1 | TS Final: 1
-📨 [FEEDBACK API] Shard canal2 devolvendo TS 1 para quem pediu. Tx [CROSS_canal3-canal2-canal4-canal1_RUN1776973470353_1]
-📨 [FEEDBACK API] Shard canal2 devolvendo TS 1 para quem pediu. Tx [CROSS_canal3-canal2-canal4-canal1_RUN1776973470353_1]
-📨 [FEEDBACK API] Shard canal2 devolvendo TS 1 para quem pediu. Tx [CROSS_canal3-canal2-canal4-canal1_RUN1776973470353_1]
-[SKEEN Canal canal2] Tx [CROSS_canal4-canal2_RUN1776973495330_1] recebida. TS: 2 | Papel: PEER (All-to-All)
-📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal4 para Tx [CROSS_canal4-canal2_RUN1776973495330_1]
-📨 [FEEDBACK API] Shard canal2 devolvendo TS 2 para quem pediu. Tx [CROSS_canal4-canal2_RUN1776973495330_1]
-📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 2 do canal4 para Tx [CROSS_canal4-canal2_RUN1776973495330_1]
-🔄 [ALL-TO-ALL Shard canal2] CONSENSO INDEPENDENTE ATINGIDO: CROSS_canal4-canal2_RUN1776973495330_1 | TS Final: 2
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973510861_73] recebida. TS: 3 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973510861_53] recebida. TS: 4 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973510861_85] recebida. TS: 5 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973510861_77] recebida. TS: 6 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973510861_31] recebida. TS: 7 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973510861_45] recebida. TS: 8 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973510861_56] recebida. TS: 9 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973510861_10] recebida. TS: 10 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973510861_49] recebida. TS: 11 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973510861_92] recebida. TS: 12 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973510861_42] recebida. TS: 13 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973510861_4] recebida. TS: 14 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973510861_1] recebida. TS: 15 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973510861_89] recebida. TS: 16 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973510861_32] recebida. TS: 17 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973510861_39] recebida. TS: 18 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973510861_64] recebida. TS: 19 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973510861_11] recebida. TS: 20 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973510861_95] recebida. TS: 21 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973510861_51] recebida. TS: 22 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973510861_55] recebida. TS: 23 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2-canal4_RUN1776973532367_1] recebida. TS: 24 | Papel: PEER (All-to-All)
-📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal4 para Tx [CROSS_canal2-canal4_RUN1776973532367_1]
-📨 [FEEDBACK API] Shard canal2 devolvendo TS 24 para quem pediu. Tx [CROSS_canal2-canal4_RUN1776973532367_1]
-📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 27 do canal4 para Tx [CROSS_canal2-canal4_RUN1776973532367_1]
-🔄 [ALL-TO-ALL Shard canal2] CONSENSO INDEPENDENTE ATINGIDO: CROSS_canal2-canal4_RUN1776973532367_1 | TS Final: 27
-⏱️ [SYNC] Shard canal2 adiantou o relógio interno para 27
-[SKEEN Canal canal2] Tx [CROSS_canal2-canal3_RUN1776973556414_1] recebida. TS: 28 | Papel: PEER (All-to-All)
-📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal3 para Tx [CROSS_canal2-canal3_RUN1776973556414_1]
-📨 [FEEDBACK API] Shard canal2 devolvendo TS 28 para quem pediu. Tx [CROSS_canal2-canal3_RUN1776973556414_1]
-📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 31 do canal3 para Tx [CROSS_canal2-canal3_RUN1776973556414_1]
-🔄 [ALL-TO-ALL Shard canal2] CONSENSO INDEPENDENTE ATINGIDO: CROSS_canal2-canal3_RUN1776973556414_1 | TS Final: 31
-⏱️ [SYNC] Shard canal2 adiantou o relógio interno para 31
-[SKEEN Canal canal2] Tx [CROSS_canal1-canal4-canal2-canal3_RUN1776973560818_1] recebida. TS: 32 | Papel: PEER (All-to-All)
-📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal1 para Tx [CROSS_canal1-canal4-canal2-canal3_RUN1776973560818_1]
-📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 31 do canal1 para Tx [CROSS_canal1-canal4-canal2-canal3_RUN1776973560818_1]
-📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal4 para Tx [CROSS_canal1-canal4-canal2-canal3_RUN1776973560818_1]
-📨 [FEEDBACK API] Shard canal2 devolvendo TS 32 para quem pediu. Tx [CROSS_canal1-canal4-canal2-canal3_RUN1776973560818_1]
-📨 [FEEDBACK API] Shard canal2 devolvendo TS 32 para quem pediu. Tx [CROSS_canal1-canal4-canal2-canal3_RUN1776973560818_1]
-📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 28 do canal4 para Tx [CROSS_canal1-canal4-canal2-canal3_RUN1776973560818_1]
-📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal3 para Tx [CROSS_canal1-canal4-canal2-canal3_RUN1776973560818_1]
-📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 32 do canal3 para Tx [CROSS_canal1-canal4-canal2-canal3_RUN1776973560818_1]
-🔄 [ALL-TO-ALL Shard canal2] CONSENSO INDEPENDENTE ATINGIDO: CROSS_canal1-canal4-canal2-canal3_RUN1776973560818_1 | TS Final: 32
-📨 [FEEDBACK API] Shard canal2 devolvendo TS 32 para quem pediu. Tx [CROSS_canal1-canal4-canal2-canal3_RUN1776973560818_1]
-[SKEEN Canal canal2] Tx [CROSS_canal1-canal2-canal3-canal4_RUN1776973570765_1] recebida. TS: 33 | Papel: PEER (All-to-All)
-📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal1 para Tx [CROSS_canal1-canal2-canal3-canal4_RUN1776973570765_1]
-📨 [FEEDBACK API] Shard canal2 devolvendo TS 33 para quem pediu. Tx [CROSS_canal1-canal2-canal3-canal4_RUN1776973570765_1]
-📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 33 do canal1 para Tx [CROSS_canal1-canal2-canal3-canal4_RUN1776973570765_1]
-📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal3 para Tx [CROSS_canal1-canal2-canal3-canal4_RUN1776973570765_1]
-📨 [FEEDBACK API] Shard canal2 devolvendo TS 33 para quem pediu. Tx [CROSS_canal1-canal2-canal3-canal4_RUN1776973570765_1]
-📨 [FEEDBACK API] Shard canal2 devolvendo TS 33 para quem pediu. Tx [CROSS_canal1-canal2-canal3-canal4_RUN1776973570765_1]
-📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 33 do canal3 para Tx [CROSS_canal1-canal2-canal3-canal4_RUN1776973570765_1]
-📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal4 para Tx [CROSS_canal1-canal2-canal3-canal4_RUN1776973570765_1]
-📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 33 do canal4 para Tx [CROSS_canal1-canal2-canal3-canal4_RUN1776973570765_1]
-🔄 [ALL-TO-ALL Shard canal2] CONSENSO INDEPENDENTE ATINGIDO: CROSS_canal1-canal2-canal3-canal4_RUN1776973570765_1 | TS Final: 33
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973575126_55] recebida. TS: 34 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973575126_91] recebida. TS: 35 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973575126_77] recebida. TS: 36 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973575126_83] recebida. TS: 37 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973575126_2] recebida. TS: 38 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973575126_31] recebida. TS: 39 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973575126_40] recebida. TS: 40 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973575126_79] recebida. TS: 41 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973575126_21] recebida. TS: 42 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973575126_90] recebida. TS: 43 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973575126_13] recebida. TS: 44 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973575126_72] recebida. TS: 45 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973575126_88] recebida. TS: 46 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973575126_18] recebida. TS: 47 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973575126_64] recebida. TS: 48 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973575126_95] recebida. TS: 49 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973575126_47] recebida. TS: 50 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973575126_10] recebida. TS: 51 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973575126_9] recebida. TS: 52 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973575126_28] recebida. TS: 53 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973575126_82] recebida. TS: 54 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973575126_61] recebida. TS: 55 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973575126_26] recebida. TS: 56 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1776973575126_46] recebida. TS: 57 | Papel: PEER (All-to-All)
-[SKEEN Canal canal2] Tx [CROSS_canal2-canal1_RUN1776973599358_1] recebida. TS: 58 | Papel: PEER (All-to-All)
-📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal1 para Tx [CROSS_canal2-canal1_RUN1776973599358_1]
-📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 58 do canal1 para Tx [CROSS_canal2-canal1_RUN1776973599358_1]
-🔄 [ALL-TO-ALL Shard canal2] CONSENSO INDEPENDENTE ATINGIDO: CROSS_canal2-canal1_RUN1776973599358_1 | TS Final: 58
-📨 [FEEDBACK API] Shard canal2 devolvendo TS 58 para quem pediu. Tx [CROSS_canal2-canal1_RUN1776973599358_1]
-[SKEEN Canal canal2] Tx [CROSS_canal2-canal1_RUN1776973601055_1] recebida. TS: 59 | Papel: PEER (All-to-All)
-📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal1 para Tx [CROSS_canal2-canal1_RUN1776973601055_1]
-📨 [FEEDBACK API] Shard canal2 devolvendo TS 59 para quem pediu. Tx [CROSS_canal2-canal1_RUN1776973601055_1]
-📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 59 do canal1 para Tx [CROSS_canal2-canal1_RUN1776973601055_1]
-🔄 [ALL-TO-ALL Shard canal2] CONSENSO INDEPENDENTE ATINGIDO: CROSS_canal2-canal1_RUN1776973601055_1 | TS Final: 59
-[SKEEN Canal canal2] Tx [CROSS_canal4-canal2_RUN1776973601685_1] recebida. TS: 60 | Papel: PEER (All-to-All)
-📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal4 para Tx [CROSS_canal4-canal2_RUN1776973601685_1]
-📨 [FEEDBACK API] Shard canal2 devolvendo TS 60 para quem pediu. Tx [CROSS_canal4-canal2_RUN1776973601685_1]
-📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 65 do canal4 para Tx [CROSS_canal4-canal2_RUN1776973601685_1]
-🔄 [ALL-TO-ALL Shard canal2] CONSENSO INDEPENDENTE ATINGIDO: CROSS_canal4-canal2_RUN1776973601685_1 | TS Final: 65
-⏱️ [SYNC] Shard canal2 adiantou o relógio interno para 65
-[SKEEN Canal canal2] Tx [CROSS_canal2-canal1_RUN1776973604126_1] recebida. TS: 66 | Papel: PEER (All-to-All)
-📨 [FEEDBACK API] Shard canal2 devolvendo TS 66 para quem pediu. Tx [CROSS_canal2-canal1_RUN1776973604126_1]
-📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal1 para Tx [CROSS_canal2-canal1_RUN1776973604126_1]
-📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 68 do canal1 para Tx [CROSS_canal2-canal1_RUN1776973604126_1]
-🔄 [ALL-TO-ALL Shard canal2] CONSENSO INDEPENDENTE ATINGIDO: CROSS_canal2-canal1_RUN1776973604126_1 | TS Final: 68
-⏱️ [SYNC] Shard canal2 adiantou o relógio interno para 68
-[SKEEN Canal canal2] Tx [CROSS_canal1-canal2_RUN1776973604851_1] recebida. TS: 69 | Papel: PEER (All-to-All)
-📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal1 para Tx [CROSS_canal1-canal2_RUN1776973604851_1]
-📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 69 do canal1 para Tx [CROSS_canal1-canal2_RUN1776973604851_1]
-🔄 [ALL-TO-ALL Shard canal2] CONSENSO INDEPENDENTE ATINGIDO: CROSS_canal1-canal2_RUN1776973604851_1 | TS Final: 69
-📨 [FEEDBACK API] Shard canal2 devolvendo TS 69 para quem pediu. Tx [CROSS_canal1-canal2_RUN1776973604851_1]
-[SKEEN Canal canal2] Tx [CROSS_canal3-canal2_RUN1776973605609_1] recebida. TS: 70 | Papel: PEER (All-to-All)
-📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal3 para Tx [CROSS_canal3-canal2_RUN1776973605609_1]
-📨 [FEEDBACK API] Shard canal2 devolvendo TS 70 para quem pediu. Tx [CROSS_canal3-canal2_RUN1776973605609_1]
-📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 68 do canal3 para Tx [CROSS_canal3-canal2_RUN1776973605609_1]
-🔄 [ALL-TO-ALL Shard canal2] CONSENSO INDEPENDENTE ATINGIDO: CROSS_canal3-canal2_RUN1776973605609_1 | TS Final: 70
-[SKEEN Canal canal2] Tx [CROSS_canal4-canal2_RUN1776973607240_1] recebida. TS: 71 | Papel: PEER (All-to-All)
-📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal4 para Tx [CROSS_canal4-canal2_RUN1776973607240_1]
-📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 72 do canal4 para Tx [CROSS_canal4-canal2_RUN1776973607240_1]
-🔄 [ALL-TO-ALL Shard canal2] CONSENSO INDEPENDENTE ATINGIDO: CROSS_canal4-canal2_RUN1776973607240_1 | TS Final: 72
-⏱️ [SYNC] Shard canal2 adiantou o relógio interno para 72
-📨 [FEEDBACK API] Shard canal2 devolvendo TS 71 para quem pediu. Tx [CROSS_canal4-canal2_RUN1776973607240_1]
-[SKEEN Canal canal2] Tx [CROSS_canal2-canal3_RUN1776973607977_1] recebida. TS: 73 | Papel: PEER (All-to-All)
-📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal3 para Tx [CROSS_canal2-canal3_RUN1776973607977_1]
-📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 72 do canal3 para Tx [CROSS_canal2-canal3_RUN1776973607977_1]
-🔄 [ALL-TO-ALL Shard canal2] CONSENSO INDEPENDENTE ATINGIDO: CROSS_canal2-canal3_RUN1776973607977_1 | TS Final: 73
-📨 [FEEDBACK API] Shard canal2 devolvendo TS 73 para quem pediu. Tx [CROSS_canal2-canal3_RUN1776973607977_1]
-[SKEEN Canal canal2] Tx [CROSS_canal2-canal3_RUN1776973608774_1] recebida. TS: 74 | Papel: PEER (All-to-All)
-📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal3 para Tx [CROSS_canal2-canal3_RUN1776973608774_1]
-📨 [FEEDBACK API] Shard canal2 devolvendo TS 74 para quem pediu. Tx [CROSS_canal2-canal3_RUN1776973608774_1]
-📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 74 do canal3 para Tx [CROSS_canal2-canal3_RUN1776973608774_1]
-🔄 [ALL-TO-ALL Shard canal2] CONSENSO INDEPENDENTE ATINGIDO: CROSS_canal2-canal3_RUN1776973608774_1 | TS Final: 74
-[SKEEN Canal canal2] Tx [CROSS_canal4-canal2_RUN1776973609574_1] recebida. TS: 75 | Papel: PEER (All-to-All)
-📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal4 para Tx [CROSS_canal4-canal2_RUN1776973609574_1]
-📨 [FEEDBACK API] Shard canal2 devolvendo TS 75 para quem pediu. Tx [CROSS_canal4-canal2_RUN1776973609574_1]
-📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 73 do canal4 para Tx [CROSS_canal4-canal2_RUN1776973609574_1]
-🔄 [ALL-TO-ALL Shard canal2] CONSENSO INDEPENDENTE ATINGIDO: CROSS_canal4-canal2_RUN1776973609574_1 | TS Final: 75
-[SKEEN Canal canal2] Tx [CROSS_canal1-canal2_RUN1776973610496_1] recebida. TS: 76 | Papel: PEER (All-to-All)
-📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal1 para Tx [CROSS_canal1-canal2_RUN1776973610496_1]
-📨 [FEEDBACK API] Shard canal2 devolvendo TS 76 para quem pediu. Tx [CROSS_canal1-canal2_RUN1776973610496_1]
-📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 70 do canal1 para Tx [CROSS_canal1-canal2_RUN1776973610496_1]
-🔄 [ALL-TO-ALL Shard canal2] CONSENSO INDEPENDENTE ATINGIDO: CROSS_canal1-canal2_RUN1776973610496_1 | TS Final: 76
-[SKEEN Canal canal2] Tx [CROSS_canal4-canal3-canal1-canal2_RUN1776973627970_1] recebida. TS: 77 | Papel: PEER (All-to-All)
-📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal4 para Tx [CROSS_canal4-canal3-canal1-canal2_RUN1776973627970_1]
-📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 76 do canal4 para Tx [CROSS_canal4-canal3-canal1-canal2_RUN1776973627970_1]
-📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal3 para Tx [CROSS_canal4-canal3-canal1-canal2_RUN1776973627970_1]
-📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 75 do canal3 para Tx [CROSS_canal4-canal3-canal1-canal2_RUN1776973627970_1]
-📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal1 para Tx [CROSS_canal4-canal3-canal1-canal2_RUN1776973627970_1]
-📨 [FEEDBACK API] Shard canal2 devolvendo TS 77 para quem pediu. Tx [CROSS_canal4-canal3-canal1-canal2_RUN1776973627970_1]
-📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 77 do canal1 para Tx [CROSS_canal4-canal3-canal1-canal2_RUN1776973627970_1]
-🔄 [ALL-TO-ALL Shard canal2] CONSENSO INDEPENDENTE ATINGIDO: CROSS_canal4-canal3-canal1-canal2_RUN1776973627970_1 | TS Final: 77
-📨 [FEEDBACK API] Shard canal2 devolvendo TS 77 para quem pediu. Tx [CROSS_canal4-canal3-canal1-canal2_RUN1776973627970_1]
-📨 [FEEDBACK API] Shard canal2 devolvendo TS 77 para quem pediu. Tx [CROSS_canal4-canal3-canal1-canal2_RUN1776973627970_1]
+[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1777034288853_2] recebida. TS: 1 | Papel: PEER (All-to-All)
+[SKEEN Canal canal2] Tx [CROSS_canal2-canal4_RUN1777034290872_4] recebida. TS: 2 | Papel: PEER (All-to-All)
+📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal4 para Tx [CROSS_canal2-canal4_RUN1777034290872_4]
+📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 3 do canal4 para Tx [CROSS_canal2-canal4_RUN1777034290872_4]
+🔄 [ALL-TO-ALL Shard canal2] CONSENSO INDEPENDENTE ATINGIDO: CROSS_canal2-canal4_RUN1777034290872_4 | TS Final: 3
+⏱️ [SYNC] Shard canal2 adiantou o relógio interno para 3
+📨 [FEEDBACK API] Shard canal2 devolvendo TS 2 para quem pediu. Tx [CROSS_canal2-canal4_RUN1777034290872_4]
+[SKEEN Canal canal2] Tx [CROSS_canal2-canal4_RUN1777034292892_1] recebida. TS: 4 | Papel: PEER (All-to-All)
+📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal4 para Tx [CROSS_canal2-canal4_RUN1777034292892_1]
+[SKEEN Canal canal2] Tx [CROSS_canal2-canal4_RUN1777034292892_2] recebida. TS: 5 | Papel: PEER (All-to-All)
+📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal4 para Tx [CROSS_canal2-canal4_RUN1777034292892_2]
+📨 [FEEDBACK API] Shard canal2 devolvendo TS 4 para quem pediu. Tx [CROSS_canal2-canal4_RUN1777034292892_1]
+📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 6 do canal4 para Tx [CROSS_canal2-canal4_RUN1777034292892_2]
+🔄 [ALL-TO-ALL Shard canal2] CONSENSO INDEPENDENTE ATINGIDO: CROSS_canal2-canal4_RUN1777034292892_2 | TS Final: 6
+⏱️ [SYNC] Shard canal2 adiantou o relógio interno para 6
+[SKEEN Canal canal2] Tx [CROSS_canal2-canal1_RUN1777034292892_4] recebida. TS: 7 | Papel: PEER (All-to-All)
+📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal1 para Tx [CROSS_canal2-canal1_RUN1777034292892_4]
+📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 4 do canal1 para Tx [CROSS_canal2-canal1_RUN1777034292892_4]
+🔄 [ALL-TO-ALL Shard canal2] CONSENSO INDEPENDENTE ATINGIDO: CROSS_canal2-canal1_RUN1777034292892_4 | TS Final: 7
+📨 [FEEDBACK API] Shard canal2 devolvendo TS 5 para quem pediu. Tx [CROSS_canal2-canal4_RUN1777034292892_2]
+📨 [FEEDBACK API] Shard canal2 devolvendo TS 7 para quem pediu. Tx [CROSS_canal2-canal1_RUN1777034292892_4]
+📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 7 do canal4 para Tx [CROSS_canal2-canal4_RUN1777034292892_1]
+🔄 [ALL-TO-ALL Shard canal2] CONSENSO INDEPENDENTE ATINGIDO: CROSS_canal2-canal4_RUN1777034292892_1 | TS Final: 7
+[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1777034294917_3] recebida. TS: 8 | Papel: PEER (All-to-All)
+[SKEEN Canal canal2] Tx [CROSS_canal2-canal1-canal3_RUN1777034296938_2] recebida. TS: 9 | Papel: PEER (All-to-All)
+📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal1 para Tx [CROSS_canal2-canal1-canal3_RUN1777034296938_2]
+📨 [FEEDBACK API] Shard canal2 devolvendo TS 9 para quem pediu. Tx [CROSS_canal2-canal1-canal3_RUN1777034296938_2]
+[SKEEN Canal canal2] Tx [CROSS_canal2-canal1-canal3_RUN1777034296938_4] recebida. TS: 10 | Papel: PEER (All-to-All)
+📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal1 para Tx [CROSS_canal2-canal1-canal3_RUN1777034296938_4]
+📨 [FEEDBACK API] Shard canal2 devolvendo TS 10 para quem pediu. Tx [CROSS_canal2-canal1-canal3_RUN1777034296938_4]
+📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 8 do canal1 para Tx [CROSS_canal2-canal1-canal3_RUN1777034296938_4]
+📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal3 para Tx [CROSS_canal2-canal1-canal3_RUN1777034296938_4]
+📨 [FEEDBACK API] Shard canal2 devolvendo TS 9 para quem pediu. Tx [CROSS_canal2-canal1-canal3_RUN1777034296938_2]
+📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 12 do canal3 para Tx [CROSS_canal2-canal1-canal3_RUN1777034296938_4]
+🔄 [ALL-TO-ALL Shard canal2] CONSENSO INDEPENDENTE ATINGIDO: CROSS_canal2-canal1-canal3_RUN1777034296938_4 | TS Final: 12
+⏱️ [SYNC] Shard canal2 adiantou o relógio interno para 12
+📨 [FEEDBACK API] Shard canal2 devolvendo TS 10 para quem pediu. Tx [CROSS_canal2-canal1-canal3_RUN1777034296938_4]
+📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 9 do canal1 para Tx [CROSS_canal2-canal1-canal3_RUN1777034296938_2]
+📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal3 para Tx [CROSS_canal2-canal1-canal3_RUN1777034296938_2]
+📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 11 do canal3 para Tx [CROSS_canal2-canal1-canal3_RUN1777034296938_2]
+🔄 [ALL-TO-ALL Shard canal2] CONSENSO INDEPENDENTE ATINGIDO: CROSS_canal2-canal1-canal3_RUN1777034296938_2 | TS Final: 11
+[SKEEN Canal canal2] Tx [CROSS_canal2-canal3-canal4_RUN1777034298957_4] recebida. TS: 13 | Papel: PEER (All-to-All)
+📨 [FEEDBACK API] Shard canal2 devolvendo TS 13 para quem pediu. Tx [CROSS_canal2-canal3-canal4_RUN1777034298957_4]
+📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal3 para Tx [CROSS_canal2-canal3-canal4_RUN1777034298957_4]
+📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 15 do canal3 para Tx [CROSS_canal2-canal3-canal4_RUN1777034298957_4]
+📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal4 para Tx [CROSS_canal2-canal3-canal4_RUN1777034298957_4]
+📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 9 do canal4 para Tx [CROSS_canal2-canal3-canal4_RUN1777034298957_4]
+🔄 [ALL-TO-ALL Shard canal2] CONSENSO INDEPENDENTE ATINGIDO: CROSS_canal2-canal3-canal4_RUN1777034298957_4 | TS Final: 15
+⏱️ [SYNC] Shard canal2 adiantou o relógio interno para 15
+[SKEEN Canal canal2] Tx [CROSS_canal1-canal2-canal4_RUN1777034298957_2] recebida. TS: 16 | Papel: PEER (All-to-All)
+📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal1 para Tx [CROSS_canal1-canal2-canal4_RUN1777034298957_2]
+[SKEEN Canal canal2] Tx [CROSS_canal3-canal1-canal2_RUN1777034298957_1] recebida. TS: 17 | Papel: PEER (All-to-All)
+📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal3 para Tx [CROSS_canal3-canal1-canal2_RUN1777034298957_1]
+[SKEEN Canal canal2] Tx [CROSS_canal3-canal2-canal1_RUN1777034298957_3] recebida. TS: 18 | Papel: PEER (All-to-All)
+📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal3 para Tx [CROSS_canal3-canal2-canal1_RUN1777034298957_3]
+📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 16 do canal3 para Tx [CROSS_canal3-canal1-canal2_RUN1777034298957_1]
+📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal1 para Tx [CROSS_canal3-canal1-canal2_RUN1777034298957_1]
+📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 14 do canal1 para Tx [CROSS_canal3-canal1-canal2_RUN1777034298957_1]
+🔄 [ALL-TO-ALL Shard canal2] CONSENSO INDEPENDENTE ATINGIDO: CROSS_canal3-canal1-canal2_RUN1777034298957_1 | TS Final: 17
+📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 14 do canal3 para Tx [CROSS_canal3-canal2-canal1_RUN1777034298957_3]
+📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal1 para Tx [CROSS_canal3-canal2-canal1_RUN1777034298957_3]
+📨 [FEEDBACK API] Shard canal2 devolvendo TS 17 para quem pediu. Tx [CROSS_canal3-canal1-canal2_RUN1777034298957_1]
+📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 13 do canal1 para Tx [CROSS_canal3-canal2-canal1_RUN1777034298957_3]
+🔄 [ALL-TO-ALL Shard canal2] CONSENSO INDEPENDENTE ATINGIDO: CROSS_canal3-canal2-canal1_RUN1777034298957_3 | TS Final: 18
+📨 [FEEDBACK API] Shard canal2 devolvendo TS 16 para quem pediu. Tx [CROSS_canal1-canal2-canal4_RUN1777034298957_2]
+📨 [FEEDBACK API] Shard canal2 devolvendo TS 18 para quem pediu. Tx [CROSS_canal3-canal2-canal1_RUN1777034298957_3]
+📨 [FEEDBACK API] Shard canal2 devolvendo TS 13 para quem pediu. Tx [CROSS_canal2-canal3-canal4_RUN1777034298957_4]
+📨 [FEEDBACK API] Shard canal2 devolvendo TS 18 para quem pediu. Tx [CROSS_canal3-canal2-canal1_RUN1777034298957_3]
+📨 [FEEDBACK API] Shard canal2 devolvendo TS 16 para quem pediu. Tx [CROSS_canal1-canal2-canal4_RUN1777034298957_2]
+📨 [FEEDBACK API] Shard canal2 devolvendo TS 17 para quem pediu. Tx [CROSS_canal3-canal1-canal2_RUN1777034298957_1]
+📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 18 do canal1 para Tx [CROSS_canal1-canal2-canal4_RUN1777034298957_2]
+📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal4 para Tx [CROSS_canal1-canal2-canal4_RUN1777034298957_2]
+📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 10 do canal4 para Tx [CROSS_canal1-canal2-canal4_RUN1777034298957_2]
+🔄 [ALL-TO-ALL Shard canal2] CONSENSO INDEPENDENTE ATINGIDO: CROSS_canal1-canal2-canal4_RUN1777034298957_2 | TS Final: 18
+[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1777034300985_2] recebida. TS: 19 | Papel: PEER (All-to-All)
+[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1777034300985_4] recebida. TS: 20 | Papel: PEER (All-to-All)
+[SKEEN Canal canal2] Tx [CROSS_canal2_RUN1777034300985_3] recebida. TS: 21 | Papel: PEER (All-to-All)
+[SKEEN Canal canal2] Tx [CROSS_canal2-canal1-canal4-canal3_RUN1777034303002_4] recebida. TS: 22 | Papel: PEER (All-to-All)
+[SKEEN Canal canal2] Tx [CROSS_canal1-canal3-canal4-canal2_RUN1777034303002_2] recebida. TS: 23 | Papel: PEER (All-to-All)
+📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal1 para Tx [CROSS_canal2-canal1-canal4-canal3_RUN1777034303002_4]
+[SKEEN Canal canal2] Tx [CROSS_canal1-canal2-canal3-canal4_RUN1777034303002_3] recebida. TS: 24 | Papel: PEER (All-to-All)
+📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal1 para Tx [CROSS_canal1-canal3-canal4-canal2_RUN1777034303002_2]
+📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal1 para Tx [CROSS_canal1-canal2-canal3-canal4_RUN1777034303002_3]
+📨 [FEEDBACK API] Shard canal2 devolvendo TS 22 para quem pediu. Tx [CROSS_canal2-canal1-canal4-canal3_RUN1777034303002_4]
+📨 [FEEDBACK API] Shard canal2 devolvendo TS 22 para quem pediu. Tx [CROSS_canal2-canal1-canal4-canal3_RUN1777034303002_4]
+📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 19 do canal1 para Tx [CROSS_canal1-canal2-canal3-canal4_RUN1777034303002_3]
+📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal3 para Tx [CROSS_canal1-canal2-canal3-canal4_RUN1777034303002_3]
+📨 [FEEDBACK API] Shard canal2 devolvendo TS 24 para quem pediu. Tx [CROSS_canal1-canal2-canal3-canal4_RUN1777034303002_3]
+📨 [FEEDBACK API] Shard canal2 devolvendo TS 22 para quem pediu. Tx [CROSS_canal2-canal1-canal4-canal3_RUN1777034303002_4]
+📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 22 do canal3 para Tx [CROSS_canal1-canal2-canal3-canal4_RUN1777034303002_3]
+📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal4 para Tx [CROSS_canal1-canal2-canal3-canal4_RUN1777034303002_3]
+📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 19 do canal4 para Tx [CROSS_canal1-canal2-canal3-canal4_RUN1777034303002_3]
+🔄 [ALL-TO-ALL Shard canal2] CONSENSO INDEPENDENTE ATINGIDO: CROSS_canal1-canal2-canal3-canal4_RUN1777034303002_3 | TS Final: 24
+📨 [FEEDBACK API] Shard canal2 devolvendo TS 23 para quem pediu. Tx [CROSS_canal1-canal3-canal4-canal2_RUN1777034303002_2]
+📨 [FEEDBACK API] Shard canal2 devolvendo TS 24 para quem pediu. Tx [CROSS_canal1-canal2-canal3-canal4_RUN1777034303002_3]
+📨 [FEEDBACK API] Shard canal2 devolvendo TS 24 para quem pediu. Tx [CROSS_canal1-canal2-canal3-canal4_RUN1777034303002_3]
+📨 [FEEDBACK API] Shard canal2 devolvendo TS 23 para quem pediu. Tx [CROSS_canal1-canal3-canal4-canal2_RUN1777034303002_2]
+📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 20 do canal1 para Tx [CROSS_canal2-canal1-canal4-canal3_RUN1777034303002_4]
+📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal4 para Tx [CROSS_canal2-canal1-canal4-canal3_RUN1777034303002_4]
+📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 22 do canal4 para Tx [CROSS_canal2-canal1-canal4-canal3_RUN1777034303002_4]
+📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal3 para Tx [CROSS_canal2-canal1-canal4-canal3_RUN1777034303002_4]
+📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 21 do canal1 para Tx [CROSS_canal1-canal3-canal4-canal2_RUN1777034303002_2]
+📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal3 para Tx [CROSS_canal1-canal3-canal4-canal2_RUN1777034303002_2]
+📨 [FEEDBACK API] Shard canal2 devolvendo TS 23 para quem pediu. Tx [CROSS_canal1-canal3-canal4-canal2_RUN1777034303002_2]
+📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 20 do canal3 para Tx [CROSS_canal2-canal1-canal4-canal3_RUN1777034303002_4]
+🔄 [ALL-TO-ALL Shard canal2] CONSENSO INDEPENDENTE ATINGIDO: CROSS_canal2-canal1-canal4-canal3_RUN1777034303002_4 | TS Final: 22
+📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 21 do canal3 para Tx [CROSS_canal1-canal3-canal4-canal2_RUN1777034303002_2]
+📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal4 para Tx [CROSS_canal1-canal3-canal4-canal2_RUN1777034303002_2]
+📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 21 do canal4 para Tx [CROSS_canal1-canal3-canal4-canal2_RUN1777034303002_2]
+🔄 [ALL-TO-ALL Shard canal2] CONSENSO INDEPENDENTE ATINGIDO: CROSS_canal1-canal3-canal4-canal2_RUN1777034303002_2 | TS Final: 23
+[SKEEN Canal canal2] Tx [CROSS_canal4-canal3-canal1-canal2_RUN1777034305030_2] recebida. TS: 25 | Papel: PEER (All-to-All)
+📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal4 para Tx [CROSS_canal4-canal3-canal1-canal2_RUN1777034305030_2]
+📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 25 do canal4 para Tx [CROSS_canal4-canal3-canal1-canal2_RUN1777034305030_2]
+📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal3 para Tx [CROSS_canal4-canal3-canal1-canal2_RUN1777034305030_2]
+[SKEEN Canal canal2] Tx [CROSS_canal2-canal1-canal4-canal3_RUN1777034305030_4] recebida. TS: 26 | Papel: PEER (All-to-All)
+[SKEEN Canal canal2] Tx [CROSS_canal3-canal1-canal2-canal4_RUN1777034305030_1] recebida. TS: 27 | Papel: PEER (All-to-All)
+📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal1 para Tx [CROSS_canal2-canal1-canal4-canal3_RUN1777034305030_4]
+📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal3 para Tx [CROSS_canal3-canal1-canal2-canal4_RUN1777034305030_1]
+📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 26 do canal3 para Tx [CROSS_canal3-canal1-canal2-canal4_RUN1777034305030_1]
+📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal1 para Tx [CROSS_canal3-canal1-canal2-canal4_RUN1777034305030_1]
+📨 [FEEDBACK API] Shard canal2 devolvendo TS 26 para quem pediu. Tx [CROSS_canal2-canal1-canal4-canal3_RUN1777034305030_4]
+📨 [FEEDBACK API] Shard canal2 devolvendo TS 26 para quem pediu. Tx [CROSS_canal2-canal1-canal4-canal3_RUN1777034305030_4]
+[SKEEN Canal canal2] Tx [CROSS_canal2-canal1-canal3-canal4_RUN1777034305030_3] recebida. TS: 28 | Papel: PEER (All-to-All)
+📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal1 para Tx [CROSS_canal2-canal1-canal3-canal4_RUN1777034305030_3]
+📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 25 do canal1 para Tx [CROSS_canal2-canal1-canal3-canal4_RUN1777034305030_3]
+📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal3 para Tx [CROSS_canal2-canal1-canal3-canal4_RUN1777034305030_3]
+📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 25 do canal3 para Tx [CROSS_canal2-canal1-canal3-canal4_RUN1777034305030_3]
+📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal4 para Tx [CROSS_canal2-canal1-canal3-canal4_RUN1777034305030_3]
+📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 27 do canal4 para Tx [CROSS_canal2-canal1-canal3-canal4_RUN1777034305030_3]
+🔄 [ALL-TO-ALL Shard canal2] CONSENSO INDEPENDENTE ATINGIDO: CROSS_canal2-canal1-canal3-canal4_RUN1777034305030_3 | TS Final: 28
+📨 [FEEDBACK API] Shard canal2 devolvendo TS 27 para quem pediu. Tx [CROSS_canal3-canal1-canal2-canal4_RUN1777034305030_1]
+📨 [FEEDBACK API] Shard canal2 devolvendo TS 26 para quem pediu. Tx [CROSS_canal2-canal1-canal4-canal3_RUN1777034305030_4]
+📨 [FEEDBACK API] Shard canal2 devolvendo TS 25 para quem pediu. Tx [CROSS_canal4-canal3-canal1-canal2_RUN1777034305030_2]
+📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 28 do canal3 para Tx [CROSS_canal4-canal3-canal1-canal2_RUN1777034305030_2]
+📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal1 para Tx [CROSS_canal4-canal3-canal1-canal2_RUN1777034305030_2]
+📨 [FEEDBACK API] Shard canal2 devolvendo TS 28 para quem pediu. Tx [CROSS_canal2-canal1-canal3-canal4_RUN1777034305030_3]
+📨 [FEEDBACK API] Shard canal2 devolvendo TS 28 para quem pediu. Tx [CROSS_canal2-canal1-canal3-canal4_RUN1777034305030_3]
+📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 26 do canal1 para Tx [CROSS_canal4-canal3-canal1-canal2_RUN1777034305030_2]
+🔄 [ALL-TO-ALL Shard canal2] CONSENSO INDEPENDENTE ATINGIDO: CROSS_canal4-canal3-canal1-canal2_RUN1777034305030_2 | TS Final: 28
+📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 28 do canal1 para Tx [CROSS_canal2-canal1-canal4-canal3_RUN1777034305030_4]
+📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal4 para Tx [CROSS_canal2-canal1-canal4-canal3_RUN1777034305030_4]
+📨 [FEEDBACK API] Shard canal2 devolvendo TS 27 para quem pediu. Tx [CROSS_canal3-canal1-canal2-canal4_RUN1777034305030_1]
+📨 [FEEDBACK API] Shard canal2 devolvendo TS 27 para quem pediu. Tx [CROSS_canal3-canal1-canal2-canal4_RUN1777034305030_1]
+📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 28 do canal4 para Tx [CROSS_canal2-canal1-canal4-canal3_RUN1777034305030_4]
+📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal3 para Tx [CROSS_canal2-canal1-canal4-canal3_RUN1777034305030_4]
+📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 27 do canal1 para Tx [CROSS_canal3-canal1-canal2-canal4_RUN1777034305030_1]
+📡 [ALL-TO-ALL] Shard canal2 pedindo TS do canal4 para Tx [CROSS_canal3-canal1-canal2-canal4_RUN1777034305030_1]
+📨 [FEEDBACK API] Shard canal2 devolvendo TS 25 para quem pediu. Tx [CROSS_canal4-canal3-canal1-canal2_RUN1777034305030_2]
+📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 27 do canal3 para Tx [CROSS_canal2-canal1-canal4-canal3_RUN1777034305030_4]
+🔄 [ALL-TO-ALL Shard canal2] CONSENSO INDEPENDENTE ATINGIDO: CROSS_canal2-canal1-canal4-canal3_RUN1777034305030_4 | TS Final: 28
+📨 [FEEDBACK API] Shard canal2 devolvendo TS 28 para quem pediu. Tx [CROSS_canal2-canal1-canal3-canal4_RUN1777034305030_3]
+📩 [ALL-TO-ALL] Shard canal2 recebeu TS: 26 do canal4 para Tx [CROSS_canal3-canal1-canal2-canal4_RUN1777034305030_1]
+🔄 [ALL-TO-ALL Shard canal2] CONSENSO INDEPENDENTE ATINGIDO: CROSS_canal3-canal1-canal2-canal4_RUN1777034305030_1 | TS Final: 27
+📨 [FEEDBACK API] Shard canal2 devolvendo TS 25 para quem pediu. Tx [CROSS_canal4-canal3-canal1-canal2_RUN1777034305030_2]

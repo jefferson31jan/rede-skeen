@@ -4,8 +4,8 @@
 # SKEEN BFT - EXPERIMENTO COMPLETO COM GERAÇÃO DE GRÁFICO (GNUPLOT)
 # ==============================================================================
 
-TX_COUNT=4000 # Reduzido para 1000 para a varredura completa não demorar horas
-PAYLOAD=1024
+TX_COUNT=4000
+PAYLOAD=1
 DATA_FILE="dados_experimento.dat"
 PLOT_FILE="grafico_desempenho.png"
 
@@ -47,14 +47,21 @@ for SHARDS in 1 2 3 4; do
         SAIDA=$(./teste_bin -tx $TX_COUNT -shards $SHARDS -payload $PAYLOAD -cross $CROSS)
         TPS=$(echo "$SAIDA" | grep "TPS:" | awk '{print $NF}')
         
+        # 🚨 MELHORIA 1: Se o teste falhar e o TPS vier vazio, assume 0 para não quebrar o gráfico
+        if [ -z "$TPS" ]; then
+            TPS="0.00"
+            echo "⚠️  Aviso: O teste não retornou TPS válido. Assumindo 0.00."
+        fi
+        
         # Salva o valor para eventual reuso (caso Shards=1)
         LAST_TPS=$TPS
         
         # Adiciona o TPS na linha de dados
         LINHA_DADOS="$LINHA_DADOS $TPS"
         
-        # Pequena pausa para respiro do SO e liberação de portas TCP
-        sleep 2
+        # 🚨 MELHORIA 2: Pausa maior e limpeza de cache do SO para testes pesados
+        sleep 5
+        sudo sysctl -w vm.drop_caches=3 > /dev/null 2>&1
     done
     
     # Grava a linha completa no arquivo de dados
@@ -70,7 +77,7 @@ cat << EOF > plot_config.p
 set terminal pngcairo size 900,600 enhanced font 'Arial,12'
 set output '$PLOT_FILE'
 
-# 🚨 AJUSTE AQUI: Variáveis TX_COUNT e PAYLOAD inseridas dinamicamente no subtítulo
+# AJUSTE AQUI: Variáveis TX_COUNT e PAYLOAD inseridas dinamicamente no subtítulo
 set title "Análise de Desempenho do Skeen All-to-All (Fabric)\n{/*0.8 Carga: $TX_COUNT Txs | Tamanho do Payload: $PAYLOAD bytes}" font 'Arial-Bold,14'
 
 set xlabel 'Número de Shards Ativos' font 'Arial-Bold,12'
@@ -93,9 +100,13 @@ color_intra = "#4C72B0"
 color_misto = "#DD8452"
 color_cross = "#C44E52"
 
+# 🚨 MELHORIA 3: Impressão dos números (labels) em cima de cada barra
 plot '$DATA_FILE' using 2:xtic(1) title '0% Cross (Intra-Shard)' linecolor rgb color_intra, \
-     '' using 3 title '50% Cross (Carga Mista)' linecolor rgb color_misto, \
-     '' using 4 title '100% Cross (All-to-All)' linecolor rgb color_cross
+     '' using 0:2:2 with labels font "Arial,9" offset -2.5,0.5 title "", \
+     '$DATA_FILE' using 3 title '50% Cross (Carga Mista)' linecolor rgb color_misto, \
+     '' using 0:3:3 with labels font "Arial,9" offset 0,0.5 title "", \
+     '$DATA_FILE' using 4 title '100% Cross (All-to-All)' linecolor rgb color_cross, \
+     '' using 0:4:4 with labels font "Arial,9" offset 2.5,0.5 title ""
 EOF
 
 # Executa o Gnuplot

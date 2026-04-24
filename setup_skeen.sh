@@ -92,13 +92,13 @@ echo "./start_orderer4_skeen.sh > skeen_orderer4.log"
 
 
 # echo "⏳ Aguardando 5 segundos para os Orderers iniciarem e abrirem as portas TCP..."
-sleep 2
+sleep 5
 ./start_orderer1_skeen.sh > skeen_orderer1.log 2>&1 &
 ./start_orderer2_skeen.sh > skeen_orderer2.log 2>&1 &
 ./start_orderer3_skeen.sh > skeen_orderer3.log 2>&1 &
 ./start_orderer4_skeen.sh > skeen_orderer4.log 2>&1 &
 
-sleep 2
+sleep 5
 
 ./injetar_canais_skeen.sh
 

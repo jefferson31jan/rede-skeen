@@ -90,10 +90,17 @@ echo "./start_orderer2_skeen.sh > skeen_orderer2.log"
 echo "./start_orderer3_skeen.sh > skeen_orderer3.log" 
 echo "./start_orderer4_skeen.sh > skeen_orderer4.log"
 
-echo "3. Em uma aba separada, rode:"
-echo "./injetar_canais_skeen.sh"
-echo "========================================================="
 
+# echo "⏳ Aguardando 5 segundos para os Orderers iniciarem e abrirem as portas TCP..."
+sleep 2
+./start_orderer1_skeen.sh > skeen_orderer1.log 2>&1 &
+./start_orderer2_skeen.sh > skeen_orderer2.log 2>&1 &
+./start_orderer3_skeen.sh > skeen_orderer3.log 2>&1 &
+./start_orderer4_skeen.sh > skeen_orderer4.log 2>&1 &
+
+sleep 2
+
+./injetar_canais_skeen.sh
 
 # echo "LIGANDO OS ORDERS EM BACKGROUND"
 

@@ -4,8 +4,8 @@
 # SKEEN BFT - EXPERIMENTO COMPLETO COM GERAÇÃO DE GRÁFICO (GNUPLOT)
 # ==============================================================================
 
-TX_COUNT=4 # Reduzido para 1000 para a varredura completa não demorar horas
-PAYLOAD=200
+TX_COUNT=4000 # Reduzido para 1000 para a varredura completa não demorar horas
+PAYLOAD=1024
 DATA_FILE="dados_experimento.dat"
 PLOT_FILE="grafico_desempenho.png"
 

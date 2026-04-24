@@ -36,9 +36,9 @@ var (
 
 func main() {
 	// Configuração das Flags do Terminal
-	flag.IntVar(&TOTAL_TX, "tx", 10, "Total de transações")
-	flag.IntVar(&NUM_SHARDS, "shards", 1, "Número de shards envolvidos na Tx (1 a 4)")
-	flag.Float64Var(&CROSS_PROB, "cross", 0, "Probabilidade Cross-Shard")
+	flag.IntVar(&TOTAL_TX, "tx", 1, "Total de transações")
+	flag.IntVar(&NUM_SHARDS, "shards", 4, "Número de shards envolvidos na Tx (1 a 4)")
+	flag.Float64Var(&CROSS_PROB, "cross", 1, "Probabilidade Cross-Shard")
 	flag.IntVar(&PAYLOAD_SIZE, "payload", 1, "Tamanho do payload")
 	flag.IntVar(&MAX_WORKERS, "workers", 50, "Limite de conexões simultâneas (Gargalo de I/O)")
 	flag.Parse()
